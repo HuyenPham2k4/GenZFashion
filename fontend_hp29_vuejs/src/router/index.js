@@ -1,0 +1,95 @@
+import {createRouter, createWebHistory} from 'vue-router'; // Import cho Vue 3
+import HomePage from '@/views/HomePage.vue'; // Import view component
+import LoginPage from '@/components/login/LoginPage.vue'; // Import view component
+import ForgotPassword from '@/components/login/ForgotPassword.vue'; // Import view component
+import RegisterPage from '@/components/login/RegisterPage.vue'; // Import view component
+import ProductPage from '@/components/home/ProductPage.vue'; // Import view component
+import ProductDetail from '@/components/home/ProductDetail.vue'; // Import view component
+import AccountManagement from '@/components/profile/accountManagement.vue'; // Import view component
+import ResultProduct from '@/components/home/ResultProduct.vue'; // Import view component
+import CartPage from '@/components/cart/cartPage.vue'; // Import view component
+import PaymentPages from '@/components/pay/paymentPages.vue';
+import OrderSuccess from '@/components/pay/OrderSuccess.vue';
+import OrderCancel from '@/components/pay/OrderCancel.vue';
+import RegisterInfoPage from "@/components/login/RegisterInfoPage.vue"; // Import view component
+import ContactPage from "@/components/conttact/ConttactPage.vue";
+
+const routes = [
+    {
+        path: "/payment-success",
+        component: OrderSuccess
+    },
+    {
+        path: "/payment-cancel/:id",
+        component: OrderCancel
+    },
+    {
+        path: '/',
+        name: 'homepages',
+        component: HomePage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/lien-he',
+        name: 'ContactPage',
+        component: ContactPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/login',
+        name: 'loginpages',
+        component: LoginPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/register',
+        name: 'registerpages',
+        component: RegisterPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/createinfo',
+        name: 'registerinfopages',
+        component: RegisterInfoPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/product',
+        name: 'productpages',
+        component: ProductPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/result',
+        name: 'resultpage',
+        component: ResultProduct, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/product/:id',
+        name: 'productdetail',
+        component: ProductDetail, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/history',
+        name: 'AccountManagement',
+        component: AccountManagement, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/cart',
+        name: 'cartpages',
+        component: CartPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/pay',
+        name: 'paypages',
+        component: PaymentPages, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    {
+        path: '/forgot-password',
+        name: 'forgotpassword',
+        component: ForgotPassword, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+    },
+    // Các route khác nếu có
+];
+
+// Tạo router mới với history mode
+const router = createRouter({
+    history: createWebHistory(), // Thay vì 'mode: history'
+    routes,
+});
+
+export default router;
