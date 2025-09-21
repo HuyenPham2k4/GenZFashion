@@ -104,34 +104,34 @@
           <!-- Top Sellers -->
           <template v-if="activeTab === 'newproduct'">
             <div
-                v-for="(product, index) in variations"
+                v-for="(v, index) in variations"
                 :key="'top-' + index"
                 class="col-lg-3 col-md-6 col-sm-6"
             >
               <div class="product__item">
                 <div
                     class="product__item__pic set-bg"
-                    :style="{ backgroundImage: `url('http://localhost:8080/upload/images/${product.productID.defaultImage || 'default.png'}')` }"
+                    :style="{ backgroundImage: `url('http://localhost:8080/upload/images/${v.productID.defaultImage || 'default.png'}')` }"
                 >
                   <ul class="product__hover">
                     <li><a href="#"><img src="../assets/img/icon/heart.png" alt="" /></a></li>
                     <li>
                       <a href="#"><img src="../assets/img/icon/compare.png" alt="" /> <span>Compare</span></a>
                     </li>
-                    <li><a href="#"><img src="../assets/img/icon/search.png" alt="" /></a></li>
+                    <li><a href="#"><img src="../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a></li>
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6>{{ product.name }}</h6>
+                  <h6>{{ v.name }}</h6>
                   <a
                       href="#"
                       class="add-cart"
-                      @click.prevent="openDetail(product.id)"
+                      @click.prevent="openDetail(v.id)"
                   >+ Add To Cart</a>
                   <div class="rating">
                     <i v-for="i in 5" :key="i" class="fa fa-star-o"></i>
                   </div>
-                  <h5>{{ formatCurrency(product.price) }}</h5>
+                  <h5>{{ formatCurrency(v.price) }}</h5>
                 </div>
               </div>
             </div>

@@ -162,11 +162,46 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
+
+/* Nút submit */
+.form-submit {
+  width: 100%;
+  padding: 12px 0;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 5px;
+}
+
+.form-submit:hover {
+  background: #0056b3;
+}
+
+.back-to-login {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.back-to-login a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.back-to-login a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
 .heading {
   text-align: start;
   font-weight: 600;
   font-size: 34px;
-  color: var(--black-color);
   margin: 15px 0;
 }
 
@@ -180,7 +215,6 @@ const handleSubmit = async () => {
 }
 
 .back-to-login a {
-  color: var(--black-color);
   text-decoration: underline;
   font-size: 16px;
 }

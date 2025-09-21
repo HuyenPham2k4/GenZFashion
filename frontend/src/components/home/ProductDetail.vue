@@ -209,10 +209,17 @@
                    style="margin-top: 20px">
                 <a @click="openDetail(v.productID.id)" class="product__new-item">
                   <div class="card" style="width: 100%">
-                    <div>
-                      <img class="card-img-top"
-                           :src="`http://localhost:8080/upload/images/${v.images.cd_Images}`"
-                           :alt="v.name">
+                    <div
+                        class="product__item__pic set-bg"
+                        :style="{ backgroundImage: `url('http://localhost:8080/upload/images/${v.images.cd_Images || 'default.png'}')` }"
+                    >
+                      <ul class="product__hover">
+                        <li><a href="#"><img src="../../assets/img/icon/heart.png" alt="" /></a></li>
+                        <li>
+                          <a href="#"><img src="../../assets/img/icon/compare.png" alt="" /> <span>Compare</span></a>
+                        </li>
+                        <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a></li>
+                      </ul>
                     </div>
                     <div class="card-body">
                       <h5 class="card-title custom__name-product">
@@ -230,17 +237,6 @@
                         <b v-else class="text-danger">Hết hàng</b>
                       </div>
                       <div class="home-product-item__action">
-                        <span class="home-product-item__like home-product-item__like--liked">
-                          <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                          <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                        </span>
-                        <div class="home-product-item__rating">
-                          <i class="home-product-item__star--gold fas fa-star"></i>
-                          <i class="home-product-item__star--gold fas fa-star"></i>
-                          <i class="home-product-item__star--gold fas fa-star"></i>
-                          <i class="home-product-item__star--gold fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                        </div>
                         <span class="home-product-item__sold">{{ v.sold }} đã bán</span>
                       </div>
                     </div>
@@ -248,8 +244,8 @@
                 </a>
               </div>
             </div>
-            <div class="seemore">
-              <a href="/product">Xem thêm</a>
+            <div class="see-more-container">
+              <a href="/product" class="see-more-btn">Xem thêm</a>
             </div>
           </div>
         </div>
@@ -375,23 +371,14 @@ export default {
       });
     };
 
-    const processData = (data) => {
-      return data.map((item) => {
-        item.productID.defaultImage =
-            item.productID.imagesDTOS?.length > 0
-                ? item.productID.imagesDTOS[0].cd_Images
-                : "default.png";
-        item.sold = item.sold || 0;
-        return item;
-      });
-    };
 
     const getProducts = async () => {
       try {
         const response = await axios.get(
-            "http://localhost:8080/MiniatureCrafts/bestseller?page=0&size=4"
+            "http://localhost:8080/MiniatureCrafts/bestseller?page=2&size=4"
         );
-        variations.value = processData(response.data.content || []);
+        variations.value = response.data.content || [];
+        console.log(variations.value)
       } catch (error) {
         console.error("Lỗi khi lấy danh sách sản phẩm:", error);
       }

@@ -1,7 +1,7 @@
 <template>
   <!-- Header Section Begin -->
-  <header class="header">
-    <div class="header__top">
+  <header class="header" style="background-color: #ffffff">
+    <div class="header__top" v-if="!user">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-7">
@@ -57,7 +57,7 @@
                   {{ cart }}
                 </span>
             </router-link>
-            <router-link to="/history"><img src="../assets/img/icon/avt_user.png" alt="" class="header-icon">
+            <router-link v-if="user" to="/history"><img src="../assets/img/icon/avt_user.png" alt="" class="header-icon">
             </router-link>
           </div>
         </div>
@@ -73,7 +73,7 @@ import {useUser} from '@/components/composables/useUser';
 
 export default {
   setup() {
-    const {user, cart, getUserInfo} = useUser();
+    const {user, cart, getUserInfo, logout} = useUser();
     const loading = ref(true);
 
     onMounted(async () => {
@@ -82,7 +82,7 @@ export default {
       console.log(cart.value)
     });
 
-    return {user, cart, loading};
+    return {user, cart, loading, logout};
   },
 };
 </script>
