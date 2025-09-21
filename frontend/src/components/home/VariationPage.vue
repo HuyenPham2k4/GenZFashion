@@ -57,7 +57,7 @@
                       <div class="shop__sidebar__price">
                         <ul>
                           <li v-for="priceRange in priceRanges" :key="priceRange.value">
-                            <a href="#" @click.prevent="filterByPrice(priceRange.value)">{{ priceRange.label }}</a>
+                            <a href="#" @click.prevent="onPriceRangeClick(priceRange.value)">{{ priceRange.label }}</a>
                           </li>
                         </ul>
                       </div>
@@ -79,22 +79,21 @@
               </div>
             </div>
           </div>
-<!--          product item       -->
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6" v-for="v in all_variations" :key="v.id">
               <div class="product__item">
                 <div class="product__item__pic set-bg"
-                     :style="{ backgroundImage: `url(http://localhost:8080/upload/images/${v.defaultImage})` }">
+                     :style="{ backgroundImage: `url(http://localhost:8080/upload/images/${v.images.cd_Images})` }">
                   <ul class="product__hover">
                     <li><a href="#"><img src="../../assets/img/icon/heart.png" alt=""></a></li>
                     <li><a href="#"><img src="../../assets/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                    <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.id)"></a></li>
+                    <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a></li>
                   </ul>
                 </div>
                 <div class="product__item__text">
                   <h6>{{ v.name }}</h6>
                   <a href="#" class="add-cart">+ Add To Cart</a>
-                  <h5>{{ formatCurrency(getMinPrice(v.variations)) }}</h5>
+                  <h5>{{ formatCurrency(v.price) }}</h5>
                 </div>
               </div>
             </div>
@@ -126,7 +125,7 @@ export default {
     const categories = ref([]);
     const brands = ref([]);
     const all_variations = ref([]);
-    const variations = ref([]);
+    // const variations = ref([]);
     const searchQuery = ref("");
     const sortOrder = ref("asc");
     const selectedPriceRange = ref(null)
@@ -145,19 +144,6 @@ export default {
       return variations.reduce((min, v) => v.price < min ? v.price : min, variations[0].price);
     }
 
-    // Process fetched data and assign defaultImage on each variation
-    function processData(data) {
-      return data.map(item => {
-        // assign default image logic
-        const imgs = item.images || []
-        let imgObj = imgs.find(i => i.set_Default)
-        if (!imgObj && imgs.length) imgObj = [...imgs].sort((a, b) => a.id - b.id)[0]
-        item.defaultImage = imgObj ? imgObj.cd_Images : 'default.png'
-        item.sold = item.sold || 0
-        return item
-      })
-    }
-
     const searchProducts = async (searchKeyword, page = 0) => {
       try {
         // Nếu không nhập gì -> load tất cả sản phẩm
@@ -166,22 +152,23 @@ export default {
           return;
         }
 
-        const response = await axios.get(
-            `http://localhost:8080/MiniatureCrafts/result_product/${searchKeyword}`,
+        const {data} = await axios.get(
+            `http://localhost:8080/MiniatureCrafts/result/${searchKeyword}`,
             {
-              params: { page, size: pageSize.value }
+              params: {page, size: pageSize.value}
             }
         );
 
-        all_variations.value = processData(response.data.content || []);
-        totalPages.value = response.data.page?.totalPages || 1;
-        totalProducts.value = response.data.page?.totalElements || 0;
+
+        all_variations.value = data.content;
+        totalPages.value = data.page?.totalPages || 1;
+        totalProducts.value = data.page?.totalElements || 0;
         currentPage.value = page + 1;
+        console.log(all_variations.value)
       } catch (error) {
         console.error("Lỗi khi tìm kiếm sản phẩm:", error);
       }
     };
-
 
 
     function formatCurrency(value) {
@@ -192,14 +179,15 @@ export default {
 
     async function fetchProducts(page = 0) {
       try {
-        const {data} = await axios.get("http://localhost:8080/MiniatureCrafts/fetch_products", {
+        const {data} = await axios.get("http://localhost:8080/MiniatureCrafts/new", {
           params: {page, size: pageSize.value, sort: sortOrder.value},
         });
-        all_variations.value = processData(data.content || [])
-        variations.value = processData(data.content || [])
+
+        all_variations.value = data.content;
         totalPages.value = data.page?.totalPages || 1;
         totalProducts.value = data.page?.totalElements || 0;
         currentPage.value = page + 1;
+        console.log(all_variations.value)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -229,33 +217,42 @@ export default {
 
     async function getBrands() {
       try {
-        const {data} = await axios.get('http://localhost:8080/MiniatureCrafts/brand')
+        const {data} = await axios.get('http://localhost:8080/MiniatureCrafts/brands')
         brands.value = data
       } catch (error) {
         console.error('Error fetching brands:', error)
       }
     }
 
-    function filterByPrice(range) {
-      selectedPriceRange.value = range;
-      const [min, max] = range.split('-').map(Number);
+    // Thêm hàm xử lý khi click vào price range
+    function onPriceRangeClick(value) {
+      const [min, max] = value.split('-').map(Number);
+      filterByPrice(min, max);
+    }
 
-      all_variations.value = variations.value.filter(product => {
-        const productPrice = getMinPrice(product.variations);
-        return productPrice >= min && productPrice <= max;
-      });
+    async function filterByPrice(min, max) {
+      try {
+        const {data} = await axios.get(`http://localhost:8080/MiniatureCrafts/filter_price`, {
+          params: { min, max }
+        });
+        all_variations.value = data.content || [];
+        totalPages.value = data.page?.totalPages || 1;
+        totalProducts.value = data.page?.totalElements || 0;
+      } catch (error) {
+        console.error('Error filtering by price:', error);
+      }
     }
 
     async function filterByCategory(id, page = currentPage.value - 1) {
       selectedCategoryId.value = id
       try {
-        const {data} = await axios.get(`http://localhost:8080/MiniatureCrafts/category/${id}`, {
+        const {data} = await axios.get(`http://localhost:8080/MiniatureCrafts/categories/${id}`, {
           params: {
             page,
             size: pageSize.value
           }
         })
-        all_variations.value = processData(data.content || [])
+        all_variations.value = data.content || [];
         totalPages.value = data.page?.totalPages || 1
       } catch (error) {
         console.error('Error filtering by category:', error)
@@ -271,7 +268,7 @@ export default {
             size: pageSize.value
           }
         })
-        all_variations.value = processData(data.content || [])
+        all_variations.value = data.content || [];
         totalPages.value = data.page?.totalPages || 1
       } catch (error) {
         console.error('Error filtering by category:', error)
@@ -287,7 +284,6 @@ export default {
 
     return {
       openDetail,
-      processData,
       getMinPrice,
       formatCurrency,
       currentPage,
@@ -310,6 +306,7 @@ export default {
       selectedBrandsID,
       changePage,
       filterByPrice,
+      onPriceRangeClick,
     };
   },
 };

@@ -4,6 +4,7 @@ import com.example.GenZFashion.security.jwt.AuthEntryPointJwt;
 import com.example.GenZFashion.security.jwt.AuthTokenFilter;
 import com.example.GenZFashion.security.services.UsersDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
@@ -13,11 +14,13 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -77,13 +80,14 @@ public class WebSecurityConfig {
                                 "/MiniatureCrafts/signup",
                                 "/MiniatureCrafts/registerinfo",
                                 "/MiniatureCrafts/home",
-                                "/MiniatureCrafts/filterByPrice",
                                 "/MiniatureCrafts/result/**",
+                                "/MiniatureCrafts/result_product/**",
                                 "/MiniatureCrafts/findid/**",
+                                "/MiniatureCrafts/filter_price",
                                 "/MiniatureCrafts/category/**",
                                 "/MiniatureCrafts/brands/**",
                                 "/MiniatureCrafts/user/**",
-                                "/MiniatureCrafts/categories",
+                                "/MiniatureCrafts/categories/**",
                                 "/MiniatureCrafts/brand",
                                 "/MiniatureCrafts/new",
                                 "/MiniatureCrafts/bestseller",
@@ -158,5 +162,13 @@ public class WebSecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
+    }
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers(
+                PathRequest.toStaticResources().atCommonLocations(), // static, public, META-INF/resources
+                PathRequest.toH2Console(),                          // nếu cần
+                new AntPathRequestMatcher("/upload/images/**")      // custom folder
+        );
     }
 }

@@ -103,6 +103,33 @@ public class VariationService {
         }).collect(Collectors.toList());
     }
 
+    public Page<ProductDTO> resultProduct(Pageable pageable, String keywork) {
+        Page<Product> productList = productRepository.resultProduct(pageable, keywork);
+
+        return productList.map(product -> {
+            List<Images> images = imagesRepository.findByModelAndProductID("Product", product.getID());
+
+            List<ImagesDTO> image = images.stream()
+                    .map(ImagesDTO::new)  // assuming you have ImagesDTO(Images entity)
+                    .collect(Collectors.toList());
+
+            List<Variation> variations = variationRepository.findByProductID(product.getID());
+
+            List<VariationDTO> variationDTO = variations.stream()
+                    .map(VariationDTO::new)  // assuming you have ImagesDTO(Images entity)
+                    .collect(Collectors.toList());
+
+            return new ProductDTO(
+                    product.getID(),
+                    product.getName(),
+                    variationDTO,
+                    new CategoryDTO(product.getCategoryID()),
+                    new BrandDTO(product.getBrandID()),
+                    image
+            );
+        });
+    }
+
     public Page<ProductDTO> getProducts(Pageable pageable) {
         Page<Product> productList = productRepository.findAll(pageable);
 
@@ -412,6 +439,36 @@ public class VariationService {
         });
     }
 
+    public Page<VariationDTO> findByPriceRange( Double minprice, Double maxpice,Pageable pageable) {
+        // Truy vấn các Variations theo Status và phân trang
+        Page<Variation> variation = variationRepository.findByPriceRange(minprice, maxpice, pageable);
+
+        return variation.map(entity -> {
+            VariationDTO dto = new VariationDTO();
+            dto.setID(entity.getID());
+            dto.setSKU(entity.getSKU());
+            dto.setProductID(new ProductDTO(
+                    entity.getProductID().getID(),
+                    entity.getProductID().getName(),
+                    mapCategoryToDTO(entity.getProductID().getCategoryID()),
+                    mapBrandToDTO(entity.getProductID().getBrandID()),
+                    getProductImages("Variation", entity.getProductID().getID())
+            ));
+
+            dto.setName(entity.getName());
+            dto.setPrice(entity.getPrice());
+            dto.setQuantity(entity.getQuantity());
+            dto.setColor(entity.getColor());
+            dto.setMaterial(entity.getMaterial());
+            dto.setSize(entity.getSize());
+            dto.setDescription(entity.getDescription());
+            dto.setSold(entity.getSold());
+            dto.setStatus(entity.getStatus());
+            dto.setImagesDTO(getVariationImage("Variation", entity.getID()));
+            return dto;
+        });
+    }
+
     public Page<VariationDTO> filterPrice(Pageable pageable, Double minprice, Double maxprice) {
         // Truy vấn các Variations theo Status và phân trang
         Page<Variation> variation = variationRepository.findByPriceRange(pageable, minprice, maxprice);
@@ -473,8 +530,38 @@ public class VariationService {
         return dto;
     }
 
-    public Page<VariationDTO> getProductByCategory(Pageable pageable, Long category) {
+    public Page<VariationDTO> getVariationByCategory(Pageable pageable, Long category) {
         Page<Variation> variation = variationRepository.findProductbyCatergory(pageable, category);
+
+        // Chuyển đổi từ Variation sang VariationDTO và duy trì phân trang
+        return variation.map(entity -> {
+            VariationDTO dto = new VariationDTO();
+            dto.setID(entity.getID());
+            dto.setSKU(entity.getSKU());
+            dto.setProductID(new ProductDTO(
+                    entity.getProductID().getID(),
+                    entity.getProductID().getName(),
+                    mapCategoryToDTO(entity.getProductID().getCategoryID()),
+                    mapBrandToDTO(entity.getProductID().getBrandID()),
+                    getProductImages("Variation", entity.getProductID().getID())
+            ));
+
+            dto.setName(entity.getName());
+            dto.setPrice(entity.getPrice());
+            dto.setQuantity(entity.getQuantity());
+            dto.setColor(entity.getColor());
+            dto.setMaterial(entity.getMaterial());
+            dto.setSize(entity.getSize());
+            dto.setDescription(entity.getDescription());
+            dto.setSold(entity.getSold());
+            dto.setStatus(entity.getStatus());
+            dto.setImagesDTO(getVariationImage("Variation", entity.getID()));
+            return dto;
+        });
+    }
+    
+    public Page<VariationDTO> getVariationByBrands(Pageable pageable, Long brands) {
+        Page<Variation> variation = variationRepository.findProductbyBrands(pageable, brands);
 
         // Chuyển đổi từ Variation sang VariationDTO và duy trì phân trang
         return variation.map(entity -> {

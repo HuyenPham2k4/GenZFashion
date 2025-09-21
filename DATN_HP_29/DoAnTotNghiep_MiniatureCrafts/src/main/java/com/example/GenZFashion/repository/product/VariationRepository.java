@@ -35,7 +35,7 @@ public interface VariationRepository extends JpaRepository<Variation, Long> {
             "OR v.Description LIKE %:keyword% " +
             "OR v.Color LIKE %:keyword% " +
             "OR v.Size LIKE %:keyword% " +
-            "OR v.Material LIKE %:keyword% ")
+            "OR v.Material LIKE %:keyword% order by v.ID DESC")
     Page<Variation> findByName(Pageable pageable, @Param("keyword") String keyword);
 
 
@@ -54,6 +54,9 @@ public interface VariationRepository extends JpaRepository<Variation, Long> {
     @Query("select v from Variation v where v.ProductID.CategoryID.ID= :id order by v.ID DESC")
     Page<Variation> findProductbyCatergory(Pageable pageable, @Param("id") Long id);
 
+    @Query("select v from Variation v where v.ProductID.BrandID.ID= :id order by v.ID DESC")
+    Page<Variation> findProductbyBrands(Pageable pageable, @Param("id") Long id);
+
     // Tổng Quantity của tất cả variation
     @Query("SELECT COALESCE(SUM(v.Quantity), 0) FROM Variation v")
     Long sumAllQuantities();
@@ -61,5 +64,12 @@ public interface VariationRepository extends JpaRepository<Variation, Long> {
     // Đếm số lượng variation
     @Query("SELECT COUNT(v) FROM Variation v")
     Long countAllVariations();
+
+    @Query("SELECT DISTINCT v FROM Variation v " +
+            "WHERE v.Price BETWEEN :minPrice AND :maxPrice " +
+            "ORDER BY v.ID DESC")
+    Page<Variation> findByPriceRange(@Param("minPrice") Double minPrice,
+                                   @Param("maxPrice") Double maxPrice,
+                                   Pageable pageable);
 
 }

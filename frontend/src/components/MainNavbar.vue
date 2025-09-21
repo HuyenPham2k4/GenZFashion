@@ -1,121 +1,95 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <div class="top-link clearfix hidden-sm hidden-xs">
-        <div class="row">
-          <!-- Social Links -->
-          <div class="col-6 social_link">
-            <div class="social-title">Theo dõi:</div>
-            <a href="https://www.facebook.com/share/ZAQmhY81qNSamVdd/">
-              <i class="fab fa-facebook" style="font-size: 24px; margin-right: 10px"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-instagram" style="font-size: 24px; margin-right: 10px; color: pink;"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-youtube" style="font-size: 24px; margin-right: 10px; color: red;"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-twitter" style="font-size: 24px; margin-right: 10px"></i>
-            </a>
-          </div>
-
-          <!-- Login/Register Links -->
-          <div class="nav nav__first right col-6 login_link">
-            <ul class="header_link left ml-auto" v-if="!user">
-              <li>
-                <router-link to="/login"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</router-link>
-              </li>
-              <li>
-                <router-link to="/createinfo">
-                  <i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí
-                </router-link>
-              </li>
-            </ul>
-            <ul class="nav nav__first right d-flex align-items-center" v-else>
-              <li class="nav-item nav-item__first nav-item__first-user d-flex align-items-center">
-                <img src="../assets/img/logo/avtusers.png" alt="" class="nav-item__first-img mr-2"/>
-                <span class="nav-item__first-name">{{ user.userInfo.name }}</span>
-                <ul class="nav-item__first-menu">
-                  <li class="nav-item__first-item">
-                    <a href="/history">Tài khoản của tôi</a>
-                  </li>
-                  <li class="nav-item__first-item">
-                    <a href="#">Địa chỉ của tôi</a>
-                  </li>
-                  <li class="nav-item__first-item">
-                    <a href="#">Đơn mua</a>
-                  </li>
-                  <li class="nav-item__first-item">
-                    <a href="#" @click="logout">Đăng xuất</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-
-          </div>
-        </div>
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+      <div class="offcanvas__links">
+        <router-link to="/login">Sign in</router-link>
+        <router-link to="/createinfo">Sign up</router-link>
       </div>
+    </div>
+    <div class="offcanvas__nav__option" style="display: flex; align-items: center; gap: 20px;">
+      <a href="#" class="search-switch"><img src="img/icon/search.png" alt="" class="header-icon"></a>
+      <a href="#"><img src="img/icon/heart.png" alt="" class="header-icon"></a>
+      <router-link to="/cart"><img src="img/icon/cart.png" alt="" class="header-icon"> <span>{{ cart || 0 }}</span></router-link>
+      <router-link to="/profile"><img src="img/icon/user.png" alt="" class="header-icon"></router-link>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__text">
+      <p>Free shipping, 30-day return or refund guarantee.</p>
+    </div>
+  </div>
+  <!-- Offcanvas Menu End -->
 
-      <div class="header-main clearfix">
+  <!-- Header Section Begin -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-3 col-100-h">
-            <div id="trigger-mobile" class="visible-sm visible-xs"><i class="fas fa-bars"></i></div>
-            <div class="logo">
-              <router-link to="/">
-                <img src="/img.png" alt="Logo"/>
-              </router-link>
+          <div class="col-lg-6 col-md-7">
+            <div class="header__top__left">
+              <p>Free shipping, 30-day return or refund guarantee.</p>
             </div>
           </div>
-          <div class="col-lg-6 m-auto pdt15">
-            <form class="example" @submit.prevent="submitSearch">
-              <input type="text" class="input-search" placeholder="Tìm kiếm.." v-model="searchKeyword">
-              <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-          <div class="col-3 m-auto hidden-sm hidden-xs">
-            <div class="item-car clearfix position-relative">
-              <router-link
-                  :to="user ? `/cart?userId=${user.userInfo.id}` : '/cart'"
-                  class="header__second__cart--icon"
-              >
-                <i class="fas fa-shopping-cart"></i>
-                <span v-if="cart !== null && cart > 0" id="header__second__cart--notice" class="header__second__cart--notice">
-                  {{ cart }}
-                </span>
-
-              </router-link>
+          <div class="col-lg-6 col-md-5">
+            <div class="header__top__right">
+              <div class="header__top__links">
+                <router-link to="/login">Sign in</router-link>
+                <router-link to="/createinfo">Sign up</router-link>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-
-    <nav class="header_nav hidden-sm hidden-xs">
-      <div class="container">
-        <ul class="header_nav-list nav">
-          <li class="header_nav-list-item">
-            <router-link to="/" class="active">Trang chủ</router-link>
-          </li>
-          <li class="header_nav-list-item has-mega">
-            <router-link to="/product">Sản phẩm</router-link>
-          </li>
-          <li class="header_nav-list-item">
-            <a href="/lien-he">Liên hệ</a>
-          </li>
-        </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3">
+          <div class="header__logo">
+            <router-link to="/"><img src="../assets/img/logo.png" alt=""></router-link>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <nav class="header__menu mobile-menu">
+            <ul>
+              <li class="active"><router-link to="/">Home</router-link></li>
+              <li><router-link to="/product">Shop</router-link></li>
+              <li><router-link to="/variations">Biến thể</router-link></li>
+              <li>
+                <a href="#">Pages</a>
+                <ul class="dropdown">
+                  <li><router-link to="/about">About Us</router-link></li>
+                  <li><router-link to="/shop-details">Shop Details</router-link></li>
+                  <li><router-link to="/cart">Shopping Cart</router-link></li>
+                  <li><router-link to="/checkout">Check Out</router-link></li>
+                  <li><router-link to="/blog-details">Blog Details</router-link></li>
+                  <li><router-link to="/admin-account">Admin Account</router-link></li>
+                  <li><router-link to="/admin/dashboard">Admin</router-link></li>
+                </ul>
+              </li>
+              <li><router-link to="/contact">Contacts</router-link></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-lg-3 col-md-3">
+          <div class="header__nav__option" style="display: flex; align-items: center; gap: 20px;">
+<!--            <a href="#" class="search-switch"><img src="../assets/img/icon/search.png" alt="" class="header-icon"></a>-->
+<!--            <a href="#"><img src="../assets/img/icon/heart.png" alt="" class="header-icon"></a>-->
+            <router-link to="/cart"><img src="../assets/img/icon/cart.png" alt="" class="header-icon"> <span>{{ cart || '' }}</span></router-link>
+            <router-link to="/profile"><img src="../assets/img/icon/member.png" alt="" class="header-icon"></router-link>
+            <!-- <router-link to="/admin-account"><img src="img/icon/member.png" alt="" class="header-icon"></router-link> -->
+          </div>
+        </div>
       </div>
-    </nav>
+      <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
   </header>
 </template>
 
 <script>
-import {useRouter} from "vue-router"; // Import useRouter
 import { useUser } from '@/components/composables/useUser';
 export default {
   setup() {
-    const router = useRouter();
     const {
       user,
       cart,
@@ -124,15 +98,6 @@ export default {
       getCart,
       logout,
     } = useUser();
-
-
-
-    const submitSearch = () => {
-      if (searchKeyword.value) {
-        router.push({name: 'resultpage', query: {search: searchKeyword.value}});
-      }
-    };
-
 
     getUserInfo();
 
@@ -143,45 +108,11 @@ export default {
       getUserInfo,
       getCart,
       logout,
-      submitSearch,
     };
   },
 };
 </script>
 
 <style scoped>
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.container {
-  width: 100%;
-}
+/* ...existing code... */
 </style>

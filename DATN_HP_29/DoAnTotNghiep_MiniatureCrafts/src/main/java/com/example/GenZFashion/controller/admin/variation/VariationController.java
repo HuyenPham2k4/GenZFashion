@@ -176,7 +176,7 @@ public class VariationController {
 
     @GetMapping("category/{category}")
     public Page<VariationDTO> filterCategory(Pageable pageable, @PathVariable("category") Long category) {
-        return variationService.getProductByCategory(pageable, category);
+        return variationService.getVariationByCategory(pageable, category);
     }
 
     @PostMapping("add")

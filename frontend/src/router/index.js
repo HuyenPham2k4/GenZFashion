@@ -6,7 +6,7 @@ import RegisterPage from '@/components/login/RegisterPage.vue'; // Import view c
 import ProductPage from '@/components/home/ProductPage.vue'; // Import view component
 import ProductDetail from '@/components/home/ProductDetail.vue'; // Import view component
 import AccountManagement from '@/components/profile/accountManagement.vue'; // Import view component
-import ResultProduct from '@/components/home/ResultProduct.vue'; // Import view component
+import VariationPage from '@/components/home/VariationPage.vue'; // Import view component
 import CartPage from '@/components/cart/cartPage.vue'; // Import view component
 import PaymentPages from '@/components/pay/paymentPages.vue';
 import OrderSuccess from '@/components/pay/OrderSuccess.vue';
@@ -54,9 +54,9 @@ const routes = [
         component: ProductPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
     },
     {
-        path: '/result',
+        path: '/variations',
         name: 'resultpage',
-        component: ResultProduct, // Component sẽ hiển thị khi truy cập đường dẫn "/"
+        component: VariationPage, // Component sẽ hiển thị khi truy cập đường dẫn "/"
     },
     {
         path: '/product/:id',

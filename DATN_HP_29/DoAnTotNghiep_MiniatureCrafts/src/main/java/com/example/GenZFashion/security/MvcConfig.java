@@ -8,7 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/images/**") // Truy cập bằng /images/ trên web
-                .addResourceLocations("file:D:/DoAnTotNghiep/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/"); // Đường dẫn thực tế
+        String path = System.getProperty("user.dir") + "/upload/images/";
+        registry.addResourceHandler("/upload/images/**")
+                .addResourceLocations("file:" + path);
     }
 }
