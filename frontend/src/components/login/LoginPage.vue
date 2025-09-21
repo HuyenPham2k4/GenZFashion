@@ -138,14 +138,12 @@ const login = async () => {
   text-align: start;
   font-weight: 600;
   font-size: 34px;
-  color: var(--black-color);
   margin: 15px 0;
 }
 
 .form__forgot-password {
   font-size: 16px;
   text-decoration: underline;
-  color: var(--black-color);
 }
 
 .form__forgot-password:hover {
@@ -197,12 +195,10 @@ const login = async () => {
 .form-submit {
   padding: 20px 50px;
   background: none;
-  color: var(--white-color);
   font-weight: 500;
   font-size: 18px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--black-color);
   transition: 0.8s;
   border-radius: 4px;
 }
@@ -213,17 +209,14 @@ const login = async () => {
   left: 0;
   width: 100%;
   height: 0%;
-  background-color: var(--black-color);
   z-index: -1;
   transition: 0.8s;
   border-radius: 0 0 50% 50%;
   top: 0;
   height: 180%;
-  color: var(--white-color);
 }
 
 .form-submit:hover {
-  color: var(--black-color);
 }
 
 .form-submit:hover::before {
@@ -240,17 +233,14 @@ h4 {
 
 .form-submit-social {
   background: none;
-  color: var(--black-color);
   padding: 20px 40px 20px 20px;
   margin: 20px 0;
-  border: 2px solid var(--black-color);
   position: relative;
   overflow: hidden;
   transition: color 0.4s linear;
 }
 
 .form-submit-social::before {
-  background-color: var(--black-color);
   width: 100%;
   content: "";
   position: absolute;
@@ -266,7 +256,6 @@ h4 {
 
 .form-submit-social:hover {
   text-decoration: none;
-  color: var(--white-color);
 }
 
 .form-submit-social:hover::before {
