@@ -140,13 +140,13 @@ public class AuthController {
             // Gán vai trò dựa trên yêu cầu
             for (String role : strRoles) {
                 switch (role) {
-                    case "1":
+                    case "ADMIN":
                         Role adminRole = roleRepository.findByName(ERole.ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Lỗi: Không tìm thấy vai trò ADMIN."));
                         roles.add(adminRole);
                         accountRole = "ADMIN"; // Cập nhật accountRole thành ADMIN
                         break;
-                    case "2":
+                    case "USERS":
                         Role userRole = roleRepository.findByName(ERole.USER)
                                 .orElseThrow(() -> new RuntimeException("Lỗi: Không tìm thấy vai trò USER."));
                         roles.add(userRole);
