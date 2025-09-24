@@ -65,7 +65,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="tile">
-                <h3 class="tile-title">Dữ liệu 6 tháng doanh thu</h3>
+                <h3 class="tile-title">Dữ liệu doanh thu 12 tháng</h3>
                 <canvas ref="lineChart"></canvas>
               </div>
             </div>
@@ -79,10 +79,6 @@
         </div>
       </div>
 
-      <!-- Footer -->
-      <div class="text-center" style="font-size: 13px">
-        <p><b>Copyright {{ new Date().getFullYear() }} Phần mềm quản lý bán hàng | Dev By Trường</b></p>
-      </div>
     </main>
   </div>
 </template>
@@ -280,7 +276,7 @@ export default {
       const now = new Date();
       const year = now.getFullYear();     // Năm hiện tại, ví dụ: 2025
       const month = now.getMonth() + 1;   // Tháng hiện tại (JS bắt đầu từ 0 → cần +1)
-
+      console.log("Revenue in year " + year);
       try {
         const response = await axios.get(`http://localhost:8080/api/admin/dashboard/monthly-revenue?year=${year}`, {
           headers: {
