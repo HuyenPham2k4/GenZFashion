@@ -6,7 +6,52 @@
           <li class="breadcrumb-item active">
             <a href="#"><b>Thêm mới sản phẩm</b></a>
           </li>
-        </ul>
+          import axios from 'axios';
+          import Cookies from 'js-cookie';
+          import router from './router'; // Đảm bảo bạn đã import router
+
+          // Tạo một instance của axios
+          const apiClient = axios.create({
+          baseURL: 'http://localhost:8080', // URL cơ sở của API
+          });
+
+          // Thêm một interceptor để xử lý request
+          apiClient.interceptors.request.use(
+          config => {
+          const token = Cookies.get('authToken');
+          if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+          }
+          return config;
+          },
+          error => {
+          return Promise.reject(error);
+          }
+          );
+
+          // Thêm một interceptor để xử lý response
+          apiClient.interceptors.response.use(
+          response => {
+          // Nếu request thành công, không cần làm gì cả
+          return response;
+          },
+          error => {
+          // Nếu lỗi là 401 Unauthorized (token hết hạn hoặc không hợp lệ)
+          if (error.response && error.response.status === 401) {
+          // Xóa cookie token
+          Cookies.remove('authToken');
+          // Chuyển hướng người dùng về trang đăng nhập
+          // Sử dụng router.push để điều hướng
+          router.push('/login').then(() => {
+          alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+          });
+          }
+          return Promise.reject(error);
+          }
+          );
+
+          // Export instance đã được cấu hình để sử dụng trong toàn bộ ứng dụng
+          export default apiClient;     </ul>
       </div>
 
       <div class="row">
@@ -170,7 +215,7 @@ export default {
     },
 
     async fetchBrands() {
-      const token = Cookies.get("token");
+      const token = Cookies.get("authToken");
       if (!token) return this.$router.push("/login");
 
       try {
@@ -184,7 +229,7 @@ export default {
     },
 
     async fetchCategories() {
-      const token = Cookies.get("token");
+      const token = Cookies.get("authToken");
       if (!token) return this.$router.push("/login");
 
       try {
@@ -207,16 +252,21 @@ export default {
 
     validateForm() {
       if (!this.product.name.trim() || this.product.name.length > 50) {
-        alert("Quá giới hạn ký tự")
+        alert("Tên sản phẩm không hợp lệ hoặc dài hơn 50 ký tự.");
         return false;
       }
-      ;
-      const uploadedFiles = this.images.filter(image => image.file !== null);
-      return uploadedFiles.length === 3;
+      if (!this.isEditing) {
+        const uploadedFiles = this.images.filter(image => image.file !== null);
+        if (uploadedFiles.length < 3) {
+          alert("Vui lòng tải lên đủ 3 ảnh cho sản phẩm mới.");
+          return false;
+        }
+      }
+      return true;
     },
 
     async addProduct() {
-      const token = Cookies.get("token");
+      const token = Cookies.get("authToken");
       if (!token) return this.$router.push("/login");
       if (!this.validateForm()) {
         console.log("Validation failed:", this.product, this.images);
@@ -241,7 +291,7 @@ export default {
           const uploadResponse = await axios.post(
               "http://localhost:8080/admin/variation/images/upload",
               formData,
-              {headers: {"Content-Type": "multipart/form-data"}}
+              {headers: {Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data"}}
           );
           uploadedImages.push(...uploadResponse.data.urls);
         }
@@ -271,73 +321,102 @@ export default {
       if (!token) return this.$router.push("/login");
       if (!this.validateForm()) return;
 
-      console.log("Deleting old images:", this.product.images);
       try {
-        // Step 1: Delete old images
-
-        await axios.post(
-            "http://localhost:8080/admin/variation/images/delete",
-            this.product.images.map(img => img.cd_Images),
-            { headers: { Authorization: `Bearer ${token}` } }
-        );
-
-        // Step 2: Update product details
+        // Step 1: Update product details (name, category, brand)
         await axios.post(
             "http://localhost:8080/admin/product/update",
             this.product,
-            {headers: {Authorization: `Bearer ${token}`}}
+            { headers: { Authorization: `Bearer ${token}` } }
         );
 
-        // Step 3: Upload new images
-        const uploadedImages = [];
-        for (const image of this.images) {
-          if (image.file) {
-            const formData = new FormData();
-            formData.append("file", image.file);
+        // Step 2: Upload ONLY new images and prepare the final list of image URLs
+        const finalImageUrls = [...this.images]; // Create a mutable copy
 
-            const uploadResponse = await axios.post(
-                "http://localhost:8080/admin/variation/images/upload",
-                formData,
-                {headers: {Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data"}}
-            );
-
-            uploadedImages.push(uploadResponse.data.urls[0]);
-          }
+        for (let i = 0; i < finalImageUrls.length; i++) {
+            const imageSlot = finalImageUrls[i];
+            if (imageSlot.file) {
+                // This is a new file, upload it
+                const formData = new FormData();
+                formData.append("file", imageSlot.file);
+                const uploadResponse = await axios.post(
+                    "http://localhost:8080/admin/variation/images/upload",
+                    formData,
+                    { headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` } }
+                );
+                // Replace the file object with the new URL
+                finalImageUrls[i] = uploadResponse.data.urls[0];
+            } else if (imageSlot.preview) {
+                // This is an existing image, extract its original name from the preview URL
+                const urlParts = imageSlot.preview.split('/');
+                finalImageUrls[i] = urlParts[urlParts.length - 1];
+            } else {
+                // This is an empty slot
+                finalImageUrls[i] = null;
+            }
         }
 
-        // Step 4: Associate new images with the product
-        const imageRequests = uploadedImages.map((imageUrl, index) => ({
-          productID: this.product.id,
-          model: "Product",
-          cd_Images: imageUrl,
-          set_Default: index === this.defaultImageIndex
+        // Filter out any empty slots
+        const validFinalUrls = finalImageUrls.filter(url => url);
+
+        // Step 3: Associate the complete, final list of images with the product
+        const imageRequests = validFinalUrls.map((imageUrl, index) => ({
+            productID: this.product.id,
+            model: "Product",
+            cd_Images: imageUrl,
+            set_Default: index === this.defaultImageIndex,
         }));
 
         await axios.post(
             "http://localhost:8080/admin/variation/images/setproduct",
             imageRequests,
-            {headers: {Authorization: `Bearer ${token}`}}
+            { headers: { Authorization: `Bearer ${token}` } }
         );
 
-        // Redirect or refresh the product list
-        this.$router.push("/product");
+        // Step 4: Notify user, refresh list, and reset form
+        alert("Cập nhật sản phẩm thành công!");
+        await this.fetchProducts();
+        this.resetForm();
+
       } catch (error) {
         console.error("Lỗi khi cập nhật sản phẩm:", error);
+        alert("Có lỗi xảy ra khi cập nhật sản phẩm.");
       }
+    },
+    
+    resetForm() {
+      this.isEditing = false;
+      this.product = {
+        id: "",
+        name: "",
+        categoryID: { id: "" },
+        brandID: { id: "" },
+        images: []
+      };
+      this.images = [
+        { id: "", file: null, preview: "" },
+        { id: "", file: null, preview: "" },
+        { id: "", file: null, preview: "" }
+      ];
+      this.defaultImageIndex = 0;
+      window.scrollTo(0, 0);
     },
 
     editProduct(product) {
+      // Scroll to top to see the form
+      window.scrollTo(0, 0);
+      
       this.product = {
         id: product.id,
         name: product.name,
         categoryID: {id: product.categoryID?.id || ""},
         brandID: {id: product.brandID?.id || ""},
-        images: product.images || []
+        // Keep the original images to know what to delete if replaced
+        images: product.imagesDTOS || [] 
       };
 
-      console.log(this.product)
-      console.log("Deleting old images:", this.product.images);
       this.isEditing = true;
+      
+      // Reset images state for the form
       this.images = [
         {id: "", file: null, preview: ""},
         {id: "", file: null, preview: ""},
@@ -345,19 +424,20 @@ export default {
       ];
 
       if (product.imagesDTOS && product.imagesDTOS.length > 0) {
-        this.images = product.imagesDTOS.map((img) => ({
-          id: img.id,
-          file: null,
-          preview: img.cd_Images.includes("http")
-              ? img.cd_Images
-              : `http://localhost:8080/upload/images/${img.cd_Images}`
-        }));
+        product.imagesDTOS.forEach((img, index) => {
+          if (index < 3) { // Ensure we don't go out of bounds
+            this.images[index] = {
+              id: img.id,
+              file: null,
+              preview: img.cd_Images.includes("http")
+                  ? img.cd_Images
+                  : `http://localhost:8080/upload/images/${img.cd_Images}`
+            };
+          }
+        });
 
-        while (this.images.length < 3) {
-          this.images.push({id: "", file: null, preview: ""});
-        }
-
-        this.defaultImageIndex = product.imagesDTOS.findIndex(img => img.set_Default) || 0;
+        this.defaultImageIndex = product.imagesDTOS.findIndex(img => img.set_Default);
+        if (this.defaultImageIndex === -1) this.defaultImageIndex = 0;
       }
     }
   }

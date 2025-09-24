@@ -4,11 +4,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/DoAnTotNghiep_MiniatureCrafts" />
-        <option name="gradleJvm" value="21" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/DATN_HP_20/DoAnTotNghiep_GenZFashion" />
+        <option name="gradleJvm" value="21 (2)" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/DoAnTotNghiep_MiniatureCrafts" />
+            <option value="$PROJECT_DIR$/DATN_HP_20/DoAnTotNghiep_GenZFashion" />
           </set>
         </option>
       </GradleProjectSettings>
