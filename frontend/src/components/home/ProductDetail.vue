@@ -97,22 +97,40 @@
                           />
                         </label>
                       </div>
-                      <div class="product__details__option__color" v-if="activeVariation?.color">
+                      <div class="product__details__option__color"
+                           v-if="selectedProduct.variations && selectedProduct.variations.length">
                         <span>Color:</span>
                         <label
-                            :style="{ backgroundColor: activeVariation.color, border: '1px solid #ccc', width: '20px', height: '20px', borderRadius: '50%', display: 'inline-block', marginLeft: '8px' }"
+                            v-for="v in selectedProduct.variations"
+                            :key="v.id"
+                            :class="{ active: activeVariation?.id === v.id }"
+                            class="color-swatch"
+                            @click="selectVariation(v)"
+                            :style="{
+                              backgroundColor: v.color,
+                              border: activeVariation?.id === v.id ? '2px solid #000' : '1px solid #ccc',
+                              width: '25px',
+                              height: '25px',
+                              borderRadius: '50%',
+                              display: 'inline-block',
+                              marginLeft: '8px',
+                              cursor: 'pointer'
+                            }"
                         ></label>
                       </div>
+
                     </div>
                     <div class="product__details__cart__option">
                       <div class="quantity">
                         <div class="pro-qty" style="display:flex;align-items:center;">
                           <input type="button" value="-" class="control" @click="changeQuantity(-1)"/>
-                          <input type="text" v-model="quantity" class="text-input" style="width:40px;text-align:center;"/>
+                          <input type="text" v-model="quantity" class="text-input"
+                                 style="width:40px;text-align:center;"/>
                           <input type="button" value="+" class="control" @click="changeQuantity(1)"/>
                         </div>
                       </div>
-                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">add to cart</button>
+                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">add to cart
+                      </button>
                     </div>
                     <div class="product__details__last__option">
                       <ul>
@@ -133,7 +151,8 @@
                       </div>
                     </div>
                     <div class="product__shopnow mt-2">
-                      <button @click="payment" class="shopnow" style="color: #9a5252" :disabled="!activeVariation?.status">
+                      <button @click="payment" class="shopnow" style="color: #9a5252"
+                              :disabled="!activeVariation?.status">
                         Mua ngay
                       </button>
                     </div>
@@ -214,11 +233,12 @@
                         :style="{ backgroundImage: `url('http://localhost:8080/upload/images/${v.images.cd_Images || 'default.png'}')` }"
                     >
                       <ul class="product__hover">
-                        <li><a href="#"><img src="../../assets/img/icon/heart.png" alt="" /></a></li>
+                        <li><a href="#"><img src="../../assets/img/icon/heart.png" alt=""/></a></li>
                         <li>
-                          <a href="#"><img src="../../assets/img/icon/compare.png" alt="" /> <span>Compare</span></a>
+                          <a href="#"><img src="../../assets/img/icon/compare.png" alt=""/> <span>Compare</span></a>
                         </li>
-                        <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a></li>
+                        <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a>
+                        </li>
                       </ul>
                     </div>
                     <div class="card-body">

@@ -76,7 +76,6 @@ public class VariationController {
 
     @PostMapping("images/upload")
     public ResponseEntity<?> uploadImage(@RequestParam("file") List<MultipartFile> listFiles) {
-        String IMAGE_DIR = "D:/DoAnTotNghiep/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/"; // Cấu hình thư mục lưu ảnh
 
         try {
             if (listFiles.isEmpty()) {

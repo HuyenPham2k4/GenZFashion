@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label>Tên biến thể</label>
-                  <input type="text" id="productColor" v-model="variation.name" class="form-control">
+                  <textarea type="text" id="productColor" v-model="variation.name" class="form-control" rows="2" maxlength="25"></textarea>
                 </div>
 
                 <div class="form-group col-md-3">
@@ -493,6 +493,7 @@ export default {
       // 🔁 Gán lại ảnh đại diện (nếu có)
       if (variation.images && variation.images.cd_Images) {
         this.imageUrls = [variation.images.cd_Images]; // để xoá khi cập nhật ảnh mới
+        console.log("🖼️ Image URL:", variation.images.cd_Images); // để xoá khi cập nhật ảnh mới
         this.singleImage.preview = `http://localhost:8080/upload/images/${variation.images.cd_Images}`;
         this.singleImage.file = null; // reset file để tránh upload lại khi không chọn mới
       } else {
@@ -628,7 +629,7 @@ export default {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #FFC7ED;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -636,7 +637,7 @@ export default {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #f5a8da;
 }
 
 .pagination {
@@ -647,7 +648,7 @@ export default {
 }
 
 .page-button {
-  background-color: #007bff;
+  background-color: #FFC7ED;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -658,7 +659,7 @@ export default {
 }
 
 .page-button:hover {
-  background-color: #0056b3;
+  background-color: #f5a8da;
 }
 
 .page-button:disabled {
