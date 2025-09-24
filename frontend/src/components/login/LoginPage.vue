@@ -1,65 +1,79 @@
 <template>
-  <div class="container">
-    <div class="login__form">
+  <!-- Sign In Section Begin -->
+  <section class="login spad">
+    <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-lg-6">
-          <form method="POST" class="form" id="form-2" @submit.prevent="login">
-            <h3 class="heading">ĐĂNG NHẬP</h3>
-            <a href="/forgot-password" class="form__forgot-password">Bạn quên mật khẩu?</a>
-            <div class="form-group">
-              <label for="username" class="form-label">Tên đăng nhập</label>
-              <input id="username" v-model="username" type="text" placeholder="Nhập tên đăng nhập" class="form-control">
-              <span class="form-message"></span>
-            </div>
-
-            <div class="form-group matkhau">
-              <label for="password" class="form-label">Mật khẩu</label>
-              <div class="password-wrapper">
+        <div class="col-lg-6">
+          <div class="login__form">
+            <h3 style="text-align: center;">Đăng Nhập</h3><br>
+            <form id="signin-form" @submit.prevent="login">
+              <div class="input__item">
                 <input
-                    id="password"
-                    v-model="password"
-                    :type="showPassword ? 'text' : 'password'"
-                    placeholder="Nhập mật khẩu"
-                    class="form-control">
-                <i
-                    :class="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
-                    class="show-hide"
-                    @click="togglePasswordVisibility"></i>
+                  type="text"
+                  id="login-email"
+                  placeholder="Email"
+                  v-model="username"
+                  required
+                />
               </div>
-              <span class="form-message"></span>
-            </div>
-            <button class="form-submit btn-blocker" type="submit" style="border-radius: unset;">
-              ĐĂNG NHẬP
-              <i class="fas fa-arrow-right" style="font-size: 16px;margin-left: 10px;"></i>
-            </button>
+              <div class="input__item">
+                <input
+                  :type="showPassword ? 'text' : 'password'"
+                  id="login-password"
+                  placeholder="Mật khẩu"
+                  v-model="password"
+                  required
+                />
+                <i
+                  :class="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                  class="show-hide"
+                  @click="togglePasswordVisibility"
+                  style="right: 30px; top: 50%; transform: translateY(-50%); position: absolute; cursor: pointer;"
+                ></i>
+              </div>
+              <div style="text-align: center;">
+                <button type="submit" class="site-btn">Đăng Nhập</button>
+              </div>
+            </form>
 
-          </form>
+            <h5 style="text-align: center; margin-top: 20px;">
+              Chưa có tài khoản? <a href="/sign-up">Đăng ký ngay</a>
+            </h5>
+            <h5 style="text-align: center;">
+              <a href="/forgot-password">Quên mật khẩu?</a>
+            </h5>
+          </div>
         </div>
-        <div class="col-sm-12 col-lg-6">
-          <h3 class="heading">TẠO MỘT TÀI KHOẢN</h3>
-          <p class="text-login">Thật dễ dàng tạo một tài khoản. Hãy nhập địa chỉ email của bạn và điền vào mẫu
-            trên trang tiếp theo và tận hưởng những lợi ích của việc sở hữu một tài khoản :</p>
-          <ul>
-            <li class="text-login-item"><i class="fas fa-check"></i> Tạo tài khoản nhanh chóng</li>
-            <li class="text-login-item"><i class="fas fa-check"></i> Thanh toán nhanh hơn</li>
-            <li class="text-login-item"><i class="fas fa-check"></i> Ưu đãi và khuyến mãi độc quyền</li>
-            <li class="text-login-item"><i class="fas fa-check"></i> Các sản phẩm mới nhất</li>
-            <li class="text-login-item"><i class="fas fa-check"></i> Các bộ sưu tập giới hạn và bộ sưu tập theo mùa mới
-            </li>
-            <li class="text-login-item"><i class="fas fa-check"></i> Các sự kiện sắp tới</li>
-          </ul>
-          <a href="/createinfo">
-            <button class="form-submit btn-blocker custom-btn" style="border-radius: unset;margin:unset">ĐĂNG KÍ
-              <i class="fas fa-arrow-right" style="font-size: 16px;margin-left: 10px;"></i></button>
-          </a>
+        <div class="col-lg-6">
+          <div class="login__register">
+            <h3>Chào Mừng Trở Lại!</h3>
+            <div class="benefits">
+              <div class="benefit-item">
+                <i class="fas fa-user-shield"></i>
+                <h4>Bảo Mật Tối Ưu</h4>
+                <p>Thông tin của bạn được bảo vệ an toàn tuyệt đối</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-gift"></i>
+                <h4>Ưu Đãi Thành Viên</h4>
+                <p>Nhận quà tặng và giảm giá đặc biệt</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-history"></i>
+                <h4>Lịch Sử Mua Hàng</h4>
+                <p>Dễ dàng theo dõi đơn hàng của bạn</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- Sign In Section End -->
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 import Cookies from 'js-cookie';
 
 const username = ref('');
@@ -79,7 +93,7 @@ const validatePassword = (password) => {
 
 const login = async () => {
   if (!username.value || !password.value) {
-    alert('Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!');
+    alert('Vui lòng nhập đầy đủ email và mật khẩu!');
     return;
   }
 
@@ -93,10 +107,6 @@ const login = async () => {
     password: password.value,
   };
 
-  console.log('username:', username.value);
-  console.log('password:', password.value);
-  console.log('Gửi yêu cầu POST đến: ', apiUrl);
-
   try {
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -109,217 +119,121 @@ const login = async () => {
     const data = await response.json();
 
     if (response.ok) {
-      console.log('Đăng nhập thành công', data);
       alert('Đăng nhập thành công!');
-
       Cookies.set('authToken', data.token);
       Cookies.set('customers', JSON.stringify(data));
-      console.log("Line 99: " + Cookies.set('authToken', data.token));
-      console.log("Line 99: " + data.token);
       window.location.href = '/';
     } else {
       throw new Error(data.message || 'Đăng nhập thất bại');
     }
   } catch (error) {
-    console.error('Đăng nhập thất bại', error);
     alert('Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!');
   }
 };
+
 </script>
 
 <style scoped>
-/* login */
-.login__form,
-.registration__form {
-  margin-top: 20px;
+.login.spad {
+  padding: 40px 0;
 }
-
-.heading {
-  text-align: start;
-  font-weight: 600;
-  font-size: 34px;
-  color: var(--black-color);
-  margin: 15px 0;
+.login__form {
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  margin-bottom: 30px;
 }
-
-.form__forgot-password {
+.input__item {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input__item input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
   font-size: 16px;
-  text-decoration: underline;
-  color: var(--black-color);
+  outline: none;
 }
-
-.form__forgot-password:hover {
-  color: #777575;
-}
-
-.form-group {
-  margin: 20px 0;
-}
-
-.form-label {
-  text-align: left;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.8rem;
-  padding-bottom: 6px;
-}
-
-.form-control {
-  height: 50px;
-  padding: 8px 12px;
-  border: 1px solid #b3b3b3;
-  border-radius: 4px;
-  outline: none !important;
-  font-size: 1.4rem;
-}
-
-.form-control:focus {
-  border-color: unset !important;
-  border: 1px solid #1dbfaf !important;
-}
-
-.form-control:hover {
-  border-color: #1dbfaf;
-}
-
-.form-group.invalid .form-control {
-  border-color: #f33a58;
-}
-
-.form-group.invalid .form-message {
-  color: #f33a58;
-}
-
-.form-check-inline {
-  font-size: 16px;
-}
-
-.form-submit {
-  padding: 20px 50px;
-  background: none;
-  color: var(--white-color);
-  font-weight: 500;
+.site-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 5px;
   font-size: 18px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--black-color);
-  transition: 0.8s;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.site-btn:hover {
+  background: #444;
+}
+.login__social .social-buttons button {
+  border: none;
+  padding: 10px 24px;
   border-radius: 4px;
-}
-
-.form-submit::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background-color: var(--black-color);
-  z-index: -1;
-  transition: 0.8s;
-  border-radius: 0 0 50% 50%;
-  top: 0;
-  height: 180%;
-  color: var(--white-color);
-}
-
-.form-submit:hover {
-  color: var(--black-color);
-}
-
-.form-submit:hover::before {
-  height: 0%;
-}
-
-h4 {
-  margin: 20px 0px 30px 0px;
-}
-
-.form-social {
-
-}
-
-.form-submit-social {
-  background: none;
-  color: var(--black-color);
-  padding: 20px 40px 20px 20px;
-  margin: 20px 0;
-  border: 2px solid var(--black-color);
-  position: relative;
-  overflow: hidden;
-  transition: color 0.4s linear;
-}
-
-.form-submit-social::before {
-  background-color: var(--black-color);
-  width: 100%;
-  content: "";
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transition: transform 0.5s;
-  z-index: -1;
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
-  transform: scaleX(0);
-}
-
-.form-submit-social:hover {
-  text-decoration: none;
-  color: var(--white-color);
-}
-
-.form-submit-social:hover::before {
-  transform: scaleX(1);
-}
-
-.form-submit-social span {
-  text-transform: uppercase;
   font-size: 16px;
-  font-weight: 500;
-  vertical-align: middle;
-}
-
-.form-submit-social:first-child {
-  margin-right: 40px;
-}
-
-.form-submit-social--img {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  margin-left: 65px;
-}
-
-.text-login {
-  font-size: 16px;
-  color: #101920;
-  margin: unset;
-}
-
-ul {
-  list-style: none;
-}
-
-.text-login-item {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #fff;
   display: flex;
-  margin: 19px;
   align-items: center;
+  gap: 8px;
 }
-
-.fa-check {
-  font-size: 16px;
-  margin-right: 10px;
+.btn-google {
+  background: #db4437;
 }
-
+.btn-facebook {
+  background: #1877f3;
+}
+.login__register {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+}
+.benefits {
+  margin-top: 30px;
+}
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.benefit-item i {
+  font-size: 32px;
+  margin-right: 18px;
+  color: #1dbfaf;
+}
+.benefit-item h4 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.benefit-item p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+}
 .show-hide {
   position: absolute;
-  top: 56px;
   right: 20px;
+  top: 50%;
   transform: translateY(-50%);
+  color: #888;
   cursor: pointer;
 }
-.container {
-   width: 100%;
+@media (max-width: 991px) {
+  .login__form, .login__register {
+    padding: 30px 10px;
+  }
+}
+@media (max-width: 767px) {
+  .login__form, .login__register {
+    margin-bottom: 20px;
+  }
 }
 </style>

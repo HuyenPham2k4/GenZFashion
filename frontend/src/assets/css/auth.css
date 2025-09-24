@@ -1,0 +1,139 @@
+/* Authentication Styles for GenZ-Fashion */
+
+/* User Profile Styles */
+.user-profile {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.user-profile__avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #e53637;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-profile__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-profile__dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.user-profile__name {
+    color: #111111;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-profile__menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    margin-top: 10px;
+}
+
+.user-profile:hover .user-profile__menu {
+    display: block;
+}
+
+.user-profile__menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #111111;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.3s;
+}
+
+.user-profile__menu a:hover {
+    background-color: #f8f9fa;
+    color: #e53637;
+}
+
+.user-profile__menu a:last-child {
+    border-bottom: none;
+}
+
+.user-profile__menu a i {
+    margin-right: 8px;
+    width: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .user-profile {
+        margin-left: 10px;
+    }
+
+    .user-profile__name {
+        display: none;
+    }
+
+    .user-profile__menu {
+        right: -10px;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-profile__avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Hide auth links when logged in */
+.header__top__links .user-profile~a[href='sign-in.html'],
+.header__top__links .user-profile~a[href='sign-up.html'],
+.offcanvas__links .user-profile~a[href='sign-in.html'],
+.offcanvas__links .user-profile~a[href='sign-up.html'] {
+    display: none;
+}
+
+/* Show auth links when no user profile */
+.header__top__links:not(:has(.user-profile)) a[href='sign-in.html'],
+.header__top__links:not(:has(.user-profile)) a[href='sign-up.html'],
+.offcanvas__links:not(:has(.user-profile)) a[href='sign-in.html'],
+.offcanvas__links:not(:has(.user-profile)) a[href='sign-up.html'] {
+    display: inline-block;
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 767px) {
+    .user-profile {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .user-profile__avatar {
+        margin: 0 auto;
+    }
+
+    .user-profile__name {
+        display: block;
+        margin-top: 5px;
+    }
+}

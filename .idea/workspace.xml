@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ee410bb-56c7-4383-ab83-9ae1036cc778" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/GenZFashionHuyen.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/GenZFashion.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATN_HP_20/.idea/DATN_HP_29.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATN_HP_20/.idea/DoAnTotNghiep.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DATN_HP_29.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DoAnTotNghiep.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/DATN_HP_29.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/DoAnTotNghiep.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DepenciesDATN.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAn.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/GenZFashion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/config/PayOSConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/PayOsClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/auth/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/auth/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/customer/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/dashboard/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/employee/EmployeeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/orderPOS/POSOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/product/BrandsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/product/CategoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/product/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/admin/variation/VariationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/ContactController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/ReturnRequestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/account/AccountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/home/CartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/home/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/controller/users/order/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/BrandDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/CartItemDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/CategoryDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/ContactRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/CreatePaymentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/CustomerDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/EmployeeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/ImagesDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/IntroduceDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/NewsDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/OrderLineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/POSOrderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/PaymentMethodDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/ProductDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/ReturnRequestDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/ReturnResponseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/RoleDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/UsersDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/VariationDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/LowStockProductDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/MonthlyRevenueDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/OrdersCountByPaymentDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/OrdersCountByStatusDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/RevenuePointDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/SimpleCountDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/SoldPerDayDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/dto/dashboard/TopProductDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Brand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Contact.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/ERole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Images.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/News.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/OrderLine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/POSOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/PayOsClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/PaymentMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/ReturnRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Supplier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/Variation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/entity/introduce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/payload/request/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/payload/request/SignupRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/payload/response/JwtResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/payload/response/MessageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/PayOsClientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/AccountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/ContactRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/EmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/NewsAndIntro/IntroduceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/NewsAndIntro/NewsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/auth/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/dashboard/DashboardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/CartRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/OrderLineRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/PaymentMethodRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/PosOderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/order/ReturnRequestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/product/ImagesRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/product/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/product/VariationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/thuoctinh/BrandsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/repository/thuoctinh/CategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/MvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/jwt/AuthEntryPointJwt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/jwt/AuthTokenFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/jwt/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/services/UserDetailsImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/services/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/security/services/UsersDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/NewsAndIntroService/IntroduceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/NewsAndIntroService/NewsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/PayOsClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/customer/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/account/customer/EmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/dashboard/DashboardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/order/CartService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/order/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/order/ReturnRequestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/product/BrandsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/product/CategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/product/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/java/com/example/GenZFashion/service/product/VariationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/resources/static/images/1741870850478_z5501550678145_1e48d08cf90fbc3eca3be9ec2338ad64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/resources/static/images/1741870850511_images.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/main/resources/static/images/1741870850528_my-modernized-svds-for-fsb-kit-v0-tgbdbvzzrrba1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/src/test/java/com/example/GenZFashion/DoAnTotNghiepMiniatureCraftsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1739995126122_bandai-hobby-mobile-suit-gundam-the-witch-from-mercury-03-gundam-aerial-hg-1144-model-kit-725648.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631499326_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631499349_rx78-2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631499361_rx78-3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631631701_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631631711_rx78-2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631631721_rx78-3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631903538_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631903556_rx78-2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751631903566_rx78-3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751744603683_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751745416050_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1751746086960_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752087513945_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752087592932_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752087697184_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752087755573_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088144185_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088337799_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088380716_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088479675_505825694_1141660601328130_6168311647928451461_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088530924_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088659916_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752088987717_rx78.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752089378198_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752089487684_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752089757908_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752089773684_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752089800145_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752090147918_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752091255416_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752091872193_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752092060254_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752092343688_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752092392800_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752234456415_winggundam.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752234456428_winggundam1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752234456437_winggundam.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752350049957_wing1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356290530_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356290551_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356290576_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356293979_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356293997_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356294018_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356603438_hellokitty3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356603468_hellokitty2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752356603486_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673184690_unicorn.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673184704_unicorn1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673184712_unicorn2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673232512_unicorn1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673392698_kuromi.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673392705_kuromi2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673392713_kuromi1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673478130_cinamon.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673478138_cinamon2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673478145_cinamon1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673480688_cinamon.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673480697_cinamon2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752673480707_cinamon1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752699559982_hellokitty.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1752704250902_metal_wing.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753549821677_unicorn.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553632048_airgreen2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553632060_airgreen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553632068_airgreen1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553736932_airgreen2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553794793_batmancar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553894306_batmancar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753553921012_batmancar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753554508144_legobatmancar1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753554508161_batmancar3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753554508172_batmancar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753554597161_legobatmancar1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753556031727_uni1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753556031736_uni2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753556031744_uni3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557877880_jedai1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557877900_jedai2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557877927_jedai3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557945808_xuc3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557945837_xuc1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753557945854_xuc2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753558059244_batmancar3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579462745_goldcar1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579462761_goldcar2jpeg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579462784_goldcar3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579502899_fered1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579502916_fered2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579502929_fered3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579558993_bluecar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579559015_bluecarlego2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753579559040_bluecar3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580117789_4218-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580117797_4218-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580117803_4218-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580467686_to1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580467695_to2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580467702_to3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580584749_to1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580607837_to1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753580969298_to2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581043551_to3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581474104_4218-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581513931_uni1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581664028_jedai1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581860009_xuc1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753581946959_goldcar1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582048372_fered1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582119147_airgreen2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582162427_bluecar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582753440_cinamon.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582838822_cinamon2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753582918062_cinamon1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583085992_kuromi.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583210834_kuromi1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583353637_kuromi2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583898275_capupink1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583898289_capubrown1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583898303_capupink2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753583966096_capupink1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584075252_capupink2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584122809_capubrown1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584476830_pika`.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584476837_pika2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584476845_pikka3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584545144_pika`.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584619853_pikka3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584668857_pika2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584944590_fumofumo1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584944599_fumo2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753584944606_fumo3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585012871_fumo3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585212879_Fuhua.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585212887_fu2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585212896_fu3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585264890_Fuhua.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585497836_chem2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585497843_chem3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585497850_chems1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585546804_chem2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585584741_chem3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585620231_chems1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585872671_gu1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585872681_gu2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585872692_gu3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753585967444_gu1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586112781_ba1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586112792_ba2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586112805_ba3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586192621_ba1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586326430_banh683441-0.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586326440_banh683441-1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586326449_banh683441-2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586400983_banh683441-0.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586553887_img-9700-jpeg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586553895_img-9702-jpeg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586553905_img-9703-jpeg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586603557_img-9700-jpeg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586852186_do-choi-xe-dieu-khien-lamborghini-sian-fkp-37-superwings-vt2403-gr-2-638684091048714062.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586852194_do-choi-xe-dieu-khien-lamborghini-sian-fkp-37-superwings-vt2403-gr-3-638684091055975271.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753586852203_do-choi-xe-dieu-khien-lamborghini-sian-fkp-37-superwings-vt2403-gr-thumb-638684091090440650.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587000288_do-choi-xe-dieu-khien-lamborghini-sian-fkp-37-superwings-vt2403-gr-2-638684091048714062.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587087100_do-choi-dieu-khien-xe-jeep-canh-sat-duka-dk81150-thumb-638757566542315345.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587087108_do-choi-dieu-khien-xe-jeep-canh-sat-duka-dk81150-5-638757566404174775.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587087116_do-choi-dieu-khien-xe-jeep-canh-sat-duka-dk81150-6-638757566410838688.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587173491_do-choi-dieu-khien-xe-jeep-canh-sat-duka-dk81150-5-638757566404174775.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587234824_xe-dua-f1-tia-chop-dieu-khien-tu-xa-dk81096-140423-110314-600x600.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587234831_xe-dua-f1-tia-chop-dieu-khien-tu-xa-dk81096-2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587234839_xe-dua-f1-tia-chop-dieu-khien-tu-xa-dk81096-4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587298355_xe-dua-f1-tia-chop-dieu-khien-tu-xa-dk81096-140423-110314-600x600.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587497105_may-bay-truc-thang-dieu-khien-tu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587497113_09f30ef74a0eeaf4f177a269994dc974.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587497119_3cf58faccb11f8d79173c3b58268e8bf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587564347_09f30ef74a0eeaf4f177a269994dc974.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587660555_htb1bapepvxxxxaxxvxxq6xxfxxxi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587660562_htb1dgxwacnrk1rjsspkq6yuvxxaw.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587660568_htb1ljrrpvxxxxc2xpxxq6xxfxxxf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587716766_htb1bapepvxxxxaxxvxxq6xxfxxxi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587758230_htb1e82lpvxxxxxdxxxxq6xxfxxxi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587932150_scc5ea52c903e4f88999ef71f35518670h.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587932157_sc38a438b5cfd4c8088c107bb5fefed0ez.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587932166_sc33b1121275e443ea20a5b0d4ad3437bu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753587985553_sc33b1121275e443ea20a5b0d4ad3437bu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588177114_anki-cozmo-limited-edition-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588177122_anki-cozmo-limited-edition-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588177129_anki-cozmo-limited-edition-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588221280_anki-cozmo-limited-edition-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588293345_cozmo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588293351_cozmo2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588293357_51loglvrodl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588329707_cozmo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588517816_do-choi-robot-dac-vu-agent-04-dieu-khien-tu-xa-vecto-vt5099_4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588517826_do-choi-robot-dac-vu-agent-04-dieu-khien-tu-xa-vecto-vt5099_3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588517836_do-choi-robot-dac-vu-agent-04-dieu-khien-tu-xa-vecto-vt5099_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588649692_do-choi-robot-dac-vu-agent-04-dieu-khien-tu-xa-vecto-vt5099_4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588742384_do-choi-robot-cho-tuong-lai-dieu-khien-tu-xa-vecto-vtg52_1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588742391_do-choi-robot-cho-tuong-lai-dieu-khien-tu-xa-vecto-vtg52_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588742398_do-choi-robot-cho-tuong-lai-dieu-khien-tu-xa-vecto-vtg52_3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588827208_do-choi-robot-cho-tuong-lai-dieu-khien-tu-xa-vecto-vtg52_1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588955772_vtk31_bl-nentrang.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588955778_vtk31-bl_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753588955787_vtk31-bl_3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589024422_vtk31_bl-nentrang.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589193550_babb3b2062d3e00913944e35d409cc99.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589193558_281f9a7606d1ecf859b23870c35e12b7.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589193566_8f503077931ac914f365edbf1146aac3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589298283_babb3b2062d3e00913944e35d409cc99.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589499657_eu677262rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589499663_eu677262rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589499672_eu677262rb.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589652324_eu677244rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589652333_eu677244rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589652342_eu677244rb.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589704874_eu677244rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589718692_eu677262rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589796362_eu677262rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589796372_eu677261rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589796384_eu677262rb.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589850085_eu677262rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589912979_eu677133rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589912986_eu677133rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753589912994_eu677133rb.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590001363_eu677113rf.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590001370_eu677113rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590001376_eu677113rb.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590031023_eu677113rp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590162831_con-quay-bx-26-booster-unicornsting-5-60gp-beyblade-x-914464_1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590162838_914464_f5883b4e-fbf9-4ea9-a535-25c656b3947b.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590162845_con-quay-bx-26-booster-unicornsting-5-60gp-beyblade-x-914464_3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590229864_con-quay-bx-15-starter-leon-claw-5-60p-beyblade-x-913030_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590229871_con-quay-bx-15-starter-leon-claw-5-60p-beyblade-x-913030_3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590229877_913030.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590283693_910404.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590283702_con-quay-bx-04-starter-knight-shield-3-80n-beyblade-x-910404_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590283710_con-quay-bx-04-starter-knight-shield-3-80n-beyblade-x-910404_4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590347951_910497_aadd1b3a-9ad7-40fd-b468-35141a3e5b70.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590347958_con-quay-bx-05-booster-wizard-arrow-4-80b-beyblade-x-910497_1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590347965_con-quay-bx-05-booster-wizard-arrow-4-80b-beyblade-x-910497_2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590407721_b-180_173670_copy_28.04.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590407730_con-quay-b-180-booster-dynamite-belial-nx-vn-2-173670.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590407736_con-quay-b-180-booster-dynamite-belial-nx-vn-2-173670_9464c799-20dd-4ef4-b769-4ecfb4ba9adc.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590497283_179795_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590497290_con-quay-b-193-booster-ultimate-valkyrie-lg-v-9-179795.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590497297_con-quay-b-193-booster-ultimate-valkyrie-lg-v-9-179795_828c4518-1e77-48c0-9664-d364cef3a3b6.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590592913_914464_f5883b4e-fbf9-4ea9-a535-25c656b3947b.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1753590656733_913030.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/1757941299381_z6310118106765_0b3a6cdd80ba4b723627ff07af2c7bc1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/product/productPages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/product/productPages.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/DATN_HP_20/DoAnTotNghiep_GenZFashion">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GenZFashion" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tainx287&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HuyenPham2k4/GenZFashion.git&quot;,
+    &quot;accountId&quot;: &quot;df67e9eb-0b4c-4246-966d-8df1133c4f11&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="337gY7AcGUXceZ1N7QjSNj6vWsY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build DoAnTotNghiep_GenZFashion.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.GenZFashion.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#1 on frontend&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/RaTruong/GenZFashionBach/GenZFashion/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="GenZFashion" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="GenZFashion.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.GenZFashion.GenZFashion" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ee410bb-56c7-4383-ab83-9ae1036cc778" name="Changes" comment="" />
+      <created>1758673569147</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758673569147</updated>
+      <workItem from="1758673570253" duration="2384000" />
+      <workItem from="1758676648031" duration="2416000" />
+      <workItem from="1758683139855" duration="396000" />
+      <workItem from="1758684132660" duration="2760000" />
+      <workItem from="1758687277973" duration="85000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
