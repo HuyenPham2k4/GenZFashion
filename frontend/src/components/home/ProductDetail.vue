@@ -1,256 +1,304 @@
 <template>
-  <div class="container">
-    <div class="product__detail" v-if="selectedProduct">
-      <div class="row product__detail-row">
-        <div class="col-lg-6 col-12 daonguoc">
-          <div class="img-product">
-            <ul class="all-img">
+  <section class="shop-details">
+    <div class="product__details__pic">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="product__details__breadcrumb">
+              <a href="/">Home</a>
+              <a href="/product">Shop</a>
+              <span>Product Details</span>
+            </div>
+          </div>
+        </div>
+        <div class="row" v-if="selectedProduct">
+          <div class="col-lg-3 col-md-3">
+            <ul class="nav nav-tabs" role="tablist">
               <li
-                  class="img-item"
-                  v-for="image in selectedProduct.images"
+                  class="nav-item"
+                  v-for="(image) in selectedProduct.images"
                   :key="image.id"
               >
-                <img
-                    class="small-img"
-                    :src="`http://localhost:8080/upload/images/${image.cd_Images}`"
-                    alt="Product Image"
-                    @click="changeImg(image.cd_Images)"
-                />
+                <a
+                    class="nav-link"
+                    :class="{ active: selectedImage === image.cd_Images }"
+                    data-toggle="tab"
+                    href="#"
+                    role="tab"
+                    @click.prevent="changeImg(image.cd_Images)"
+                >
+                  <div
+                      class="product__thumb__pic"
+                      :style="{ backgroundImage: `url(http://localhost:8080/upload/images/${image.cd_Images})`, backgroundSize: 'cover', width: '80px', height: '80px' }"
+                  ></div>
+                </a>
               </li>
             </ul>
           </div>
-          <div id="main-img" style="cursor: pointer">
-            <img
-                :src="`http://localhost:8080/upload/images/${selectedImage}`"
-                class="big-img"
-                alt="ảnh chính"
-                id="img-main"
-            />
-            <div class="sale-off sale-off-2">
-              <span class="sale-off-percent">20%</span>
-              <span class="sale-off-label">GIẢM</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12 product__info">
-          <div class="product__name">
-            <h2>{{ selectedProduct.name }}</h2>
-          </div>
-          <div class="status-product">
-            Trạng thái:
-            <b v-if="activeVariation?.status" class="text-success">Còn hàng</b>
-            <b v-else class="text-danger">Hết hàng</b>
-          </div>
-          <div class="infor-oder">
-            Loại sản phẩm:
-            <b>{{ selectedProduct.categoryID.name }}</b>
-          </div>
-          <div class="product__price">
-            <h2>{{ formatCurrency(activeVariation?.price || 0) }}</h2>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Size: {{ activeVariation?.size || 0 }}
-            </div>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Chất liệu: {{ activeVariation?.material || 0 }}
-            </div>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Màu sắc:
-            </div>
-            <div
-                v-if="activeVariation?.color"
-                :style="{ backgroundColor: activeVariation.color, width: '20px', height: '20px', borderRadius: '50%', border: '1px solid #ccc' }"
-                title="Màu sắc"
-            ></div>
-            <div v-else>
-              Không có màu
-            </div>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Mô tả: {{ activeVariation?.description || 0 }}
-            </div>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Đã bán: {{ activeVariation?.sold || 0 }}
-            </div>
-          </div>
-
-          <div class="product__size d-flex" style="align-items: center">
-            <div class="title" style="font-size: 16px; margin-right: 10px">
-              Số lượng còn lại: {{ activeVariation?.quantity || 0 }}
-            </div>
-          </div>
-
-          <!-- Biến thể sản phẩm đơn giản -->
-          <div class="product__variations mt-3">
-            <h3>Biến thể</h3>
-            <div
-                class="variation-item"
-                v-for="v in selectedProduct.variations"
-                :key="v.id"
-                @click="selectVariation(v)"
-                :style="{
-                border: activeVariation?.id === v.id ? '2px solid #007bff' : '1px solid #ccc',
-                padding: '8px',
-                margin: '5px',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                display: 'inline-block',
-                textAlign: 'center',
-                width: '160px',
-                height: '125px'
-              }"
-            >
-              <!-- Ảnh biến thể: nếu có, hiển thị, còn không thì mặc định -->
-              <img
-                  v-if="v.images && v.images.cd_Images"
-                  :src="`http://localhost:8080/upload/images/${v.images.cd_Images}`"
-                  alt="Hình ảnh biến thể"
-                  width="60"
-              />
-              <img
-                  v-else
-                  src="/img/default.jpg"
-                  alt="Hình ảnh mặc định"
-                  width="60"
-              />
-              <div style="font-weight: bold; margin-top: 4px;">{{ v.name }}</div>
-            </div>
-          </div>
-
-
-          <div class="product__wrap">
-            <div class="product__amount">
-              <label for="">Số lượng: </label>
-              <input type="button" value="-" class="control" @click="changeQuantity(-1)"/>
-              <input type="text" v-model="quantity" class="text-input"/>
-              <input type="button" value="+" class="control" @click="changeQuantity(1)"/>
-            </div>
-            <button class="btn-view-details" style="color: #0e2a47" @click="addToCart()"
-                    :disabled="!activeVariation?.status">
-              Thêm vào giỏ
-            </button>
-          </div>
-
-          <div class="product__shopnow">
-            <button @click="payment" class="shopnow" style="color: #9a5252" :disabled="!activeVariation?.status">
-              Mua ngay
-            </button>
-            <span class="home-product-item__like home-product-item__like--liked">
-              <i class="home-product-item__like-icon-empty far fa-heart" style="font-size: 24px; margin-top: 7px"></i>
-              <i class="home-product-item__like-icon-fill fas fa-heart" style="font-size: 24px; margin-top: 7px"></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-else>
-      <p>Loading product details...</p>
-    </div>
-    <div class="product__relateto">
-      <div class="container">
-        <h3 class="product__relateto-heading">Sản phẩm bán chạy</h3>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-12 mb-20"
-               v-for="(v, index) in bestSellers"
-               :key="index"
-               style="margin-top: 20px">
-            <a @click="openDetail(v.productID.id)" class="product__new-item">
-              <div class="card" style="width: 100%">
-                <div>
-                  <img class="card-img-top"
-                       :src="`http://localhost:8080/upload/images/${v.images.cd_Images}`"
-                       :alt="v.name">
-
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title custom__name-product">
-                     {{ v.name }}
-                  </h5>
-                  <div class="product__price">
-                      <p class="card-text brand-color">{{ v.productID.brandID.name }}</p>
-                  </div>
-                  <div class="product__price">
-                    <p class="card-text price-color product__price-new">{{ formatCurrency(v.price) }} VND</p>
-                  </div>
-                  <div class="status-product">
-                    Trạng thái:
-                    <b v-if="v.status" class="text-success">Còn hàng</b>
-                    <b v-else class="text-danger">Hết hàng</b>
-                  </div>
-                  <div class="home-product-item__action">
-                    <span class="home-product-item__like home-product-item__like--liked">
-                      <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                      <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                    </span>
-                    <div class="home-product-item__rating">
-                      <i class="home-product-item__star--gold fas fa-star"></i>
-                      <i class="home-product-item__star--gold fas fa-star"></i>
-                      <i class="home-product-item__star--gold fas fa-star"></i>
-                      <i class="home-product-item__star--gold fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <span class="home-product-item__sold">{{ v.sold }} đã bán</span>
-                  </div>
-
+          <div class="col-lg-6 col-md-9">
+            <div class="tab-content">
+              <div class="tab-pane active" role="tabpanel">
+                <div class="product__details__pic__item" style="position:relative;">
+                  <img
+                      :src="`http://localhost:8080/upload/images/${selectedImage}`"
+                      alt="Ảnh chính"
+                      style="width:100%;max-height:400px;object-fit:contain;"
+                  />
                 </div>
               </div>
-            </a>
+            </div>
           </div>
+
+          <!--          container nhỏ-->
+          <div class="product__details__content">
+            <div class="container">
+              <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                  <div class="product__details__text">
+                    <h4>{{ selectedProduct.name }}</h4>
+                    <h3>
+                      {{ formatCurrency(activeVariation?.price || 0) }}
+                    </h3>
+                    <p>{{ activeVariation?.description || selectedProduct.description }}</p>
+                    <div class="product__details__option">
+                      <div class="product__details__option__size"
+                           v-if="selectedProduct.variations && selectedProduct.variations.length">
+                        <span>Biến thể:</span>
+                        <label
+                            v-for="v in selectedProduct.variations"
+                            :key="v.id"
+                            :class="{ active: activeVariation?.id === v.id }"
+                            style="margin-right:8px;cursor:pointer;"
+                        >
+                          {{ v.name }}
+                          <input
+                              type="radio"
+                              :id="'size-' + v.id"
+                              :checked="activeVariation?.id === v.id"
+                              @change="selectVariation(v)"
+                          />
+                        </label>
+                      </div>
+                      <div class="product__details__option__size"
+                           v-if="selectedProduct.variations && selectedProduct.variations.length">
+                        <span>Size:</span>
+                        <label
+                            v-for="v in selectedProduct.variations"
+                            :key="v.id"
+                            :class="{ active: activeVariation?.id === v.id }"
+                            style="margin-right:8px;cursor:pointer;"
+                        >
+                          {{ v.size }}
+                          <input
+                              type="radio"
+                              :id="'size-' + v.id"
+                              :checked="activeVariation?.id === v.id"
+                              @change="selectVariation(v)"
+                          />
+                        </label>
+                      </div>
+                      <div class="product__details__option__color"
+                           v-if="selectedProduct.variations && selectedProduct.variations.length">
+                        <span>Color:</span>
+                        <label
+                            v-for="v in selectedProduct.variations"
+                            :key="v.id"
+                            :class="{ active: activeVariation?.id === v.id }"
+                            class="color-swatch"
+                            @click="selectVariation(v)"
+                            :style="{
+                              backgroundColor: v.color,
+                              border: activeVariation?.id === v.id ? '2px solid #000' : '1px solid #ccc',
+                              width: '25px',
+                              height: '25px',
+                              borderRadius: '50%',
+                              display: 'inline-block',
+                              marginLeft: '8px',
+                              cursor: 'pointer'
+                            }"
+                        ></label>
+                      </div>
+
+                    </div>
+                    <div class="product__details__cart__option">
+                      <div class="quantity">
+                        <div class="pro-qty" style="display:flex;align-items:center;">
+                          <input type="button" value="-" class="control" @click="changeQuantity(-1)"/>
+                          <input type="text" v-model="quantity" class="text-input"
+                                 style="width:40px;text-align:center;"/>
+                          <input type="button" value="+" class="control" @click="changeQuantity(1)"/>
+                        </div>
+                      </div>
+                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">add to cart
+                      </button>
+                    </div>
+                    <div class="product__details__last__option">
+                      <ul>
+                        <li><span>SKU:</span> {{ activeVariation?.sku || selectedProduct.id }}</li>
+                        <li><span>Categories:</span> {{ selectedProduct.categoryID?.name }}</li>
+                        <li><span>Tag:</span> Clothes, Fashion</li>
+                      </ul>
+                      <div class="status-product">
+                        Trạng thái:
+                        <b v-if="activeVariation?.status" class="text-success">Còn hàng</b>
+                        <b v-else class="text-danger">Hết hàng</b>
+                      </div>
+                      <div>
+                        Đã bán: {{ activeVariation?.sold || 0 }}
+                      </div>
+                      <div>
+                        Số lượng còn lại: {{ activeVariation?.quantity || 0 }}
+                      </div>
+                    </div>
+                    <div class="product__shopnow mt-2">
+                      <button @click="payment" class="shopnow" style="color: #9a5252"
+                              :disabled="!activeVariation?.status">
+                        Mua ngay
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab">Description</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="tabs-5" role="tabpanel">
+                        <div class="product__details__tab__content">
+                          <p class="note">{{ selectedProduct?.description }}</p>
+                          <div class="product__details__tab__content__item">
+                            <h5>Products Infomation</h5>
+                            <p>{{ activeVariation?.description || selectedProduct?.description }}</p>
+                          </div>
+                          <div class="product__details__tab__content__item">
+                            <h5>Material used</h5>
+                            <p>{{ activeVariation?.material || 'N/A' }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tabs-6" role="tabpanel">
+                        <div class="product__details__tab__content">
+                          <div class="product__details__tab__content__item">
+                            <h5>Products Infomation</h5>
+                            <p>{{ activeVariation?.description || selectedProduct?.description }}</p>
+                          </div>
+                          <div class="product__details__tab__content__item">
+                            <h5>Material used</h5>
+                            <p>{{ activeVariation?.material || 'N/A' }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tabs-7" role="tabpanel">
+                        <div class="product__details__tab__content">
+                          <p class="note">{{ selectedProduct?.description }}</p>
+                          <div class="product__details__tab__content__item">
+                            <h5>Products Infomation</h5>
+                            <p>{{ activeVariation?.description || selectedProduct?.description }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="seemore">
-          <a href="/product">Xem thêm</a>
+        <div v-else>
+          <p>Loading product details...</p>
         </div>
       </div>
     </div>
-  </div>
+    <div class="product__details__content">
+      <div class="container">
+        <!-- Sản phẩm bán chạy -->
+        <div class="product__relateto">
+          <div class="container">
+            <h3 class="product__relateto-heading">Sản phẩm bán chạy</h3>
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-20"
+                   v-for="(v, index) in bestSellers"
+                   :key="index"
+                   style="margin-top: 20px">
+                <a @click="openDetail(v.productID.id)" class="product__new-item">
+                  <div class="card" style="width: 100%">
+                    <div
+                        class="product__item__pic set-bg"
+                        :style="{ backgroundImage: `url('http://localhost:8080/upload/images/${v.images.cd_Images || 'default.png'}')` }"
+                    >
+                      <ul class="product__hover">
+                        <li><a href="#"><img src="../../assets/img/icon/heart.png" alt=""/></a></li>
+                        <li>
+                          <a href="#"><img src="../../assets/img/icon/compare.png" alt=""/> <span>Compare</span></a>
+                        </li>
+                        <li><a href="#"><img src="../../assets/img/icon/search.png" @click="openDetail(v.productID.id)"></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title custom__name-product">
+                        {{ v.name }}
+                      </h5>
+                      <div class="product__price">
+                        <p class="card-text brand-color">{{ v.productID.brandID.name }}</p>
+                      </div>
+                      <div class="product__price">
+                        <p class="card-text price-color product__price-new">{{ formatCurrency(v.price) }} VND</p>
+                      </div>
+                      <div class="status-product">
+                        Trạng thái:
+                        <b v-if="v.status" class="text-success">Còn hàng</b>
+                        <b v-else class="text-danger">Hết hàng</b>
+                      </div>
+                      <div class="home-product-item__action">
+                        <span class="home-product-item__sold">{{ v.sold }} đã bán</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="see-more-container">
+              <a href="/product" class="see-more-btn">Xem thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import axios from "axios";
-import { ref, onMounted } from "vue";
+import {ref, onMounted} from "vue";
 import Cookies from "js-cookie";
-import { useRouter, useRoute } from "vue-router";
-import { useUser } from '@/components/composables/useUser';
+import {useRouter, useRoute} from "vue-router";
+import {useUser} from '@/components/composables/useUser';
+
 export default {
   setup() {
     const router = useRouter();
-    const route = useRoute(); // Import and use the route object
+    const route = useRoute();
     const selectedProduct = ref(null);
     const selectedImage = ref("");
     const quantity = ref(1);
-    const colors = ref(["Red", "Blue", "Green"]);
-    const sizes = ref([]);
-    const selectedColor = ref(colors.value[0]);
-    const selectedSize = ref(null);
-    const variations = ref(null);
     const activeVariation = ref({});
+    const variations = ref(null);
 
     const payment = () => {
-      // Validate quantity before proceeding
       if (quantity.value > (activeVariation.value?.quantity || 0)) {
         alert("Số lượng mua vượt quá số lượng còn lại!");
         return;
       }
       sessionStorage.removeItem("cart")
       try {
-        // Lấy giỏ hàng hiện tại trong sessionStorage
         let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-
-        // Tạo item mới
         const orderItem = {
           customer_id: {},
           variation_id: activeVariation.value,
@@ -258,15 +306,8 @@ export default {
           status: 0,
           quantity: quantity.value,
         };
-
-        // Thêm vào mảng giỏ hàng
         cart.push(orderItem);
-
-        // Lưu lại
         sessionStorage.setItem("cart", JSON.stringify(cart));
-
-        console.log("Đã lưu sessionStorage cart:", cart);
-
         window.location.href = "/pay";
       } catch (e) {
         console.error("Lỗi khi set sessionStorage:", e);
@@ -274,46 +315,33 @@ export default {
     };
 
     const getProductDetail = async () => {
-      const id = route.params.id; // Get the product ID from the route parameter
-      console.log("ID sản phẩm từ URL:", id);
+      const id = route.params.id;
       const api = `http://localhost:8080/MiniatureCrafts/product/findByID/${id}`;
-
       try {
-        console.log(api)
         const response = await axios.get(api);
         selectedProduct.value = response.data;
-        console.log("Product data:", selectedProduct.value);
-
-        // Thiết lập ảnh chính mặc định
         const defaultImage = selectedProduct.value.images.find((img) => img.set_Default);
         selectedImage.value = defaultImage
             ? defaultImage.cd_Images
             : selectedProduct.value.images[0]?.cd_Images;
-
-        // ✅ TỰ ĐỘNG CHỌN BIẾN THỂ ĐẦU TIÊN
         if (selectedProduct.value.variations && selectedProduct.value.variations.length > 0) {
           selectVariation(selectedProduct.value.variations[0]);
         }
-
       } catch (error) {
-        console.error("Lỗi khi lấy chi tiết sản phẩm:", error);
+        console.error("Lỗi khi lấy chi tiết s���n phẩm:", error);
       }
     };
 
     function selectVariation(variation) {
       activeVariation.value = variation;
-      console.log("Đã chọn biến thể:", activeVariation.value.id);
       if (variation.images && variation.images.cd_Images) {
         selectedImage.value = variation.images.cd_Images;
       } else {
-        // Nếu không có, dùng ảnh mặc định của sản phẩm
         const defaultImage = selectedProduct.value.images.find((img) => img.set_Default);
         selectedImage.value = defaultImage
             ? defaultImage.cd_Images
             : selectedProduct.value.images[0]?.cd_Images;
       }
-
-      console.log("Đã chọn biến thể:", activeVariation.value);
     }
 
     const changeImg = (imageName) => {
@@ -325,23 +353,16 @@ export default {
       if (newQuantity > 0 && newQuantity <= (activeVariation.value?.quantity || 0)) {
         quantity.value = newQuantity;
       }
-      // Optional: alert if trying to exceed available quantity
-      if (newQuantity > (activeVariation.value?.quantity || 0)) {
-        // alert("Số lượng vượt quá số lượng còn lại!");
-      }
     };
 
     const addToCart = async () => {
       const customerCookie = Cookies.get("customers");
-
       if (!customerCookie) {
         alert("Vui lòng đăng nhập!");
         window.location.href = '/login';
         return;
       }
-
       const customer = JSON.parse(customerCookie);
-
       const cartItem = {
         customer_id: {
           id: customer.id,
@@ -351,7 +372,6 @@ export default {
         },
         quantity: quantity.value,
       };
-
       try {
         const response = await axios.post("http://localhost:8080/api/v1/cart/addtocart", cartItem);
         if (response.status === 200) {
@@ -366,35 +386,26 @@ export default {
 
     const openDetail = (id) => {
       sessionStorage.setItem("idvariation", id);
-      router.push({ path: `/product/${id}` }).then(() => {
+      router.push({path: `/product/${id}`}).then(() => {
         location.reload();
       });
     };
 
-    const processData = (data) => {
-      return data.map((item) => {
-        item.productID.defaultImage =
-            item.productID.imagesDTOS?.length > 0
-                ? item.productID.imagesDTOS[0].cd_Images
-                : "default.png";
-        item.sold = item.sold || 0;
-        return item;
-      });
-    };
 
     const getProducts = async () => {
       try {
         const response = await axios.get(
-            "http://localhost:8080/MiniatureCrafts/bestseller?page=0&size=4"
+            "http://localhost:8080/MiniatureCrafts/bestseller?page=2&size=4"
         );
-        variations.value = processData(response.data.content || []);
-        console.log("Dữ liệu sản phẩm:", variations.value);
+        variations.value = response.data.content || [];
+        console.log(variations.value)
       } catch (error) {
         console.error("Lỗi khi lấy danh sách sản phẩm:", error);
       }
     };
 
     function formatCurrency(value) {
+      if (!value) return "0 ₫";
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ₫";
     }
 
@@ -412,10 +423,6 @@ export default {
       selectedProduct,
       selectedImage,
       quantity,
-      colors,
-      sizes,
-      selectedColor,
-      selectedSize,
       changeImg,
       changeQuantity,
       getProductDetail,
@@ -428,6 +435,32 @@ export default {
 
 <style>
 .container {
-   width: 100%;
+  width: 100%;
+}
+
+.product__thumb__pic {
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.product__details__pic__item img {
+  border-radius: 8px;
+}
+
+.product__details__option__size label.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Always center the product__details__content on the screen */
+.product__details__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
 }
 </style>

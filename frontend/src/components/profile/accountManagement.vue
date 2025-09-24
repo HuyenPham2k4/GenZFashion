@@ -1,216 +1,203 @@
 <template>
-  <div class="container">
-    <div class="wrapper">
+
+  <section class="account spad">
+    <div class="container">
       <div class="row">
-        <div class="col-4">
-          <div class="heading">
-            <img src="../../assets/img/logo/avtusers.png" alt="" class="heading-img">
-            <span class="heading-name_acc">{{ user.userInfo.name }}</span>
-          </div>
-          <div class="menu-manager">
-            <div class="menu-item" :class="{ active: activeTab === 'profile' }" @click="showProfile">
-              <i class="fas fa-user"></i><span>Hồ sơ của tôi</span>
-            </div>
-            <div class="menu-item" :class="{ active: activeTab === 'orders' }" @click="showOrders">
-              <i class="fas fa-shopping-bag"></i><span>Đơn hàng của tôi</span>
-            </div>
-            <div class="menu-item" :class="{ active: activeTab === 'password' }" @click="showChangePassword">
-              <i class="fas fa-key"></i><span>Đổi mật khẩu</span>
-            </div>
-          </div>
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3 mb-4 mb-lg-0">
+          <div class="account__sidebar">
+            <h4>Tài khoản của tôi</h4>
+            <ul>
+              <li :class="{ active: activeTab === 'profile' }" @click="showProfile">
+                <a><i class="fa fa-user"></i> Thông tin cá nhân</a>
+              </li>
+              <li :class="{ active: activeTab === 'orders' }" @click="showOrders">
+                <a><i class="fa fa-history"></i> Lịch sử đơn hàng</a>
+              </li>
+              <li :class="{ active: activeTab === 'password' }" @click="showChangePassword">
+                <a><i class="fa fa-lock"></i> Đổi mật khẩu</a>
+              </li>
 
+              <div class="logout-btn">
+                <button type="button" @click="logout()">
+                  <i class="fa fa-sign-out"></i> Đăng xuất
+                </button>
+              </div>
+            </ul>
+          </div>
         </div>
-        <div class="col-8">
-          <div v-if="activeTab === 'profile'" :key="activeTab" class="detail__my-profile">
-            <div class="heading-edit-account">
-              <h2>Hồ sơ của tôi</h2>
-              <div class="form-group" v-for="(field, index) in profileFields" :key="index">
-                <label :for="field.name" class="form-label">{{ field.label }}</label>
-                <input
-                    :id="field.name"
-                    v-model="user.userInfo[field.name]"
-                    :type="field.type"
-                    :placeholder="field.placeholder"
-                    class="form-control"
-                />
-                <span class="form-message"></span>
-              </div>
-              <button class="form-submit" style="color: #00cccc" @click="saveProfile">Lưu</button>
-            </div>
-          </div>
 
-          <div v-if="activeTab === 'password'" :key="activeTab" class="detail__confirm-password">
-            <div class="heading-edit-password">
-              <h2>Đổi lại mật khẩu</h2>
-            </div>
-            <div
-                class="form-group"
-                v-for="(field, index) in passwordFields"
-                :key="field.name"
-                style="margin-bottom: 1.5rem;"
-            >
-              <div style="display: flex; justify-content: space-between;">
-                <label :for="field.name" class="form-label">{{ field.label }}</label>
-              </div>
-              <div style="position: relative;">
-                <input
-                    :id="field.name"
-                    v-model="field.value"
-                    :type="field.showPassword ? 'text' : 'password'"
-                    :placeholder="field.placeholder"
-                    class="form-control"
-                    style="width: 100%; padding-right: 40px;"
-                />
-                <i
-                    :class="field.showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
-                    @click="togglePasswordVisibility(index)"
-                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                ></i>
-              </div>
-            </div>
-            <button class="form-submit" style="color: #1dbfaf" @click="changePassword">Lưu</button>
-          </div>
-          <div v-if="activeTab === 'orders'" :key="activeTab" class="detail__my-order" style="font-size: 13px">
-            <div class="heading-edit-password">
-              <h2>Đơn hàng của bạn</h2>
-            </div>
-            <div class="filter-section">
-              <label for="status-filter">Trạng thái:</label>
-              <select v-model="selectedStatus" @change="filterOrders">
-                <option value="">Tất cả</option>
-                <option v-for="(label, key) in statusLabels" :key="key" :value="key">
-                  {{ label }}
-                </option>
-              </select>
-              <div class="total-amount">
-                Tổng tiền: <strong>{{ formatCurrency(totalAmountByStatus) }}</strong>
-              </div>
-            </div>
-            <div class="detail__my-order-content">
-              <form action="">
-                <div class="my-order-heading">
+        <!-- Account Content -->
+        <div class="col-lg-9">
+          <div class="account__content card">
+            <div class="card-body tab-content">
+
+              <!-- Profile -->
+              <div class="tab-pane fade" :class="{ 'show active': activeTab === 'profile' }">
+                <h4 class="mb-4">Thông tin cá nhân</h4>
+                <form>
                   <div class="row">
-                    <div class="col-2">Địa chỉ</div>
-                    <div class="col-2">SDT</div>
-                    <div class="col-2">Ngày mua hàng</div>
-                    <div class="col-2">Tổng tiền</div>
-                    <div class="col-2">Chi tiết</div>
-                    <div class="col-2">Trạng thái</div>
-
-                  </div>
-                </div>
-                <div class="detail__my-order-body" v-for="item in paginatedOrdersFiltered" :key="item.id">
-                  <div class="row bd-bottom" @click="viewOrderDetails(item.id)">
-                    <div class="col-2">{{ item.address }}</div>
-                    <div class="col-2">{{ item.customerID.phone }}</div>
-                    <div class="col-2">{{ formatDateTime(item.order_Time) }}</div>
-                    <div class="col-2">{{ formatCurrency(item.total_Payment) }}</div>
-                    <div class="col-2">{{ item.note }}</div>
-                    <div class="col-2">
-                      <span class="status-badge" :class="statusClasses[item.status]">
-                        {{ statusLabels[item.status] }}
-                      </span>
+                    <div class="col-lg-6" v-for="field in profileFields" :key="field.name">
+                      <div class="account__input">
+                        <p>{{ field.label }} <span>*</span></p>
+                        <input :type="field.type" v-model="user.userInfo[field.name]" :placeholder="field.placeholder"/>
+                      </div>
                     </div>
+                  </div>
+                  <button type="button" class="site-btn" @click="saveProfile">Cập nhật thông tin</button>
+                </form>
+              </div>
 
+              <!-- Orders -->
+              <div class="tab-pane fade" :class="{ 'show active': activeTab === 'orders' }">
+                <h4 class="mb-4">Lịch sử đơn hàng</h4>
+
+                <!-- Tabs con -->
+                <ul class="nav nav-tabs mb-3">
+                  <li class="nav-item" v-for="(label, key) in orderTabs" :key="key">
+                    <a class="nav-link"
+                       :class="{ active: selectedStatus === key }"
+                       @click="selectedStatus = key">
+                      {{ label }}
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Danh sách đơn hàng -->
+                <div v-if="paginatedOrdersFiltered.length > 0">
+                  <table class="table table-bordered table-striped">
+                    <thead class="table-light">
+                    <tr>
+                      <th>Địa chỉ</th>
+                      <th>SĐT</th>
+                      <th>Ngày</th>
+                      <th>Tổng</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="item in paginatedOrdersFiltered" :key="item.id" @click="showOrdersLine(item.id)">
+                      <td>{{ item.address }}</td>
+                      <td>{{ item.customerID.phone }}</td>
+                      <td>{{ formatDateTime(item.order_Time) }}</td>
+                      <td>{{ formatCurrency(item.total_Payment) }}</td>
+                      <td>
+                        <span :class="statusClasses[item.status]">{{ statusLabels[item.status] }}</span>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div v-else>
+                  <p>Không có đơn hàng nào.</p>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="tab-pane fade" :class="{ 'show active': activeTab === 'password' }">
+                <h4 class="mb-4">Đổi mật khẩu</h4>
+                <form>
+                  <div class="account__input" v-for="(field) in passwordFields" :key="field.name">
+                    <p>{{ field.label }} <span>*</span></p>
+                    <input
+                        :type="field.showPassword ? 'text' : 'password'"
+                        v-model="field.value"
+                        :placeholder="field.placeholder"
+                    />
+                  </div>
+                  <button type="button" class="site-btn" @click="changePassword">Đổi mật khẩu</button>
+                </form>
+              </div>
+
+              <div v-if="activeTab === 'orderline'" class="detail__order-tracking" style="font-size: 13px; background-color: #f3eae8">
+                <h2 style="margin-bottom: 20px; color: ">Chi tiết đơn hàng</h2>
+
+                <div class="filter-section">
+                  <button class="loadmore-btn" @click="showOrders">← Trở lại</button>
+                </div>
+
+                <div class="order-info-box">
+                  <p><strong>Mã đơn hàng:</strong> {{ selectedOrder.id }}</p>
+                  <p><strong>Tên khách hàng:</strong> {{ selectedOrder.customerID.name }}</p>
+                  <p><strong>Địa chỉ:</strong> {{ selectedOrder.address }}</p>
+                  <p><strong>SDT:</strong> {{ selectedOrder.customerID.phone }}</p>
+                  <p><strong>Phương thức thanh toán:</strong> {{ selectedOrder.paymentMethod.type }}</p>
+                  <p>
+                    <strong>Trạng thái: </strong>
+                    <span class="status-tracking">
+                    {{ statusLabels[selectedOrder.status] }}
+                  </span>
+                  </p>
+                  <p><strong>Ngày đặt:</strong> {{ formatDateTime(selectedOrder.order_Time) }}</p>
+                  <p><strong>Tổng tiền:</strong> {{ formatCurrency(selectedOrder.total_Payment) }}</p>
+                  <p>
+                    <button class="loadmore-btn"
+                            v-if=" selectedOrder.status !== 3 && selectedOrder.status !== 0 && selectedOrder.status !== 4 && selectedOrder.status !== 5"
+                            style="font-size: smaller;
+                                 margin-bottom: 5px"
+                            @click="cancelOrder(selectedOrder.id)">
+                      Hủy đơn
+                    </button>
+                    <br>
+                    <button class="loadmore-btn"
+                            v-if="selectedOrder.status !== 1  && selectedOrder.status !== 3 && selectedOrder.status !== 0 && selectedOrder.status !== 4 && selectedOrder.status !== 5"
+                            style="font-size: smaller"
+                            @click="completeOrder(selectedOrder.id)">
+                      Đã nhận được hàng
+                    </button>
+                  </p>
+                </div>
+
+                <div class="order-table">
+                  <div class="table-header row">
+                    <div class="col">Hình ảnh</div>
+                    <div class="col">Tên sản phẩm</div>
+                    <div class="col">Loại</div>
+                    <div class="col">Đơn giá</div>
+                    <div class="col">Số lượng</div>
+                    <div class="col">Thành tiền</div>
+                  </div>
+
+                  <div
+                      class="table-row row"
+                      v-for="v in paginatedOrderDetails"
+                      :key="v.id"
+                      @click="viewProductDetail(v.variationID.productID.id)"
+                  >
+                    <div class="col">
+                      <img :src="`http://localhost:8080/upload/images/${v.variationID.images.cd_Images}`" alt="Hình ảnh"
+                           class="product-img">
+                    </div>
+                    <div class="col">{{ v.variationID.name }}</div>
+                    <div class="col">{{ v.variationID.productID.name }}</div>
+                    <div class="col">{{ formatCurrency(v.unit_Price) }}</div>
+                    <div class="col">{{ v.quantity }}</div>
+                    <div class="col">{{ formatCurrency(v.quantity * v.unit_Price) }}</div>
                   </div>
                 </div>
+
                 <div class="pagination">
-                  <button type="button" @click="prevPage" class="loadmore-btn" :disabled="currentPage === 1">
+                  <button type="button" @click="prevOrderDetailPage" class="loadmore-btn"
+                          :disabled="currentOrderDetailPage === 1">
                     « Trước
                   </button>
-                  <span><h1>Trang {{ currentPage }} / {{ totalPages }}</h1></span>
-                  <button type="button" @click="nextPage" class="loadmore-btn" :disabled="currentPage === totalPages">
+                  <span><h1>Trang {{ currentOrderDetailPage }} / {{ totalOrderDetailPages }}</h1></span>
+                  <button type="button" @click="nextOrderDetailPage" class="loadmore-btn"
+                          :disabled="currentOrderDetailPage === totalOrderDetailPages">
                     Sau »
                   </button>
                 </div>
-              </form>
-            </div>
-          </div>
-          <div v-if="activeTab === 'orderline'" class="detail__order-tracking" style="font-size: 13px;">
-            <h2 style="margin-bottom: 20px;">Chi tiết đơn hàng</h2>
-
-            <div class="filter-section">
-              <button class="loadmore-btn" @click="showOrders">← Trở lại</button>
-            </div>
-
-            <div class="order-info-box">
-              <p><strong>Mã đơn hàng:</strong> {{ selectedOrder.id }}</p>
-              <p><strong>Tên khách hàng:</strong> {{ selectedOrder.customerID.name }}</p>
-              <p><strong>Địa chỉ:</strong> {{ selectedOrder.address }}</p>
-              <p><strong>SDT:</strong> {{ selectedOrder.customerID.phone }}</p>
-              <p><strong>Phương thức thanh toán:</strong> {{ selectedOrder.paymentMethod.type }}</p>
-              <p>
-                <strong>Trạng thái: </strong>
-                <span class="status-tracking">
-                  {{ statusLabels[selectedOrder.status] }}
-                </span>
-              </p>
-              <p><strong>Ngày đặt:</strong> {{ formatDateTime(selectedOrder.order_Time) }}</p>
-              <p><strong>Tổng tiền:</strong> {{ formatCurrency(selectedOrder.total_Payment) }}</p>
-              <p>
-                <button class="loadmore-btn"
-                        v-if=" selectedOrder.status !== 3 && selectedOrder.status !== 0 && selectedOrder.status !== 4 && selectedOrder.status !== 5"
-                        style="font-size: smaller;
-                               margin-bottom: 5px"
-                        @click="cancelOrder(selectedOrder.id)">
-                  Hủy đơn
-                </button>
-                <br>
-                <button class="loadmore-btn"
-                        v-if="selectedOrder.status !== 1  && selectedOrder.status !== 3 && selectedOrder.status !== 0 && selectedOrder.status !== 4 && selectedOrder.status !== 5"
-                        style="font-size: smaller"
-                        @click="completeOrder(selectedOrder.id)">
-                  Đã nhận được hàng
-                </button>
-              </p>
-            </div>
-
-            <div class="order-table">
-              <div class="table-header row">
-                <div class="col">Hình ảnh</div>
-                <div class="col">Tên sản phẩm</div>
-                <div class="col">Loại</div>
-                <div class="col">Đơn giá</div>
-                <div class="col">Số lượng</div>
-                <div class="col">Thành tiền</div>
               </div>
 
-              <div
-                  class="table-row row"
-                  v-for="v in paginatedOrderDetails"
-                  :key="v.id"
-                  @click="viewProductDetail(v.variationID.productID.id)"
-              >
-                <div class="col">
-                  <img :src="`http://localhost:8080/upload/images/${v.variationID.images.cd_Images}`" alt="Hình ảnh"
-                       class="product-img">
-                </div>
-                <div class="col">{{ v.variationID.name }}</div>
-                <div class="col">{{ v.variationID.productID.name }}</div>
-                <div class="col">{{ formatCurrency(v.unit_Price) }}</div>
-                <div class="col">{{ v.quantity }}</div>
-                <div class="col">{{ formatCurrency(v.quantity * v.unit_Price) }}</div>
-              </div>
-            </div>
-
-            <div class="pagination">
-              <button type="button" @click="prevOrderDetailPage" class="loadmore-btn"
-                      :disabled="currentOrderDetailPage === 1">
-                « Trước
-              </button>
-              <span><h1>Trang {{ currentOrderDetailPage }} / {{ totalOrderDetailPages }}</h1></span>
-              <button type="button" @click="nextOrderDetailPage" class="loadmore-btn"
-                      :disabled="currentOrderDetailPage === totalOrderDetailPages">
-                Sau »
-              </button>
             </div>
           </div>
-
         </div>
+        <!-- End col-lg-9 -->
       </div>
     </div>
-  </div>
+  </section>
 </template>
+
 
 <script>
 import {ref, onMounted, computed, watch} from 'vue';
@@ -218,9 +205,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import dayjs from 'dayjs'
 import {useRouter} from 'vue-router';
+import {useUser} from '@/components/composables/useUser';
 
 export default {
   setup() {
+    const {logout} = useUser();
     const router = useRouter();
     const apiUrl = "http://localhost:8080/MiniatureCrafts/";
     const user = ref(JSON.parse(Cookies.get("customers") || '{}'));
@@ -235,6 +224,14 @@ export default {
     const selectedStatus = ref(""); // Giá trị lọc trạng thái
     const currentPage = ref(1);
     const itemsPerPage = 5; // Số đơn hàng mỗi trang
+// Tab lọc trạng thái
+    const orderTabs = ref({
+      "": "Tất cả",
+      "1": "Chờ xác nhận",
+      "2": "Đang giao hàng",
+      "3": "Giao thành công",
+      "0": "Hủy đơn",
+    });
 
     watch(activeTab, (newVal, oldVal) => {
       console.log(`🟢 activeTab changed: ${oldVal} -> ${newVal}`);
@@ -455,7 +452,7 @@ export default {
         return;
       }
       const idCustomer = customer.id;
-      const token = customer.token;
+      const token = Cookies.get("authToken");
       const apiUrls = `${apiUrl}history/${idCustomer}`;
       try {
         const response = await axios.get(apiUrls, {
@@ -601,7 +598,9 @@ export default {
     });
 
     return {
+      logout,
       isOver30Days,
+      orderTabs,
       viewProductDetail,
       selectedStatus,
       currentPage,
@@ -675,7 +674,7 @@ export default {
 }
 
 .filter-section select:hover {
-  border-color: #00cccc;
+  border-color: #8d8e8e;
 }
 
 /* Style cho nút chuyển trang */
@@ -691,7 +690,7 @@ export default {
   font-size: 14px;
   font-weight: bold;
   color: white;
-  background-color: #00cccc;
+  background-color: #f1caca;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -700,7 +699,7 @@ export default {
 }
 
 .loadmore-btn:hover {
-  background-color: #009999;
+  background-color: #dd19fd;
 }
 
 .loadmore-btn:disabled {
@@ -828,11 +827,9 @@ export default {
   font-size: 14px;
   background-color: #fff;
   z-index: 1;
-}
-
-.order-table {
-  margin-top: 20px;
-}
+}.order-table {
+   margin-top: 20px;
+ }
 
 .table-header,
 .table-row {
@@ -941,4 +938,3 @@ export default {
 
 
 </style>
-

@@ -257,8 +257,14 @@ public class HomeController {
     }
 
     @GetMapping("fetch_products")
-    public Page<ProductDTO> getProductDTOS(Pageable pageable) {
+    public Page<ProductDTO> fetchProduct(Pageable pageable) {
         return variationService.getProducts(pageable);
+    }
+
+    @GetMapping("result_product/{keywork}")
+    public Page<ProductDTO> resultProduct(Pageable pageable, @PathVariable("keywork") String keywork) {
+        System.out.println("keywork: " + keywork);
+        return variationService.resultProduct(pageable,keywork);
     }
 
     @GetMapping("new")
@@ -269,13 +275,6 @@ public class HomeController {
     @GetMapping("bestseller")
     public Page<VariationDTO> bestSeller(Pageable pageable) {
         return variationService.getVariationsByBestseller(pageable);
-    }
-
-    @GetMapping("filterByPrice")
-    public Page<VariationDTO> home(Pageable pageable,
-                                   @RequestParam(required = false) Double minPrice,
-                                   @RequestParam(required = false) Double maxPrice) {
-        return variationService.filterPrice(pageable, minPrice, maxPrice);
     }
 
     @PostMapping("updateInfo/{id}")
@@ -309,10 +308,30 @@ public class HomeController {
         return variationService.fillterByCategory(pageable, category);
     }
 
-    @GetMapping("brands/{brand}")
+    @GetMapping("brand/{brand}")
     public Page<ProductDTO> fillterBrand(Pageable pageable, @PathVariable("brand") Long brand) {
         return variationService.fillterByBrand(pageable, brand);
     }
+
+    @GetMapping("filter_price")
+    public Page<VariationDTO> filterByPrice(
+            @RequestParam Double min,
+            @RequestParam Double max,
+            Pageable pageable
+    ) {
+        return variationService.findByPriceRange(min, max, pageable);
+    }
+
+    @GetMapping("categories/{c}")
+    public Page<VariationDTO> filter_Variation_Category(Pageable pageable, @PathVariable("c") Long categories) {
+        return variationService.getVariationByCategory(pageable, categories);
+    }
+
+    @GetMapping("brands/{b}")
+    public Page<VariationDTO> filter_Variation_Brands(Pageable pageable, @PathVariable("b") Long brands) {
+        return variationService.getVariationByBrands(pageable, brands);
+    }
+
 
     @GetMapping("categories")
     public List<CategoryDTO> fillCategory() {

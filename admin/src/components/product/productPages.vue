@@ -364,47 +364,159 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped>/* ==== FORM ==== */
 .form-group {
   margin-bottom: 20px;
 }
 
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+  color: #444;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+  outline: none;
+}
+
+/* ==== BUTTON ==== */
 .btn-primary {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.3);
 }
 
+.btn-warning {
+  background: #ff9800;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+/* ==== IMAGE UPLOAD ==== */
 .image-preview-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 15px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px dashed #ccc;
+}
+
+.image-preview-wrapper:hover {
+  border-color: #00bcd4;
+  background: #f0fcfc;
 }
 
 .image-preview-wrapper img {
   max-width: 80px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .radio-label {
   font-size: 14px;
-  margin-left: 10px;
-  color: #555;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
+/* ==== TABLE ==== */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.table th {
+  background: #00bcd4;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 12px;
+}
+
+.table td {
+  padding: 12px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+}
+
+.table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: #f0fcfc;
+}
+
+/* ==== PAGINATION ==== */
 .pagination-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 16px;
-  gap: 8px;
+  gap: 10px;
 }
+
+.btn-secondary {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #00bcd4;
+  color: white;
+  border-color: #00bcd4;
+}
+
+.mx-2 {
+  font-weight: 600;
+  color: #444;
+}
+
 </style>

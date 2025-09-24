@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
               <label for="address" class="form-label">Địa chỉ</label>
-              <input id="address" v-model="form.address" type="text" placeholder="VD: Hải phòng computer"
+              <input id="address" v-model="form.address" type="text" placeholder="VD: GenZFashion"
                      class="form-control"   >
               <span class="form-message">{{ messages.address }}</span>
             </div>
@@ -42,7 +42,7 @@
           <p class="text-login">Đăng nhập bằng tài khoản sẽ giúp bạn truy cập:</p>
           <ul>
             <li class="text-login-item"><i class="fas fa-check"></i>
-              <p class="text-login">Một lần đăng nhập chung duy nhất để tương tác với các sản phẩm và dịch vụ của Miniature Craft</p>
+              <p class="text-login">Một lần đăng nhập chung duy nhất để tương tác với các sản phẩm và dịch vụ của GenZFashion</p>
             </li>
             <li class="text-login-item"><i class="fas fa-check"></i>
               <p class="text-login">Thanh toán nhanh hơn</p>

@@ -76,7 +76,6 @@ public class VariationController {
 
     @PostMapping("images/upload")
     public ResponseEntity<?> uploadImage(@RequestParam("file") List<MultipartFile> listFiles) {
-        String IMAGE_DIR = "D:/DoAnTotNghiep/DATN_HP_29/DoAnTotNghiep_MiniatureCrafts/upload/images/"; // Cấu hình thư mục lưu ảnh
 
         try {
             if (listFiles.isEmpty()) {
@@ -176,7 +175,7 @@ public class VariationController {
 
     @GetMapping("category/{category}")
     public Page<VariationDTO> filterCategory(Pageable pageable, @PathVariable("category") Long category) {
-        return variationService.getProductByCategory(pageable, category);
+        return variationService.getVariationByCategory(pageable, category);
     }
 
     @PostMapping("add")

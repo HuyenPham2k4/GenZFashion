@@ -1,61 +1,55 @@
 <template>
+  <!-- Footer Section Begin -->
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <!-- Logo & Liên hệ -->
-        <div class="col-sm-12 col-md-6 col-lg-3 footer__brand">
-          <img
-              src="../assets/img/logo/img.png"
-              alt="MinatureCraft Logo"
-              class="footer__logo"
-          />
-          <p class="footer__desc">Mang đến thế giới mô hình tinh xảo cho bạn.</p>
-          <ul class="footer__contact">
-            <li><i class="fas fa-map-marker-alt"></i> Hai Phong, Viet Nam</li>
-            <li><i class="fas fa-phone"></i> <a href="tel:0123456789">0338086647</a></li>
-            <li><i class="fas fa-envelope"></i> <a href="mailto:abc@gmail.com">khanhzxlp909@gmail.com</a></li>
-          </ul>
-          <div class="footer__social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="footer__about">
+            <div class="footer__logo">
+              <a href="#"><img src="../assets/img/footer-logo.png" alt="" /></a>
+            </div>
+            <p>The customer is at the heart of our unique business model, which includes design.</p>
+            <a href="#"><img src="../assets/img/payment.png" alt="" /></a>
           </div>
         </div>
-
-        <!-- Thông tin -->
-        <div class="col-sm-12 col-md-6 col-lg-3">
-          <h3 class="footer__heading">Thông tin</h3>
-          <ul class="footer__list">
-            <li><a href="#">Cơ sở 1: 271 Lê Thánh Tông, Ngô Quyền, Hải Phòng</a></li>
-            <li><a href="#">Lĩnh vực kinh doanh</a></li>
-          </ul>
+        <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+          <div class="footer__widget">
+            <h6>Shopping</h6>
+            <ul>
+              <li><a href="#">Clothing Store</a></li>
+              <li><a href="#">Trending Shoes</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Sale</a></li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Chính sách -->
-        <div class="col-sm-12 col-md-6 col-lg-3">
-          <h3 class="footer__heading">Chính sách</h3>
-          <ul class="footer__list">
-            <li><a href="#">Thanh toán</a></li>
-            <li><a href="#">Giao hàng</a></li>
-            <li><a href="#">Bảo mật</a></li>
-          </ul>
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="footer__widget">
+            <h6>Shopping</h6>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Payment Methods</a></li>
+              <li><a href="#">Delivary</a></li>
+              <li><a href="#">Return & Exchanges</a></li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Hỗ trợ -->
-        <div class="col-sm-12 col-md-6 col-lg-3">
-          <h3 class="footer__heading">Hỗ trợ</h3>
-          <ul class="footer__list">
-            <li><router-link to="/">Trang chủ</router-link></li>
-            <li><router-link to="/product">Sản phẩm</router-link></li>
-            <li><router-link to="/contact">Liên hệ</router-link></li>
-            <li><router-link to="/contact">Liên hệ</router-link></li>
-          </ul>
+        <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+          <div class="footer__widget">
+            <h6>NewLetter</h6>
+            <div class="footer__newslatter">
+              <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+              <form action="#">
+                <input type="text" placeholder="Your email" />
+                <button type="submit"><span class="icon_mail_alt"></span></button>
+              </form>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </footer>
+  <!-- Footer Section End -->
 </template>
 
 <script>
@@ -71,7 +65,7 @@ export default {
   padding: 50px 0 20px;
   font-size: 15px;
   line-height: 1.8;
-  margin-top: auto;           /* quan trọng: đẩy footer xuống cuối */
+  margin-top: auto;           /* quan trọng: đẩy footer xu��ng cuối */
   border-top: 1px solid #e0e0e0;  /* vạch mờ phân chia */
 }
 
@@ -93,11 +87,6 @@ export default {
   margin-bottom: 8px;
 }
 
-.footer__contact i {
-  margin-right: 8px;
-  color: var(--hover-color);
-}
-
 .footer__social a {
   display: inline-block;
   margin-right: 12px;
@@ -106,9 +95,6 @@ export default {
   transition: 0.3s;
 }
 
-.footer__social a:hover {
-  color: var(--hover-color);
-}
 
 .footer__heading {
   color: #fff;
@@ -133,7 +119,6 @@ export default {
 }
 
 .footer__list a:hover {
-  color: var(--hover-color);
   padding-left: 5px;
 }
 
@@ -147,7 +132,6 @@ export default {
 }
 
 .footer__bottom span {
-  color: var(--hover-color);
   font-weight: 600;
 }
 </style>

@@ -22,6 +22,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "select p from Product p order by p.ID desc")
     Page<Product> findAll(Pageable pageable);
 
+    @Query(value = "select p from Product p where p.Name LIKE %:keyword%  or p.BrandID.Name LIKE %:keyword%  or p.BrandID.Note LIKE %:keyword%  or p.CategoryID.Name LIKE %:keyword%  order by p.ID desc")
+    Page<Product> resultProduct(Pageable pageable, @Param("keyword") String keywork);
+
     @Query(value = "select p from Product p where p.CategoryID.ID = :id order by p.ID desc")
     Page<Product> filterByCategory(Pageable pageable, @Param("id") Long id);
 
