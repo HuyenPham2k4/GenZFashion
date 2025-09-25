@@ -40,7 +40,7 @@
                 <router-link to="/variations">Biến thể</router-link>
               </li>
               <li class="active">
-                <router-link to="/contact">Contacts</router-link>
+                <router-link to="/lien-he">Contacts</router-link>
               </li>
             </ul>
           </nav>

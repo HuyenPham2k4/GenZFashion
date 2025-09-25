@@ -49,7 +49,7 @@ public class VariationService {
     }
 
 
-    public void deleteImages(String cd_images) {
+    public void deleteByCd_Images(String cd_images) {
         imagesRepository.deleteByCd_Images(cd_images);
     }
 
