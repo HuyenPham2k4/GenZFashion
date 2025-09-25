@@ -92,7 +92,13 @@
                 </div>
                 <div class="product__item__text">
                   <h6>{{ v.name }}</h6>
-                  <a href="#" class="add-cart">+ Add To Cart</a>
+                  <a
+                      v-if="v?.status"
+                      @click="addToCart(v)"
+                      class="add-cart"
+                  >
+                    + Add To Cart
+                  </a>
                   <h5>{{ formatCurrency(v.price) }}</h5>
                 </div>
               </div>
@@ -115,6 +121,8 @@
 <script>
 import {ref, onMounted} from "vue";
 import axios from "axios";
+import Cookies from "js-cookie";
+import {useUser} from "@/components/composables/useUser";
 
 export default {
   setup() {
@@ -138,7 +146,39 @@ export default {
       {value: "3000000-4000000", label: "3,000,000đ->4,000,000đ"},
       {value: "4000000-100000000", label: "Trên 4,000,000đ"},
     ]);
-
+    const addToCart = async (variation) => {
+      // alert("Chức năng thêm vào giỏ hàng đang được phát triển!");
+      const customerCookie = Cookies.get("customers");
+      if(variation.quantity < 1) {
+        alert("Sản phẩm hiện đã hết hàng!");
+        return;
+      }
+      if (!customerCookie) {
+        alert("Vui lòng đăng nhập!");
+        window.location.href = '/login';
+        return;
+      }
+      const customer = JSON.parse(customerCookie);
+      const cartItem = {
+        customer_id: {
+          id: customer.id,
+        },
+        variation_id: {
+          id: variation.id,
+        },
+        quantity: "1",
+      };
+      try {
+        const response = await axios.post("http://localhost:8080/api/v1/cart/addtocart", cartItem);
+        if (response.status === 200) {
+          alert("Thêm sản phẩm vào giỏ hàng thành công!");
+          await useUser();
+          window.location.reload();
+        }
+      } catch (error) {
+        alert("Hiện đã hết hàng, không thể thêm sản phẩm vào giỏ hàng!");
+      }
+    };
     function getMinPrice(variations) {
       if (!Array.isArray(variations) || variations.length === 0) return 0;
       return variations.reduce((min, v) => v.price < min ? v.price : min, variations[0].price);
@@ -283,6 +323,7 @@ export default {
 
 
     return {
+      addToCart,
       openDetail,
       getMinPrice,
       formatCurrency,
@@ -314,4 +355,8 @@ export default {
 
 <style scoped>
 /* Add your styles here */
+.add-cart.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 </style>

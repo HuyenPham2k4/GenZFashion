@@ -261,7 +261,7 @@ public class VariationService {
         entity.setMaterial(dto.getMaterial());
         entity.setSize(dto.getSize());
         entity.setStatus(dto.getStatus());
-//        entity.setSold(0);
+        entity.setDescription(dto.getDescription());
         return variationRepository.save(entity);
     }
 

@@ -129,7 +129,7 @@
                           <input type="button" value="+" class="control" @click="changeQuantity(1)"/>
                         </div>
                       </div>
-                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">add to cart
+                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">Add to cart
                       </button>
                     </div>
                     <div class="product__details__last__option">

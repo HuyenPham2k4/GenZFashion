@@ -41,7 +41,7 @@ public class EmailService {
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
         helper.setTo(to);
-        helper.setSubject("🛍️ Đơn hàng từ MiniatureCrafts");
+        helper.setSubject("🛍️ Đơn hàng từ GenZFashion");
 
         // Format tiền tệ VND
         NumberFormat currencyFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
@@ -128,8 +128,8 @@ public class EmailService {
             <p><strong>📍 Địa chỉ giao hàng:</strong> %s</p>
             <p><strong>💳 Phương thức thanh toán:</strong> %s</p>
             <div class="footer">
-                📞 Cần hỗ trợ? Liên hệ với chúng tôi tại <a href="mailto:support@miniaturecrafts.com">support@miniaturecrafts.com</a>
-                <br>❤️ Cảm ơn bạn đã mua sắm tại MiniatureCrafts!
+                📞 Cần hỗ trợ? Liên hệ với chúng tôi tại <a href="mailto:support@GenZFashion.com">support@GenZFashion.com</a>
+                <br>❤️ Cảm ơn bạn đã mua sắm tại GenZFashion!
             </div>
                 </div>
             </body>
@@ -152,7 +152,7 @@ public class EmailService {
         List<Account> admins = accountRepository.findByRolesAdmin();
         for (Account admin : admins) {
             helper.setTo(admin.getEmail());
-            helper.setSubject("Thông báo đơn hàng từ MiniatureCrafts");
+            helper.setSubject("Thông báo đơn hàng từ GenZFashion");
 
             // Format tiền tệ VND
             NumberFormat currencyFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
@@ -317,7 +317,7 @@ public class EmailService {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
         helper.setTo(to);
-        helper.setSubject("Mã OTP xác thực quên mật khẩu MiniatureCrafts");
+        helper.setSubject("Mã OTP xác thực quên mật khẩu GenZFashion");
         String htmlContent = String.format("""
             <html>
             <body>

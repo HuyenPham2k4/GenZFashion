@@ -49,11 +49,18 @@
                 </tr>
                 <tr v-for="variation in products" :key="variation.id" @click="addToCart(variation)">
                   <td class="so--luong">{{ variation.name }}</td>
-                  <td class="so--luong">
-                    <div class="color-box"
-                         :style="{ backgroundColor: variation.color, width: '30px', height: '30px', borderRadius: '4px' }">
-                    </div>
+                  <td>
+                    <div
+                        :style="{
+                                  backgroundColor: variation.color,
+                                  width: '30px',
+                                  height: '30px',
+                                  border: '1px solid #000', // thêm viền đen để nổi bật
+                                  borderRadius: '4px'
+                                }"
+                    ></div>
                   </td>
+
                   <td class="so--luong">{{ variation.material }}</td>
                   <td class="so--luong">{{ variation.size }}</td>
                   <td class="so--luong">
@@ -118,7 +125,7 @@
               <table class="table table-hover table-bordered">
                 <thead>
                 <tr>
-                  <th>Mã hàng</th>
+                  <th>Ảnh</th>
                   <th>Tên sản phẩm</th>
                   <th>Số lượng</th>
                   <th>Giá bán</th>
@@ -128,7 +135,9 @@
                 </thead>
                 <tbody>
                 <tr v-for="item in cart" :key="item.id">
-                  <td>{{ item.sku }}</td>
+                  <td class="so--luong">
+                    <img :src="getImagesUrl(item.images)" alt="" width="70px"/>
+                  </td>
                   <td>{{ item.productID.name }}</td>
                   <td class="quantity-cell">
                     <button class="quantity-btn" @click="decreaseQuantity(item)">-</button>
