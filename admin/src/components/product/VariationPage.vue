@@ -15,7 +15,7 @@
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item active">
-            <a href="#"><b>Thêm mới sản phẩm</b></a>
+            <a href="#"><b>Thêm mới biến thể</b></a>
           </li>
         </ul>
         <div id="clock">{{ currentTime }}</div>
@@ -43,10 +43,22 @@
                   <label>Màu sắc</label>
                   <input type="color" id="productColor" v-model="variation.color" class="form-control">
                 </div>
+<!--                <div class="form-group col-md-3">-->
+<!--                  <label for="productSize">Kích thước (? x ? x ? cm):</label>-->
+<!--                  <input type="text" id="productSize" v-model="variation.size" class="form-control"/>-->
+<!--                </div>-->
                 <div class="form-group col-md-3">
-                  <label for="productSize">Kích thước (? x ? x ? cm):</label>
-                  <input type="text" id="productSize" v-model="variation.size" class="form-control"/>
+                  <label for="productSize">Kích thước:</label>
+                  <select id="productSize" v-model="variation.size" class="form-control">
+                    <option disabled value="">-- Chọn size --</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                  </select>
                 </div>
+
                 <div class="form-group col-md-3">
                   <label for="productMaterial">Chất liệu:</label>
                   <input type="text" id="productMaterial" v-model="variation.material" class="form-control"/>
@@ -162,7 +174,8 @@
                   <td>{{ formatCurrency(variation.price) }}</td>
                   <td>{{ variation.productID.categoryID.name }}</td>
                   <td>
-                    <button class="btn btn-edit" @click="editVariation(variation, variation.id)">Sửa</button>
+                    <button class="btn btn-edit" style="background: #FFC7ED;color: #322C2B;"
+                            @click="editVariation(variation, variation.id)">Sửa</button>
                     <button class="btn btn-delete" @click="confirmDelete(variation)">Xóa</button>
                   </td>
                 </tr>
@@ -663,12 +676,11 @@ export default {
 }
 
 .page-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+  background-color: white;
 }
 
 .page-button.active {
-  background-color: #28a745;
+  background-color: #FFC7ED;
   color: white;
 }
 </style>

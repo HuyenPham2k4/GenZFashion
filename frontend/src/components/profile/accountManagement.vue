@@ -9,19 +9,17 @@
             <h4>Tài khoản của tôi</h4>
             <ul>
               <li :class="{ active: activeTab === 'profile' }" @click="showProfile">
-                <a><i class="fa fa-user"></i> Thông tin cá nhân</a>
+                <a>Thông tin cá nhân</a>
               </li>
               <li :class="{ active: activeTab === 'orders' }" @click="showOrders">
-                <a><i class="fa fa-history"></i> Lịch sử đơn hàng</a>
+                <a> Lịch sử đơn hàng</a>
               </li>
               <li :class="{ active: activeTab === 'password' }" @click="showChangePassword">
-                <a><i class="fa fa-lock"></i> Đổi mật khẩu</a>
+                <a>Đổi mật khẩu</a>
               </li>
 
               <div class="logout-btn">
-                <button type="button" @click="logout()">
-                  <i class="fa fa-sign-out"></i> Đăng xuất
-                </button>
+                <button type="button" @click="logout()">Đăng xuất </button>
               </div>
             </ul>
           </div>
@@ -110,7 +108,7 @@
               </div>
 
               <div v-if="activeTab === 'orderline'" class="detail__order-tracking" style="font-size: 13px; background-color: #f3eae8">
-                <h2 style="margin-bottom: 20px; color: ">Chi tiết đơn hàng</h2>
+                <h2 style="margin-bottom: 20px">Chi tiết đơn hàng</h2>
 
                 <div class="filter-section">
                   <button class="loadmore-btn" @click="showOrders">← Trở lại</button>

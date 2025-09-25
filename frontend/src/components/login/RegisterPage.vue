@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12 col-lg-6">
           <form @submit.prevent="register" class="form" id="form-1">
-            <h3 class="heading">ĐĂNG KÍ</h3>
+            <h3 class="heading">Đăng Ký</h3>
             <div class="form-group">
               <label for="fullname" class="form-label">Tên đăng nhập</label>
               <input id="fullname" v-model="form.username" type="text" placeholder="VD: Nguyễn Văn A" class="form-control">
@@ -37,8 +37,7 @@
               </div>
               <span class="form-message">{{ messages.password_confirmation }}</span>
             </div>
-            <button class="form-submit btn-blocker" style="border-radius: unset;">Đăng ký <i class="fas fa-arrow-right"
-                                                                                             style="font-size: 16px;margin-left: 10px;"></i>
+            <button class="form-submit btn-blocker" style=" background-color: #FFC7ED">Đăng ký <i class="fas fa-arrow-right" style="font-size: 16px;margin-left: 10px;"></i>
             </button>
             <p style="font-size: 16px;margin: 10px 0;">Bạn đã có tài khoản?
               <a href="/login" style="color: black; font-weight: bold">Đăng nhập</a>
@@ -183,16 +182,14 @@ export default {
 
 .heading {
   text-align: start;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 34px;
-  color: var(--black-color);
   margin: 15px 0;
 }
 
 .form__forgot-password {
   font-size: 16px;
   text-decoration: underline;
-  color: var(--black-color);
 }
 
 .form__forgot-password:hover {
@@ -243,13 +240,11 @@ export default {
 
 .form-submit {
   padding: 20px 50px;
-  background: none;
-  color: var(--white-color);
+  background-color: #FFC7ED;
   font-weight: 500;
   font-size: 18px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--black-color);
   transition: 0.8s;
   border-radius: 4px;
 }
@@ -260,18 +255,13 @@ export default {
   left: 0;
   width: 100%;
   height: 0%;
-  background-color: var(--black-color);
   z-index: -1;
   transition: 0.8s;
   border-radius: 0 0 50% 50%;
   top: 0;
   height: 180%;
-  color: var(--white-color);
 }
 
-.form-submit:hover {
-  color: var(--black-color);
-}
 
 .form-submit:hover::before {
   height: 0%;
@@ -279,13 +269,9 @@ export default {
 
 .fi-rs-arrow-right {
   font-size: 14px;
-  color: var(--white-color);
   margin-left: 20px;
 }
 
-.form-submit:hover > .fi-rs-arrow-right {
-  color: var(--black-color);
-}
 
 h4 {
   margin: 20px 0px 30px 0px;
@@ -297,17 +283,14 @@ h4 {
 
 .form-submit-social {
   background: none;
-  color: var(--black-color);
   padding: 20px 40px 20px 20px;
   margin: 20px 0;
-  border: 2px solid var(--black-color);
   position: relative;
   overflow: hidden;
   transition: color 0.4s linear;
 }
 
 .form-submit-social::before {
-  background-color: var(--black-color);
   width: 100%;
   content: "";
   position: absolute;
@@ -323,7 +306,6 @@ h4 {
 
 .form-submit-social:hover {
   text-decoration: none;
-  color: var(--white-color);
 }
 
 .form-submit-social:hover::before {

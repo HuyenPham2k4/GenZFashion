@@ -29,8 +29,8 @@
                      placeholder="Ghi chú" class="form-control">
               <span class="form-label" style="color: red">{{ messages.note }}</span>
             </div>
-            <button class="form-submit btn-blocker" style="border-radius: unset;">Đăng ký <i class="fas fa-arrow-right"
-                                                                                             style="font-size: 16px;margin-left: 10px;"></i>
+            <button class="form-submit btn-blocker" style="border-radius: unset;background-color: #FFC7ED">Đăng ký
+              <i class="fas fa-arrow-right" style="font-size: 16px;margin-left: 10px;"></i>
             </button>
             <p style="font-size: 16px;margin: 10px 0;">Bạn đã có tài khoản?
               <a href="/login" style="color: black; font-weight: bold">Đăng nhập</a>
@@ -163,16 +163,14 @@ export default {
 
 .heading {
   text-align: start;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 34px;
-  color: var(--black-color);
   margin: 15px 0;
 }
 
 .form__forgot-password {
   font-size: 16px;
   text-decoration: underline;
-  color: var(--black-color);
 }
 
 .form__forgot-password:hover {
@@ -224,12 +222,10 @@ export default {
 .form-submit {
   padding: 20px 50px;
   background: none;
-  color: var(--white-color);
   font-weight: 500;
   font-size: 18px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--black-color);
   transition: 0.8s;
   border-radius: 4px;
 }
@@ -240,17 +236,14 @@ export default {
   left: 0;
   width: 100%;
   height: 0%;
-  background-color: var(--black-color);
   z-index: -1;
   transition: 0.8s;
   border-radius: 0 0 50% 50%;
   top: 0;
   height: 180%;
-  color: var(--white-color);
 }
 
 .form-submit:hover {
-  color: var(--black-color);
 }
 
 .form-submit:hover::before {
@@ -259,12 +252,10 @@ export default {
 
 .fi-rs-arrow-right {
   font-size: 14px;
-  color: var(--white-color);
   margin-left: 20px;
 }
 
 .form-submit:hover > .fi-rs-arrow-right {
-  color: var(--black-color);
 }
 
 h4 {
@@ -277,17 +268,14 @@ h4 {
 
 .form-submit-social {
   background: none;
-  color: var(--black-color);
   padding: 20px 40px 20px 20px;
   margin: 20px 0;
-  border: 2px solid var(--black-color);
   position: relative;
   overflow: hidden;
   transition: color 0.4s linear;
 }
 
 .form-submit-social::before {
-  background-color: var(--black-color);
   width: 100%;
   content: "";
   position: absolute;
@@ -302,8 +290,7 @@ h4 {
 }
 
 .form-submit-social:hover {
-  text-decoration: none;
-  color: var(--white-color);
+  text-decoration: none
 }
 
 .form-submit-social:hover::before {

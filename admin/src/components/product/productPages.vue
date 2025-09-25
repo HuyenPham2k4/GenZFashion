@@ -206,13 +206,30 @@ export default {
     },
 
     validateForm() {
+      // Validate tên sản phẩm
       if (!this.product.name.trim() || this.product.name.length > 50) {
-        alert("Quá giới hạn ký tự")
+        alert("Tên sản phẩm không được rỗng hoặc dài quá 50 ký tự!");
         return false;
       }
-      ;
-      const uploadedFiles = this.images.filter(image => image.file !== null);
-      return uploadedFiles.length === 3;
+
+      // Validate ảnh
+      const uploadedFiles = this.images.filter(img => img.file !== null);
+      const existingFiles = this.product.images ? this.product.images.length : 0;
+
+      // Tổng số ảnh hợp lệ (ảnh cũ + ảnh mới)
+      const totalFiles = uploadedFiles.length + existingFiles;
+
+      if (totalFiles === 0) {
+        alert("Vui lòng chọn ít nhất 1 ảnh!");
+        return false;
+      }
+
+      if (totalFiles > 3) {
+        alert("Chỉ được phép có tối đa 3 ảnh cho sản phẩm!");
+        return false;
+      }
+
+      return true;
     },
 
     async addProduct() {
@@ -275,19 +292,26 @@ export default {
       try {
         // Step 1: Delete old images
 
-        await axios.post(
-            "http://localhost:8080/admin/variation/images/delete",
-            this.product.images.map(img => img.cd_Images),
-            { headers: { Authorization: `Bearer ${token}` } }
-        );
+        const imagesToDelete = this.product.images
+            .filter(oldImg => !this.images.some(newImg => newImg.oldName === oldImg.cd_Images))
+            .map(img => img.cd_Images);
 
+        if (imagesToDelete.length > 0) {
+          await axios.post(
+              "http://localhost:8080/admin/variation/images/delete",
+              imagesToDelete,
+              { headers: { Authorization: `Bearer ${token}` } }
+          );
+        }
         // Step 2: Update product details
-        await axios.post(
+        const res = await axios.post(
             "http://localhost:8080/admin/product/update",
             this.product,
             {headers: {Authorization: `Bearer ${token}`}}
         );
+        alert("Cập nhật sản phẩm thành công!");
 
+        console.log("Product updated:", res);
         // Step 3: Upload new images
         const uploadedImages = [];
         for (const image of this.images) {
@@ -298,12 +322,15 @@ export default {
             const uploadResponse = await axios.post(
                 "http://localhost:8080/admin/variation/images/upload",
                 formData,
-                {headers: {Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data"}}
+                { headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" } }
             );
-
             uploadedImages.push(uploadResponse.data.urls[0]);
+          } else {
+            // Nếu ảnh không thay đổi, giữ nguyên cd_Images cũ
+            uploadedImages.push(image.oldName);
           }
         }
+
 
         // Step 4: Associate new images with the product
         const imageRequests = uploadedImages.map((imageUrl, index) => ({
@@ -385,14 +412,14 @@ label {
 }
 
 .form-control:focus {
-  border-color: #00bcd4;
+  border-color: #FFC7ED;
   box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
   outline: none;
 }
 
 /* ==== BUTTON ==== */
 .btn-primary {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  background: #FFC7ED;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -400,28 +427,30 @@ label {
   font-size: 15px;
   font-weight: 600;
   transition: all 0.3s ease;
-  color: white;
+  color: #322C2B;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  background: #322C2B;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.3);
+  box-shadow: 0 4px 12px #FFC7ED;
 }
 
 .btn-warning {
-  background: #ff9800;
+  background: #FFC7ED;
   border: none;
   border-radius: 6px;
   padding: 6px 14px;
   font-size: 14px;
   font-weight: 500;
-  color: white;
+  color: #322C2B;
   transition: all 0.3s ease;
 }
 
 .btn-warning:hover {
-  background: #e68900;
+  background: #322C2B;
+  color: white;
   transform: scale(1.05);
 }
 
@@ -438,7 +467,7 @@ label {
 }
 
 .image-preview-wrapper:hover {
-  border-color: #00bcd4;
+  border-color:  #FFC7ED;
   background: #f0fcfc;
 }
 
@@ -467,8 +496,7 @@ label {
 }
 
 .table th {
-  background: #00bcd4;
-  color: white;
+  background: #FFC7ED;
   text-align: center;
   font-weight: 600;
   padding: 12px;
@@ -499,7 +527,7 @@ label {
 }
 
 .btn-secondary {
-  background: #f5f5f5;
+  background: white;
   border: 1px solid #ddd;
   padding: 6px 12px;
   border-radius: 6px;
@@ -508,15 +536,16 @@ label {
   transition: all 0.2s ease;
 }
 
-.btn-secondary:hover {
-  background: #00bcd4;
-  color: white;
-  border-color: #00bcd4;
+
+  .btn-secondary:hover {
+    background: #FFC7ED;
+    color: #000;
+    border-color: #FFC7ED;
 }
 
 .mx-2 {
   font-weight: 600;
-  color: #444;
+  color: #322C2B;
 }
 
 </style>

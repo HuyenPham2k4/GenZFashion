@@ -134,7 +134,7 @@
                     </div>
                     <div class="product__details__last__option">
                       <ul>
-                        <li><span>SKU:</span> {{ activeVariation?.sku || selectedProduct.id }}</li>
+<!--                        <li><span>SKU:</span> {{ activeVariation?.sku || selectedProduct.id }}</li>-->
                         <li><span>Categories:</span> {{ selectedProduct.categoryID?.name }}</li>
                         <li><span>Tag:</span> Clothes, Fashion</li>
                       </ul>

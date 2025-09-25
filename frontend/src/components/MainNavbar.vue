@@ -33,13 +33,13 @@
               <li class="active">
                 <router-link to="/">Home</router-link>
               </li>
-              <li>
+              <li class="active">
                 <router-link to="/product">Shop</router-link>
               </li>
-              <li>
+              <li class="active">
                 <router-link to="/variations">Biến thể</router-link>
               </li>
-              <li>
+              <li class="active">
                 <router-link to="/contact">Contacts</router-link>
               </li>
             </ul>

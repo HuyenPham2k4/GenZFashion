@@ -34,60 +34,123 @@
         </div>
       </div>
       <hr/>
+<!--      <ul class="app-menu">-->
+<!--        <li>-->
+<!--          <a class="app-menu__item " href="/order" @click.prevent="navigateTo('order')">-->
+<!--            <i class="app-menu__icon bx bx-cart"></i>-->
+<!--            <span class="app-menu__label">POS Bán Hàng</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li v-if="showDashboard">-->
+<!--          <a class="app-menu__item" href="/">-->
+<!--            <i class='app-menu__icon bx bx-tachometer'></i>-->
+<!--            <span class="app-menu__label">Bảng điều khiển</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li v-if="showCustomer">-->
+<!--          <a class="app-menu__item" href="/customer">-->
+<!--            <i class="app-menu__icon bx bx-group"></i>-->
+<!--            <span class="app-menu__label">Quản lý khách hàng</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <router-link to="/product" class="app-menu__item">-->
+<!--            <i class="app-menu__icon bx bx-package"></i>-->
+<!--            <span class="app-menu__label">Quản lý sản phẩm</span>-->
+<!--          </router-link>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="app-menu__item" href="/variation">-->
+<!--            <i class="app-menu__icon bx bx-package"></i>-->
+<!--            <span class="app-menu__label">Quản lý biến thể</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="app-menu__item" href="/posorder">-->
+<!--            <i class="app-menu__icon bx bx-receipt"></i>-->
+<!--            <span class="app-menu__label">Quản lý đơn hàng</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li v-if="showEmployee">-->
+<!--          <a class="app-menu__item" href="/employee">-->
+<!--            <i class="app-menu__icon bx bx-id-card"></i>-->
+<!--            <span class="app-menu__label">Nhân viên</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="app-menu__item" href="/contact">-->
+<!--            <i class="app-menu__icon bx bx-bell"></i>-->
+<!--            <span class="app-menu__label">Thông báo</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="app-menu__item" href="/login">-->
+<!--            <i class="app-menu__icon bx bx-log-in"></i>-->
+<!--            <span class="app-menu__label">Đăng nhập</span>-->
+<!--          </a>-->
+<!--        </li>-->
       <ul class="app-menu">
         <li>
-          <a class="app-menu__item haha" href="/order" @click.prevent="navigateTo('order')">
+          <router-link to="/order" class="app-menu__item">
             <i class="app-menu__icon bx bx-cart"></i>
             <span class="app-menu__label">POS Bán Hàng</span>
-          </a>
+          </router-link>
         </li>
+
         <li v-if="showDashboard">
-          <a class="app-menu__item" href="/">
-            <i class='app-menu__icon bx bx-tachometer'></i>
+          <router-link to="/" class="app-menu__item">
+            <i class="app-menu__icon bx bx-tachometer"></i>
             <span class="app-menu__label">Bảng điều khiển</span>
-          </a>
+          </router-link>
         </li>
+
         <li v-if="showCustomer">
-          <a class="app-menu__item" href="/customer">
+          <router-link to="/customer" class="app-menu__item">
             <i class="app-menu__icon bx bx-group"></i>
             <span class="app-menu__label">Quản lý khách hàng</span>
-          </a>
+          </router-link>
         </li>
+
         <li>
-          <a class="app-menu__item" href="/product">
+          <router-link to="/product" class="app-menu__item">
             <i class="app-menu__icon bx bx-package"></i>
             <span class="app-menu__label">Quản lý sản phẩm</span>
-          </a>
+          </router-link>
         </li>
+
         <li>
-          <a class="app-menu__item" href="/variation">
+          <router-link to="/variation" class="app-menu__item">
             <i class="app-menu__icon bx bx-package"></i>
             <span class="app-menu__label">Quản lý biến thể</span>
-          </a>
+          </router-link>
         </li>
+
         <li>
-          <a class="app-menu__item" href="/posorder">
+          <router-link to="/posorder" class="app-menu__item">
             <i class="app-menu__icon bx bx-receipt"></i>
             <span class="app-menu__label">Quản lý đơn hàng</span>
-          </a>
+          </router-link>
         </li>
+
         <li v-if="showEmployee">
-          <a class="app-menu__item" href="/employee">
+          <router-link to="/employee" class="app-menu__item">
             <i class="app-menu__icon bx bx-id-card"></i>
             <span class="app-menu__label">Nhân viên</span>
-          </a>
+          </router-link>
         </li>
+
         <li>
-          <a class="app-menu__item" href="/contact">
+          <router-link to="/contact" class="app-menu__item">
             <i class="app-menu__icon bx bx-bell"></i>
             <span class="app-menu__label">Thông báo</span>
-          </a>
+          </router-link>
         </li>
+
         <li>
-          <a class="app-menu__item" href="/login">
+          <router-link to="/login" class="app-menu__item">
             <i class="app-menu__icon bx bx-log-in"></i>
             <span class="app-menu__label">Đăng nhập</span>
-          </a>
+          </router-link>
         </li>
         <li>
           <a class="app-menu__item" @click.prevent="logout" href="#">
@@ -186,7 +249,7 @@ export default {
 
 /* Đổi màu nền khi di chuột qua nút */
 .header-icon-button:hover {
-  background-color: yellow; /* Màu nền vàng */
+  background-color: #ffffff; /* Màu nền vàng */
 }
 
 /* Đổi màu icon thành đen khi di chuột qua nút */
@@ -208,7 +271,7 @@ export default {
 }
 
 .app-menu__item:hover {
-  background-color: #e0e0e0;
+  background-color: #ffffff;
 }
 
 /* Các style khác */

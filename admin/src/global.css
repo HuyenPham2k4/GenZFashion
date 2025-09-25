@@ -2171,7 +2171,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 .form-control:focus {
     color: #495057;
     background-color: #FFF;
-    border-color: rgb(0, 28, 64);
+    border-color: #FFC7ED;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2747,8 +2747,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-    color: rgb(245 157 57);
-    background-color: rgb(251 226 197);
+    color: #322C2B;
+    background-color: #FFC7ED;
     /* border-top-left-radius: 10px !important; */
     /* border-bottom-right-radius: 10px !important; */
     border-radius: .357rem;
@@ -2793,8 +2793,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary {
-    color: #FFF !important;
-    background: rgb(0, 28, 64);
+    /*color: #FFF !important;*/
+    background: #FFC7ED;
     border: none !important;
     /* border-top-left-radius: 10px !important; */
     /* border-bottom-right-radius: 10px !important; */
@@ -5232,7 +5232,7 @@ input[type="button"].btn-block {
 
 .page-link:hover {
     z-index: 2;
-    color: #004a43;
+    color: #FFC7ED;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
@@ -5450,9 +5450,9 @@ input[type="button"].btn-block {
     border-radius: 0.25rem;
 }
 
-.alert-heading {
-    color: inherit;
-}
+/*.alert-heading {*/
+/*    color: inherit;*/
+/*}*/
 
 .alert-link {
     font-weight: 700;
@@ -10271,8 +10271,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .btn-delete {
-    background: #d0d0d0;
-    color: #f99a9a;
+    background:#322C2B ;
+    color: #FFC7ED;
 }
 
 .nhap-tu-file {
@@ -14382,7 +14382,7 @@ be a descendant of the grid when it is being dragged.
     padding: 15px;
     line-height: 0px;
     color: rgb(0, 28, 64);
-    background: rgb(255, 212, 59);
+    background: #FFC7ED;
     -webkit-transition: background-color 0.3s ease;
     -o-transition: background-color 0.3s ease;
     transition: background-color 0.3s ease;
@@ -14559,7 +14559,7 @@ be a descendant of the grid when it is being dragged.
     -ms-flex-align: center;
     align-items: center;
     padding: 10px;
-    color: white;
+    color: black;
     text-align: center;
 }
 
@@ -14592,40 +14592,104 @@ be a descendant of the grid when it is being dragged.
     margin-bottom: 0;
 }
 
+/*.app-menu {*/
+/*    margin-bottom: 0;*/
+/*    padding-bottom: 40px;*/
+/*}*/
+
+/*.app-menu__item {*/
+/*    position: relative;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -webkit-box-align: center;*/
+/*    -ms-flex-align: center;*/
+/*    align-items: center;*/
+/*    border-radius: .375rem;*/
+/*    margin-bottom: 10px;*/
+/*    padding: 15px 15px;*/
+/*    font-size: 1.08em;*/
+/*    border-left: 0px;*/
+/*    box-shadow: none;*/
+/*    -webkit-transition: border-left-color 0.3s ease, background-color 0.3s ease;*/
+/*    -o-transition: border-left-color 0.3s ease, background-color 0.3s ease;*/
+/*    transition: border-left-color 0.3s ease, background-color 0.3s ease;*/
+/*    color: white;*/
+/*    border: 1px solid transparent;*/
+/*    !* border-bottom: 1px solid #ddd; *!*/
+/*}*/
+
+/*.app-menu__item.active, .app-menu__item:hover, .app-menu__item:focus {*/
+/*    background: #322C2B;*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*    box-shadow: none;*/
+/*    border: 1px solid rgb(22 22 72);*/
+/*}*/
+
+/* Sidebar menu wrapper */
+/* Sidebar menu wrapper */
 .app-menu {
     margin-bottom: 0;
     padding-bottom: 40px;
+    list-style: none;
+    padding-left: 0;
 }
 
+/* Item chung */
 .app-menu__item {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     border-radius: .375rem;
     margin-bottom: 10px;
     padding: 15px 15px;
     font-size: 1.08em;
-    border-left: 0px;
-    box-shadow: none;
-    -webkit-transition: border-left-color 0.3s ease, background-color 0.3s ease;
-    -o-transition: border-left-color 0.3s ease, background-color 0.3s ease;
-    transition: border-left-color 0.3s ease, background-color 0.3s ease;
-    color: white;
     border: 1px solid transparent;
-    /* border-bottom: 1px solid #ddd; */
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.app-menu__item.active, .app-menu__item:hover, .app-menu__item:focus {
-    background: #c6defd;
-    text-decoration: none;
-    color: rgb(22 22 72);
-    box-shadow: none;
-    border: 1px solid rgb(22 22 72);
+/* Icon trong item */
+.app-menu__item i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
 }
+
+/* Hover effect → nền trắng, chữ đen */
+.app-menu__item:hover,
+.app-menu__item:focus {
+    background: #fff;
+    color: #222;
+    border: 1px solid rgb(22, 22, 72);
+    text-decoration: none;
+}
+
+/* Icon khi hover */
+.app-menu__item:hover i,
+.app-menu__item:focus i {
+    color: #222;
+}
+
+/* Khi active (đang chọn) → giữ nền trắng */
+.app-menu__item.active,
+.app-menu__item.router-link-exact-active {
+    background: #fff !important;
+    color: #222 !important;
+    border: 1px solid rgb(22, 22, 72);
+    font-weight: bold;
+}
+
+/* Icon khi active */
+.app-menu__item.active i,
+.app-menu__item.router-link-exact-active i {
+    color: #222 !important;
+}
+
 
 .app-menu__icon {
     font-size: 23px;
@@ -14751,7 +14815,7 @@ be a descendant of the grid when it is being dragged.
         line-height: 1;
         opacity: 0;
         color: black;
-        background: #FFD43B;
+        background: #FFC7ED;
         border-top-right-radius: 10px;
         /* text-align: center; */
         border-radius: .357rem;
@@ -14852,7 +14916,7 @@ be a descendant of the grid when it is being dragged.
     padding: 10px 30px;
     -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-    border-left: 6px solid #FFD43B;
+    border-left: 6px solid #FFC7ED;
     margin-bottom: 20px;
 }
 
@@ -14969,7 +15033,7 @@ be a descendant of the grid when it is being dragged.
     margin-bottom: 30px;
     font-size: 20px;
     /* text-align: center; */
-    border-bottom: 2px solid #FFD43B;
+    border-bottom: 2px solid #FFC7ED;
     padding-bottom: 10px;
     /* border-left: 3px solid black; */
     padding-left: 5px;
@@ -16065,15 +16129,15 @@ be a descendant of the grid when it is being dragged.
 
 .haha {
     color: rgb(0, 28, 64) !important;
-    background: #ffd43b !important;
+    background: #322C2B!important;
     font-weight: 600;
     box-shadow: none !important;
     border: 1px solid;
 }
 
 .btn-add {
-    background: #9df99d !important;
-    color: #003c00 !important;
+    background: #FFC7ED !important;
+    color: #322C2B !important;
 }
 
 .btn-excel {
@@ -16216,8 +16280,8 @@ td, th {
 
 .alert {
     padding: 10px;
-    background-color: #b1ffb5;
-    color: #006906;
+    background-color:#FFC7ED;
+    color: #322C2B;
     border-radius: .357rem;
     text-align: center;
     font-weight: 500;
@@ -16288,7 +16352,7 @@ td, th {
     font-size: 18px;
     line-height: 40px;
     margin-bottom: 15px !important;
-    background: #2e6f9e;
+    background: black;
     color: white !important;
 }
 

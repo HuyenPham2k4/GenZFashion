@@ -1,13 +1,11 @@
 <template>
   <!-- Footer Section Begin -->
-  <footer class="footer">
-    <div class="container">
+  <footer class="footer" style="background-color: #FFC7ED">
+    <div class="container" >
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="footer__about">
-            <div class="footer__logo">
               <a href="#"><img src="../assets/img/footer-logo.png" alt="" /></a>
-            </div>
             <p>The customer is at the heart of our unique business model, which includes design.</p>
             <a href="#"><img src="../assets/img/payment.png" alt="" /></a>
           </div>

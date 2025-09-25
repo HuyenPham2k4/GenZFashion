@@ -169,8 +169,8 @@
 }
 .account__sidebar ul li.active a,
 .account__sidebar ul li a:hover {
-	background: #ff6f61;
-	color: #fff;
+	background: #FFC7ED;
+	color: #322C2B;
 }
 
 /* Logout button */
@@ -180,16 +180,17 @@
 .logout-btn button {
 	width: 100%;
 	padding: 10px;
-	background: #e74c3c;
+	background: #FFC7ED;
 	border: none;
-	color: #fff;
+	color: #322C2B;
 	border-radius: 6px;
 	font-weight: 500;
 	cursor: pointer;
 	transition: background 0.2s;
 }
 .logout-btn button:hover {
-	background: #c0392b;
+	background: #322C2B;
+	color: white;
 }
 
 /* Account content */
@@ -206,7 +207,8 @@
 	font-weight: 500;
 }
 .account__input span {
-	color: #e74c3c;
+	background: #322C2B;
+	color: white;
 }
 .account__input input {
 	width: 100%;
@@ -231,7 +233,8 @@
 	transition: 0.2s;
 }
 .site-btn:hover {
-	background: #e85a4f;
+	background: #322C2B;
+	color: white;
 }
 
 
@@ -632,16 +635,49 @@ Helper CSS
 	position: relative;
 }
 
-.header__menu ul li.active a:after {
-	-webkit-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
+/*.header__menu ul li.active a:after {*/
+/*	-webkit-transform: scale(1);*/
+/*	-ms-transform: scale(1);*/
+/*	transform: scale(1);*/
+/*}*/
+
+/*.header__menu ul li:hover a:after {*/
+/*	-webkit-transform: scale(1);*/
+/*	-ms-transform: scale(1);*/
+/*	transform: scale(1);*/
+/*}*/
+
+/* Mặc định: không có line */
+.header__menu ul li a {
+	position: relative;
+	display: inline-block;
+	padding-bottom: 5px; /* để có khoảng trống cho line */
+	text-decoration: none;
 }
 
-.header__menu ul li:hover a:after {
-	-webkit-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
+/* Tạo line hồng ẩn */
+.header__menu ul li a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: pink;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+	transform-origin: right;
+}
+
+/* Hover: hiện line */
+.header__menu ul li a:hover::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+/* Khi link đang active: giữ line hồng */
+.header__menu ul li a.router-link-exact-active::after {
+	transform: scaleX(1);
 }
 
 .header__menu ul li:hover .dropdown {
@@ -877,6 +913,12 @@ Helper CSS
 	padding-bottom: 55px;
 }
 
+/* Đẩy banner lên gần đầu trang */
+.banner {
+	padding-top: 0;        /* bỏ padding trên */
+	margin-top: -40px;     /* đẩy sát header, có thể chỉnh -20px/-60px tùy ý */
+}
+
 .banner__item {
 	position: relative;
 	overflow: hidden;
@@ -887,8 +929,9 @@ Helper CSS
 	background: #ffc7ed;
 }
 
+/* bỏ margin âm quá nhiều, chỉnh nhẹ để cân đối */
 .banner__item.banner__item--middle {
-	margin-top: -75px;
+	margin-top: -30px;
 }
 
 .banner__item.banner__item--middle .banner__item__pic {
@@ -903,8 +946,9 @@ Helper CSS
 	padding-top: 22px;
 }
 
+/* giảm khoảng cách item cuối để sát hơn */
 .banner__item.banner__item--last {
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .banner__item__pic {
@@ -915,7 +959,7 @@ Helper CSS
 	max-width: 300px;
 	position: absolute;
 	left: 0;
-	top: 140px;
+	top: 100px; /* giảm từ 140px xuống 100px để chữ gần ảnh hơn */
 }
 
 .banner__item__text h2 {
@@ -944,9 +988,9 @@ Helper CSS
 	height: 2px;
 	background: #111111;
 	content: "";
-	-webkit-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 /*---------------------
@@ -2154,9 +2198,9 @@ Helper CSS
 	margin-bottom: 30px;
 }
 
-.footer__about .footer__logo {
-	margin-bottom: 30px;
-}
+/*.footer__about .footer__logo {*/
+/*	margin-bottom: 30px;*/
+/*}*/
 
 .footer__about .footer__logo a {
 	display: inline-block;
@@ -2205,7 +2249,7 @@ Helper CSS
 	background: transparent;
 	border: none;
 	padding: 15px 0;
-	border-bottom: 2px solid #ffffff;
+	border-bottom: 2px solid #322C2B;
 }
 
 .footer__widget .footer__newslatter form input::-webkit-input-placeholder {

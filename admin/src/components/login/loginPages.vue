@@ -91,7 +91,7 @@ const login = async () => {
 
 h1 {
   text-align: center;
-  color: #4CAF50;
+  color: #322C2B;
   font-size: 28px;
   margin-bottom: 30px;
   font-family: 'Arial', sans-serif;
@@ -125,7 +125,7 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #FFC7ED;
 }
 
 .error-message {
@@ -136,8 +136,8 @@ input:focus {
 }
 
 .login-button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #FFC7ED;
+  color: #322C2B;
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -147,12 +147,12 @@ input:focus {
 }
 
 .login-button:hover {
-  background-color: #45a049;
+  background-color: #FFC7ED;
   transform: translateY(-2px);
 }
 
 .login-button:active {
-  background-color: #388e3c;
+  background-color: #FFC7ED;
   transform: translateY(2px);
 }
 
