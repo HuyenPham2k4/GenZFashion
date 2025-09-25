@@ -78,6 +78,7 @@
                 <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Ảnh</th>
                   <th>Tên sản phẩm</th>
                   <th>Danh mục</th>
                   <th>Thương hiệu</th>
@@ -87,6 +88,20 @@
                 <tbody>
                 <tr v-for="item in pagedProducts" :key="item.id">
                   <td>{{ item.id }}</td>
+                  <td>
+                    <div style="display: flex; gap: 4px;">
+                      <img
+                          v-for="(img, index) in item.images.slice(0, 3)"
+                          :key="index"
+                          :src="'http://localhost:8080/upload/images/' + img.cd_Images"
+                          alt="Ảnh sản phẩm"
+                          width="50"
+                          height="50"
+                          style="object-fit: cover; border-radius: 4px;"
+                      />
+                    </div>
+                  </td>
+
                   <td>{{ item.name }}</td>
                   <td>{{ item.categoryID.name }}</td>
                   <td>{{ item.brandID.name }}</td>
@@ -146,6 +161,7 @@ export default {
   computed: {
     pagedProducts() {
       const start = (this.currentPage - 1) * this.pageSize;
+      console.log(this.products.slice(start, start + this.pageSize));
       return this.products.slice(start, start + this.pageSize);
     },
     totalPages() {
