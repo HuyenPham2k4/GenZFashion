@@ -23,7 +23,7 @@
               </div>
               <div class="banner__item__text">
                 <h2>Accessories</h2>
-                <a href="#">Shop now</a>
+                <a href="/product">Shop now</a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="banner__item__text">
                 <h2>Shoes Spring 2025</h2>
-                <a href="#">Shop now</a>
+                <a href="/product">Shop now</a>
               </div>
             </div>
           </div>

@@ -287,11 +287,12 @@ export default {
       <div class="col-lg-7 col-12">
         <div class="card shadow-lg border-0 rounded-3">
           <!-- Header -->
-          <div class="card-header bg-dark text-white d-flex align-items-center justify-content-between">
+          <div class="card-header d-flex align-items-center justify-content-center"
+               style="background-color:#FFC7ED; color:black;text-align: center;">
             <h4 class="mb-0">Thông tin giao hàng</h4>
-            <button v-if="user?.userInfo?.name" class="btn btn-sm btn-outline-light" @click.prevent="logout">
-              Đăng xuất
-            </button>
+<!--            <button v-if="user?.userInfo?.name" class="btn btn-sm btn-outline-light" @click.prevent="logout">-->
+<!--              Đăng xuất-->
+<!--            </button>-->
           </div>
 
           <!-- Body -->
@@ -310,7 +311,9 @@ export default {
 
             <!-- Province -->
             <div class="mb-3">
-              <label for="province" class="form-label fw-semibold">Tỉnh/thành phố</label>
+              <label for="province" class="form-label fw-semibold mb-4">
+                Tỉnh/thành phố
+              </label>
               <select id="province" class="form-select shadow-sm" v-model="selectedProvince" required>
                 <option value="" disabled>-- Chọn tỉnh/thành phố --</option>
                 <option v-for="province in provinces" :key="province" :value="province">
@@ -318,6 +321,7 @@ export default {
                 </option>
               </select>
             </div>
+
 
             <!-- Address -->
             <div class="mb-3">
@@ -400,10 +404,19 @@ export default {
   border-radius: 10px;
 }
 .btn-primary {
-  background: linear-gradient(45deg, #007bff, #0056d2);
+  background: #FFC7ED;
+  color: black;
   border: none;
 }
 .btn-primary:hover {
-  background: linear-gradient(45deg, #0056d2, #003c99);
+  background: black;
+  color: white;
+}
+.form-label {
+  display: block;
+  //margin-bottom: 3cm;
+}
+.form-label.mb-4 {
+  margin-bottom: 1rem !important;
 }
 </style>

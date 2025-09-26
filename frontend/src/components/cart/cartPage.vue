@@ -349,8 +349,8 @@ export default {
  .primary-btn {
    display: block;
    text-align: center;
-   background: #ff6f61;
-   color: #fff !important;
+   background: #FFC7ED;
+   color: black !important;
    padding: 12px;
    border-radius: 6px;
    font-weight: 500;
@@ -359,6 +359,7 @@ export default {
  }
  .primary-btn:hover {
    background: #e85a4f;
+   color: #fff !important;
  }
 
  /* Responsive */

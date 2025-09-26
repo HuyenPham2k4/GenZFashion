@@ -146,12 +146,12 @@
           </router-link>
         </li>
 
-        <li>
-          <router-link to="/login" class="app-menu__item">
-            <i class="app-menu__icon bx bx-log-in"></i>
-            <span class="app-menu__label">Đăng nhập</span>
-          </router-link>
-        </li>
+<!--        <li>-->
+<!--          <router-link to="/login" class="app-menu__item">-->
+<!--            <i class="app-menu__icon bx bx-log-in"></i>-->
+<!--            <span class="app-menu__label">Đăng nhập</span>-->
+<!--          </router-link>-->
+<!--        </li>-->
         <li>
           <a class="app-menu__item" @click.prevent="logout" href="#">
             <i class="app-menu__icon bx bx-log-out"></i>

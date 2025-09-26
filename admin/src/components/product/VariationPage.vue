@@ -643,7 +643,7 @@ export default {
 
 .page-button {
   background-color: #FFC7ED;
-  color: white;
+  color: black;
   border: none;
   padding: 10px 15px;
   margin: 0 5px;
@@ -653,7 +653,7 @@ export default {
 }
 
 .page-button:hover {
-  background-color: #f5a8da;
+  background-color: red;
 }
 
 .page-button:disabled {

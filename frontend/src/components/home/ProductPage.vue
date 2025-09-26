@@ -93,7 +93,7 @@
                 </div>
                 <div class="product__item__text">
                   <h6>{{ v.name }}</h6>
-                  <a href="#" class="add-cart">+ Add To Cart</a>
+                  <a  class="add-cart" @click="openDetail(v.id)" >{{ v.name }}</a>
                   <h5>{{ formatCurrency(getMinPrice(v.variations)) }}</h5>
                 </div>
               </div>

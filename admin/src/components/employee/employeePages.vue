@@ -212,10 +212,10 @@ export default {
 .btn-primary {
   background-color: #FFC7ED;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  //padding: 10px 15px;
+  //border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  //font-size: 14px;
 }
 
 .btn-primary:disabled {
@@ -227,7 +227,7 @@ export default {
   background-color: #FFC7ED;
   color: black;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 15px;
   cursor: pointer;
   font-size: 14px;
 }

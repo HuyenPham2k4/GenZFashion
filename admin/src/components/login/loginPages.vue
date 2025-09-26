@@ -30,7 +30,11 @@ const login = async () => {
 
         console.log(response.data)
         // Chuyển hướng đến trang sản phẩm
-        window.location.href = '/posorder'; // Dùng window.location.href để chuyển hướng đến URL bên ngoài
+        if (response.data.roles.includes('ADMIN')) {
+          window.location.href = '/';
+        } else if (response.data.roles.includes('USER')) {
+          window.location.href = '/posorder';}
+        // window.location.href = '/'; // Dùng window.location.href để chuyển hướng đến URL bên ngoài
       }
     }else{
       errorMessage.value = error.response?.data?.message || 'Bạn không đủ quyền hạn, vui lòng sử dụng tài khoản có quyền hạn truy cập.';

@@ -169,11 +169,13 @@ export default {
         quantity: "1",
       };
       try {
+        console.log(cartItem)
         const response = await axios.post("http://localhost:8080/api/v1/cart/addtocart", cartItem);
         if (response.status === 200) {
           alert("Thêm sản phẩm vào giỏ hàng thành công!");
           await useUser();
-          window.location.reload();
+          console.log("Added to cart:", response);
+          // window.location.reload();
         }
       } catch (error) {
         alert("Hiện đã hết hàng, không thể thêm sản phẩm vào giỏ hàng!");

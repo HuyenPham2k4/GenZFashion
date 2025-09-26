@@ -393,8 +393,9 @@ export default {
     },
 
     cancel() {
-      this.$router.push('/');
+      this.$router.push('/posorder');
     },
+
 
     async saveOrder() {
       // Kiểm tra xem giỏ hàng có sản phẩm không
