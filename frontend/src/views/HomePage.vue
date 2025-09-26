@@ -126,8 +126,8 @@
                   <a
                       href="#"
                       class="add-cart"
-                      @click.prevent="openDetail(v.id)"
-                  >+ Add To Cart</a>
+                      @click.prevent="openDetail(v.productID.id)"
+                  >{{ v.name }}</a>
                   <div class="rating">
                     <i v-for="i in 5" :key="i" class="fa fa-star-o"></i>
                   </div>
