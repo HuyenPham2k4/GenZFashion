@@ -45,6 +45,24 @@ public class OrderController {
 
 
     /**
+     * Xác nhận hoàn thành một đơn hàng theo ID
+     *
+     * @param orderId ID của đơn hàng cần xác nhận
+     * @return thông báo xác nhận thành công
+     */
+    @GetMapping("/sucressorder/{orderId}")
+    @Transactional
+    public String sucressorder(@PathVariable Long orderId) {
+        try {
+            orderService.successOrder(orderId);
+            return "xác nhận thành công";
+        } catch (RuntimeException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+
+    /**
      * Lấy lịch sử đơn hàng theo 1 id đơn hàng cụ thể (kèm theo thông tin sản phẩm và trạng thái)
      *
      * @param id       ID của khách hàng

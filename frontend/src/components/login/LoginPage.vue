@@ -11,7 +11,7 @@
                 <input
                   type="text"
                   id="login-email"
-                  placeholder="Email"
+                  placeholder="Tên đăng nhập"
                   v-model="username"
                   required
                 />

@@ -3,6 +3,8 @@ import {ref} from "vue";
 
 const message = ref("Đặt hàng thành công!");
 const tips = ref("Cảm ơn bạn đã mua sắm tại GenZFashion. Đơn hàng của bạn sẽ được xử lý và giao trong vòng 48h.");
+
+// alert("Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại GenZFashion. Đơn hàng của bạn sẽ được xử lý và giao trong vòng 48h.");
 </script>
 
 <template>

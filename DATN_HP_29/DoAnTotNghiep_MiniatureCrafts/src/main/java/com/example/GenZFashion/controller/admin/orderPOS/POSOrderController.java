@@ -101,7 +101,7 @@ public class POSOrderController {
     public String sucressorder(@PathVariable Long orderId) {
         try {
             orderService.successOrder(orderId);
-            return "huỷ thành công";
+            return "xác nhận thành công";
         } catch (RuntimeException ex) {
             ex.printStackTrace();
             throw new RuntimeException();

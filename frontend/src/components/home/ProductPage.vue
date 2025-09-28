@@ -16,8 +16,12 @@
                 <!-- Categories -->
                 <div class="card">
                   <div class="card-heading">
-                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-                  </div>
+                    <a class="d-flex justify-content-between align-items-center collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapseOne"
+                       aria-expanded="true">
+                      Categories
+                    </a>                  </div>
                   <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                     <div class="card-body">
                       <div class="shop__sidebar__categories">
@@ -33,8 +37,11 @@
                 <!-- Brands -->
                 <div class="card">
                   <div class="card-heading">
-                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
-                  </div>
+                    <a class="d-flex justify-content-between align-items-center collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapseTwo"
+                       aria-expanded="true">
+                      Branding</a>                  </div>
                   <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
                     <div class="card-body">
                       <div class="shop__sidebar__brand">
@@ -57,7 +64,7 @@
                       <div class="shop__sidebar__price">
                         <ul>
                           <li v-for="priceRange in priceRanges" :key="priceRange.value">
-                            <a href="#" @click.prevent="filterByPrice(priceRange.value)">{{ priceRange.label }}</a>
+                            <a href="#" @click.prevent="onPriceRangeClick(priceRange.value)">{{ priceRange.label }}</a>
                           </li>
                         </ul>
                       </div>

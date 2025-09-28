@@ -458,6 +458,7 @@ export default {
 
             // ---------------------------------------------------------- xử lý thanh toán PayOS ----------------------------------------------------------
             const orderID = response.data.id; // Lấy ID đơn hàng từ API response
+            console.log(response.data)
             // 🏦 Xử lý thanh toán PAYOS
             const amount = finalAmount; // Tổng tiền
             const dataForPayment = {
@@ -479,7 +480,7 @@ export default {
               const paymentLink = payosResponse.data.checkoutUrl;
               console.log("Payment Link:", paymentLink);
               window.location.href = paymentLink // Mở link thanh toán trong tab mới
-              // window.location.href = payosResponse.data.checkoutUrl;
+              window.location.href = payosResponse.data.checkoutUrl;
             } else {
               console.error("Lỗi khi tạo link thanh toán:", payosResponse);
               alert("Không thể tạo link thanh toán. Vui lòng thử lại!");

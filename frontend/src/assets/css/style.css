@@ -1481,7 +1481,7 @@ Helper CSS
 }
 
 .shop__sidebar__accordion .card-heading a {
-	color: #111111;
+	/*color: #111111;*/
 	font-size: 16px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -1643,13 +1643,11 @@ Helper CSS
 	background: #111111;
 	color: #ffffff;
 }
-
-.shop__sidebar__accordion .card-heading a:after,
-.shop__sidebar__accordion .card-heading>a.active[aria-expanded=false]:after {
-	content: "";
-	font-family: "FontAwesome";
-	font-size: 24px;
-	font-weight: 700;
+/* Mặc định (đang mở = expanded) → hiển thị icon mũi tên lên */
+.shop__sidebar__accordion .card-heading a[aria-expanded="true"]::after {
+	content: "▲"; /* chevron-up */
+	/*font-family: "FontAwesome";*/
+	font-size: 20px;
 	color: #111111;
 	position: absolute;
 	right: 0;
@@ -1657,11 +1655,11 @@ Helper CSS
 	line-height: 20px;
 }
 
-.shop__sidebar__accordion .card-heading.active a:after {
-	content: "";
-	font-family: "FontAwesome";
-	font-size: 24px;
-	font-weight: 700;
+/* Khi đóng (collapsed) → hiển thị icon mũi tên xuống */
+.shop__sidebar__accordion .card-heading a[aria-expanded="false"]::after {
+	content: "▼"; /* chevron-down */
+	/*font-family: "FontAwesome";*/
+	font-size: 20px;
 	color: #111111;
 	position: absolute;
 	right: 0;
@@ -1827,7 +1825,7 @@ Helper CSS
 	position: absolute;
 	right: -14px;
 	top: 0;
-	content: "";
+	content: ">";
 	font-family: "FontAwesome";
 }
 

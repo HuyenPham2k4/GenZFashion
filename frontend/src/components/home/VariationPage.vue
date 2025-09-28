@@ -16,8 +16,12 @@
                 <!-- Categories -->
                 <div class="card">
                   <div class="card-heading">
-                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-                  </div>
+                    <a class="d-flex justify-content-between align-items-center collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapseOne"
+                       aria-expanded="true">
+                      Categories
+                    </a>                  </div>
                   <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                     <div class="card-body">
                       <div class="shop__sidebar__categories">
@@ -33,8 +37,11 @@
                 <!-- Brands -->
                 <div class="card">
                   <div class="card-heading">
-                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
-                  </div>
+                    <a class="d-flex justify-content-between align-items-center collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapseTwo"
+                       aria-expanded="true">
+                      Branding</a>                  </div>
                   <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
                     <div class="card-body">
                       <div class="shop__sidebar__brand">
@@ -126,6 +133,7 @@ import {useUser} from "@/components/composables/useUser";
 
 export default {
   setup() {
+    const {getCart} = useUser();
     const currentPage = ref(1);
     const pageSize = ref(9);
     const totalPages = ref(0);
@@ -176,6 +184,7 @@ export default {
           await useUser();
           console.log("Added to cart:", response);
           // window.location.reload();
+          await getCart();
         }
       } catch (error) {
         alert("Hiện đã hết hàng, không thể thêm sản phẩm vào giỏ hàng!");

@@ -171,13 +171,8 @@ export default {
           if (response.status === 201) {
             const email = user.value.email;
             console.log(user.value)
-            alert("Đơn hàng đã được tạo thành công!");
-            alert("Sau khi bạn thanh toán, đơn hàng sẽ được xác nhận và gửi đến đơn vị vận chuyển trong vòng 48h!");
-
-
             // Chuyển hướng ngay lập tức
             window.location.href = payosResponse.data.checkoutUrl;
-
 
             const orderId = response.data.id; // Lấy ID đơn hàng từ API response
             axios.get(`${apiUrl}send-email/${email}/${orderId}`, {
@@ -279,6 +274,7 @@ export default {
   }
 };
 </script>
+
 <template>
   <div class="checkout-page container py-5">
     <form @submit.prevent="submitOrder" class="row g-4">
@@ -290,9 +286,9 @@ export default {
           <div class="card-header d-flex align-items-center justify-content-center"
                style="background-color:#FFC7ED; color:black;text-align: center;">
             <h4 class="mb-0">Thông tin giao hàng</h4>
-<!--            <button v-if="user?.userInfo?.name" class="btn btn-sm btn-outline-light" @click.prevent="logout">-->
-<!--              Đăng xuất-->
-<!--            </button>-->
+            <!--            <button v-if="user?.userInfo?.name" class="btn btn-sm btn-outline-light" @click.prevent="logout">-->
+            <!--              Đăng xuất-->
+            <!--            </button>-->
           </div>
 
           <!-- Body -->
@@ -373,11 +369,17 @@ export default {
           </div>
           <div class="card-body">
             <div v-for="(item, index) in cart" :key="index" class="d-flex align-items-center mb-3 border-bottom pb-2">
-              <img :src="getDefaultImage(item.variation_id.images)" alt="Product Image" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
-              <div class="flex-grow-1">
+
+              <div class="flex-grow-1 ms-1">
+                <img :src="getDefaultImage(item.variation_id.images)" alt="Product Image" class="rounded me-3"
+                     style="width: 70px; height: 70px; object-fit: cover;">
+
+              </div>
+              <div class="flex-grow-1 ms-1">
                 <h6 class="mb-1">{{ item.variation_id.name }}</h6>
                 <small class="text-muted">x{{ item.quantity }}</small>
               </div>
+
               <div class="text-end fw-bold">
                 {{ formatCurrency(item.variation_id.price * item.quantity) }} VND
               </div>
@@ -396,26 +398,31 @@ export default {
 .card {
   border-radius: 15px;
 }
+
 .card-header {
   font-size: 1.1rem;
 }
+
 .form-control,
 .form-select {
   border-radius: 10px;
 }
+
 .btn-primary {
   background: #FFC7ED;
   color: black;
   border: none;
 }
+
 .btn-primary:hover {
   background: black;
   color: white;
 }
+
 .form-label {
   display: block;
-  //margin-bottom: 3cm;
 }
+
 .form-label.mb-4 {
   margin-bottom: 1rem !important;
 }

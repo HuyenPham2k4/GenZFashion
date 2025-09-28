@@ -14,6 +14,8 @@ import vn.payos.PayOS;
 import vn.payos.type.CheckoutResponseData;
 import vn.payos.type.PaymentData;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -41,14 +43,18 @@ public class PayOsClientService {
      * Controller chỉ cần gọi hàm này.
      */
     @Transactional
-    public CheckoutResponseData createPaymentLinkAdmin(CreatePaymentRequest request) throws Exception {
+    public CheckoutResponseData createPaymentLink(CreatePaymentRequest request) throws Exception {
         long orderCode = System.currentTimeMillis();
 
-       if (request.getRoles().equals("customer")){
+        POSOrder order = orderRepository.findByOrderID(request.getOrderId());
+        BigDecimal big = order.getTotal_Payment();
+        Integer ammount = big.setScale(0, RoundingMode.HALF_UP).intValue();
+
+        if (request.getRoles().equals("customer")){
            // Thêm các trường thông tin người mua
            PaymentData paymentData = PaymentData.builder()
                    .orderCode(orderCode)
-                   .amount(request.getAmount())
+                   .amount(ammount)
                    .description(request.getDescription())
                    .cancelUrl("http://localhost:8081/payment-cancel/"+request.getOrderId())
                    .returnUrl("http://localhost:8081/payment-success")
@@ -63,7 +69,7 @@ public class PayOsClientService {
            // Lưu giao dịch vào DB
            PayOsClient newTransaction = new PayOsClient();
 
-           POSOrder order = orderRepository.findByOrderID(request.getOrderId());
+//           POSOrder order = orderRepository.findByOrderID(request.getOrderId());
            if (order == null) {
                throw new RuntimeException("Không tìm thấy đơn hàng với ID: " + request.getOrderId());
            }
@@ -75,7 +81,7 @@ public class PayOsClientService {
            newTransaction.setCheckoutUrl(checkoutResponseData.getCheckoutUrl());
            newTransaction.setStatus("PENDING");
            newTransaction.setCreationDate(LocalDateTime.now());
-           orderService.successOrder(request.getOrderId());
+//           orderService.successOrder(request.getOrderId());
            payOsClientRepository.save(newTransaction);
 
            return checkoutResponseData;
@@ -84,7 +90,7 @@ public class PayOsClientService {
            // Thêm các trường thông tin người mua
            PaymentData paymentData = PaymentData.builder()
                    .orderCode(orderCode)
-                   .amount(request.getAmount())
+                   .amount(ammount)
                    .description(request.getDescription())
                    .cancelUrl("http://localhost:5173/order?orderId="+request.getOrderId())
                    .returnUrl("http://localhost:5173/order")
@@ -99,7 +105,7 @@ public class PayOsClientService {
            // Lưu giao dịch vào DB
            PayOsClient newTransaction = new PayOsClient();
 
-           POSOrder order = orderRepository.findByOrderID(request.getOrderId());
+//           POSOrder order = orderRepository.findByOrderID(request.getOrderId());
            if (order == null) {
                throw new RuntimeException("Không tìm thấy đơn hàng với ID: " + request.getOrderId());
            }
@@ -112,7 +118,7 @@ public class PayOsClientService {
            newTransaction.setStatus("PENDING");
            newTransaction.setCreationDate(LocalDateTime.now());
 
-           orderService.successOrder(request.getOrderId());
+           orderService.completeOrder(request.getOrderId());
            payOsClientRepository.save(newTransaction);
 
            return checkoutResponseData;

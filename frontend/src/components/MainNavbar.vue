@@ -34,7 +34,7 @@
                 <router-link to="/">Home</router-link>
               </li>
               <li class="active">
-                <router-link to="/product">Shop</router-link>
+                <router-link to="/product">Sản phẩm</router-link>
               </li>
               <li class="active">
                 <router-link to="/variations">Biến thể</router-link>
@@ -80,6 +80,7 @@ export default {
       await getUserInfo();
       loading.value = false;
       console.log(cart.value)
+
     });
 
     return {user, cart, loading, logout};

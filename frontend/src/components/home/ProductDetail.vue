@@ -283,6 +283,7 @@ import {useUser} from '@/components/composables/useUser';
 
 export default {
   setup() {
+    const {getCart} = useUser();
     const router = useRouter();
     const route = useRoute();
     const selectedProduct = ref(null);
@@ -377,7 +378,8 @@ export default {
         if (response.status === 200) {
           alert("Thêm sản phẩm vào giỏ hàng thành công!");
           await useUser();
-          window.location.reload();
+          // window.location.reload();
+          await getCart();
         }
       } catch (error) {
         alert("Hiện đã hết hàng, không thể thêm sản phẩm vào giỏ hàng!");
