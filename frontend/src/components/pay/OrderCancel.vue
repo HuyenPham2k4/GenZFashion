@@ -30,7 +30,7 @@ onMounted(async () => {
 <template>
   <div class="cancel-container">
     <div class="cancel-card">
-      <img src="../../assets/img/logo/img.png" alt="cancel" class="icon" />
+      <img src="../../assets/img/logo.png" alt="cancel" class="icon" />
       <h1>{{ message }}</h1>
       <p>{{ tips }}</p>
       <a href="/cart" class="btn">Quay lại giỏ hàng</a>

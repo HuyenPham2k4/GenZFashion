@@ -15,7 +15,7 @@
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item active">
-            <a href="#"><b>Thêm mới sản phẩm</b></a>
+            <a href="#"><b>Thêm mới biến thể</b></a>
           </li>
         </ul>
         <div id="clock">{{ currentTime }}</div>
@@ -36,17 +36,30 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label>Tên biến thể</label>
-                  <textarea type="text" id="productColor" v-model="variation.name" class="form-control" rows="2" maxlength="25"></textarea>
+                  <textarea type="text" id="productColor" v-model="variation.name" class="form-control" rows="2"
+                            maxlength="25"></textarea>
                 </div>
 
                 <div class="form-group col-md-3">
                   <label>Màu sắc</label>
                   <input type="color" id="productColor" v-model="variation.color" class="form-control">
                 </div>
+                <!--                <div class="form-group col-md-3">-->
+                <!--                  <label for="productSize">Kích thước (? x ? x ? cm):</label>-->
+                <!--                  <input type="text" id="productSize" v-model="variation.size" class="form-control"/>-->
+                <!--                </div>-->
                 <div class="form-group col-md-3">
-                  <label for="productSize">Kích thước (? x ? x ? cm):</label>
-                  <input type="text" id="productSize" v-model="variation.size" class="form-control"/>
+                  <label for="productSize">Kích thước:</label>
+                  <select id="productSize" v-model="variation.size" class="form-control">
+                    <option disabled value="">-- Chọn size --</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                  </select>
                 </div>
+
                 <div class="form-group col-md-3">
                   <label for="productMaterial">Chất liệu:</label>
                   <input type="text" id="productMaterial" v-model="variation.material" class="form-control"/>
@@ -119,9 +132,6 @@
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                 <tr>
-                  <th width="10">
-                    <input type="checkbox" id="all" @click="toggleAllCheckboxes"/>
-                  </th>
                   <th>Mã sản phẩm</th>
                   <th>Tên sản phẩm</th>
                   <th>Ảnh</th>
@@ -132,14 +142,12 @@
                   <th>Tình trạng</th>
                   <th>Giá tiền</th>
                   <th>Danh mục</th>
+                  <th>Mô tả</th>
                   <th>Chức năng</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="variation in variations" :key="variation.id">
-                  <td width="10">
-                    <input type="checkbox" v-model="variation.selected"/>
-                  </td>
                   <td>{{ variation.id }}</td>
                   <td>{{ variation.name }}</td>
                   <td>
@@ -149,10 +157,16 @@
                   <td>{{ variation.sold }}</td>
                   <td>
                     <div
-                        :style="{ backgroundColor: variation.color, width: '30px', height: '30px', borderRadius: '4px' }">
-
-                    </div>
+                        :style="{
+                                  backgroundColor: variation.color,
+                                  width: '30px',
+                                  height: '30px',
+                                  border: '1px solid #000', // thêm viền đen để nổi bật
+                                  borderRadius: '4px'
+                                }"
+                    ></div>
                   </td>
+
                   <td>{{ variation.size }}</td>
                   <td>
                     <span :class="{ 'badge bg-success': variation.status, 'badge bg-danger': !variation.status }">
@@ -161,8 +175,11 @@
                   </td>
                   <td>{{ formatCurrency(variation.price) }}</td>
                   <td>{{ variation.productID.categoryID.name }}</td>
+                  <td>{{ variation.description }}</td>
                   <td>
-                    <button class="btn btn-edit" @click="editVariation(variation, variation.id)">Sửa</button>
+                    <button class="btn btn-edit" style="background: #FFC7ED;color: #322C2B;"
+                            @click="editVariation(variation, variation.id)">Sửa
+                    </button>
                     <button class="btn btn-delete" @click="confirmDelete(variation)">Xóa</button>
                   </td>
                 </tr>
@@ -289,7 +306,7 @@ export default {
         sku: this.variation.sku,
         price: parseFloat(this.variation.price) || 0,
         quantity: parseInt(this.variation.quantity) || 0,
-        color: this.variation.color,
+        color: this.variation.color || "#FFFFFF",
         material: this.variation.material,
         size: this.variation.size,
         description: this.variation.description,
@@ -372,21 +389,7 @@ export default {
       if (!this.validateForm()) return;
 
       try {
-        // ✅ Nếu muốn xoá ảnh cũ (tùy logic), bạn có thể thêm đoạn này:
-        if (this.imageUrls?.length > 0) {
-          await axios.post(
-              "http://localhost:8080/admin/variation/images/delete",
-              this.imageUrls,
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  "Content-Type": "application/json"
-                }
-              }
-          );
-        }
-
-        // ✅ Gửi dữ liệu cập nhật variation
+        // ✅ Gửi dữ liệu cập nhật variation trước
         const variationData = {
           id: this.variationID,
           name: this.variation.name,
@@ -400,65 +403,56 @@ export default {
           status: this.variation.status,
           productID: {
             id: this.variation.id,
-            categoryID: { id: this.variation.category },
-            brandID: { id: this.variation.brand }
+            categoryID: {id: this.variation.category},
+            brandID: {id: this.variation.brand}
           }
         };
 
         await axios.post(
             "http://localhost:8080/admin/variation/update",
             variationData,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json"
-              }
-            }
+            {headers: {Authorization: `Bearer ${token}`, "Content-Type": "application/json"}}
         );
 
-        // ✅ Upload ảnh nếu có
-        const uploadedImages = [];
+        // ✅ Nếu có ảnh mới thì mới xử lý ảnh
         if (this.singleImage.file) {
+          // Xóa ảnh cũ (nếu có)
+          if (this.imageUrls?.length > 0) {
+            await axios.post(
+                "http://localhost:8080/admin/variation/images/delete",
+                this.imageUrls,
+                {headers: {Authorization: `Bearer ${token}`}}
+            );
+          }
+
+          // Upload ảnh mới
           const formData = new FormData();
           formData.append("file", this.singleImage.file);
 
           const uploadResponse = await axios.post(
               "http://localhost:8080/admin/variation/images/upload",
               formData,
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  "Content-Type": "multipart/form-data"
-                }
-              }
+              {headers: {Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data"}}
           );
 
-          uploadedImages.push(...uploadResponse.data.urls);
-        }
+          const uploadedImages = uploadResponse.data.urls;
 
-        // ✅ Gán ảnh mới (nếu có ảnh)
-        if (uploadedImages.length > 0) {
-          const imageRequests = uploadedImages.map((url, index) => ({
+          // Gán ảnh mới vào DB
+          const imageRequests = uploadedImages.map((url) => ({
             productID: this.variationID,
             model: "Variation",
             cd_Images: url,
-            set_Default: true  // chỉ có 1 ảnh nên luôn default
+            set_Default: true // chỉ có 1 ảnh nên luôn default
           }));
 
           await axios.post(
               "http://localhost:8080/admin/variation/images/setproduct",
               imageRequests,
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  "Content-Type": "application/json"
-                }
-              }
+              {headers: {Authorization: `Bearer ${token}`, "Content-Type": "application/json"}}
           );
         }
 
         alert("✅ Cập nhật biến thể thành công!");
-        // Optional: Redirect or refresh variation list
         this.fetchVariations?.(this.currentPage, this.pageSize);
 
       } catch (error) {
@@ -649,7 +643,7 @@ export default {
 
 .page-button {
   background-color: #FFC7ED;
-  color: white;
+  color: black;
   border: none;
   padding: 10px 15px;
   margin: 0 5px;
@@ -659,16 +653,15 @@ export default {
 }
 
 .page-button:hover {
-  background-color: #f5a8da;
+  background-color: red;
 }
 
 .page-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+  background-color: white;
 }
 
 .page-button.active {
-  background-color: #28a745;
+  background-color: #FFC7ED;
   color: white;
 }
 </style>

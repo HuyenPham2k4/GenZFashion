@@ -49,7 +49,7 @@ public class VariationService {
     }
 
 
-    public void deleteImages(String cd_images) {
+    public void deleteByCd_Images(String cd_images) {
         imagesRepository.deleteByCd_Images(cd_images);
     }
 
@@ -261,7 +261,7 @@ public class VariationService {
         entity.setMaterial(dto.getMaterial());
         entity.setSize(dto.getSize());
         entity.setStatus(dto.getStatus());
-//        entity.setSold(0);
+        entity.setDescription(dto.getDescription());
         return variationRepository.save(entity);
     }
 

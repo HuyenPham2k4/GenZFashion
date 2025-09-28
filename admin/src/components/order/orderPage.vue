@@ -299,16 +299,18 @@ export default {
       return parseFloat(priceString.replace(/\./g, '').replace(' ₫', ''));
     },
 
-    formatPrice(price) {
-      // Định dạng giá thành chuỗi
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ₫";
+    formatPrice(value) {
+      // Chuyển đổi giá trị thành chuỗi và định dạng với dấu phân cách hàng nghìn
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
     },
+
 
     async fetchOrder(page, size) {
       try {
         const response = await axios.get(`http://localhost:8080/admin/orders/findall?page=${page}&size=${size}`);
         this.orders = response.data.content;
         this.totalPages = response.data.page.totalPages;
+        console.log("Tổng số trang:", response.data);
         this.applyFilters();
       } catch (error) {
         console.error("Có lỗi xảy ra khi lấy dữ liệu:", error);

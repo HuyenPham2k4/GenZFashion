@@ -4,14 +4,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <div class="login__form">
+          <div class="login__form" >
             <h3 style="text-align: center;">Đăng Nhập</h3><br>
             <form id="signin-form" @submit.prevent="login">
               <div class="input__item">
                 <input
                   type="text"
                   id="login-email"
-                  placeholder="Email"
+                  placeholder="Tên đăng nhập"
                   v-model="username"
                   required
                 />
@@ -32,12 +32,12 @@
                 ></i>
               </div>
               <div style="text-align: center;">
-                <button type="submit" class="site-btn">Đăng Nhập</button>
+                <button type="submit" class="site-btn" style="background-color: #FFC7ED; color: #322C2B">Đăng Nhập</button>
               </div>
             </form>
 
             <h5 style="text-align: center; margin-top: 20px;">
-              Chưa có tài khoản? <a href="/sign-up">Đăng ký ngay</a>
+              Chưa có tài khoản? <a href="/createinfo">Đăng ký ngay</a>
             </h5>
             <h5 style="text-align: center;">
               <a href="/forgot-password">Quên mật khẩu?</a>
@@ -49,17 +49,17 @@
             <h3>Chào Mừng Trở Lại!</h3>
             <div class="benefits">
               <div class="benefit-item">
-                <i class="fas fa-user-shield"></i>
+                <i class="fas fa-user-shield" STYLE="color: #FFC7ED"></i>
                 <h4>Bảo Mật Tối Ưu</h4>
                 <p>Thông tin của bạn được bảo vệ an toàn tuyệt đối</p>
               </div>
               <div class="benefit-item">
-                <i class="fas fa-gift"></i>
+                <i class="fas fa-gift" STYLE="color: #FFC7ED"></i>
                 <h4>Ưu Đãi Thành Viên</h4>
                 <p>Nhận quà tặng và giảm giá đặc biệt</p>
               </div>
               <div class="benefit-item">
-                <i class="fas fa-history"></i>
+                <i class="fas fa-history" STYLE="color: #FFC7ED"></i>
                 <h4>Lịch Sử Mua Hàng</h4>
                 <p>Dễ dàng theo dõi đơn hàng của bạn</p>
               </div>

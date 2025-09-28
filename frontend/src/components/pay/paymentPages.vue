@@ -159,7 +159,7 @@ export default {
             "orderId": orderID
           };
           console.log("Data for payment:", dataForPayment);
-          const payosResponse = await axios.post(`http://localhost:8080/api/v1/transactions/create-payment-link`, dataForPayment ,
+          const payosResponse = await axios.post(`http://localhost:8080/api/v1/transactions/create-payment-link`, dataForPayment,
               {
                 headers: {
                   Authorization: `Bearer ${token}`
@@ -171,13 +171,8 @@ export default {
           if (response.status === 201) {
             const email = user.value.email;
             console.log(user.value)
-            alert("Đơn hàng đã được tạo thành công!");
-            alert("Sau khi bạn thanh toán, đơn hàng sẽ được xác nhận và gửi đến đơn vị vận chuyển trong vòng 48h!");
-
-
             // Chuyển hướng ngay lập tức
             window.location.href = payosResponse.data.checkoutUrl;
-
 
             const orderId = response.data.id; // Lấy ID đơn hàng từ API response
             axios.get(`${apiUrl}send-email/${email}/${orderId}`, {
@@ -211,7 +206,7 @@ export default {
 
 
             // Chuyển hướng ngay lập tức
-            // window.location.href = "/history";
+            window.location.href = "/history";
 
 
             const orderId = response.data.id; // Lấy ID đơn hàng từ API response
@@ -238,8 +233,10 @@ export default {
 
           if (serverMessage.includes("hết hàng")) {
             alert("❌ Sản phẩm này đã có người nhanh tay đặt trước hoặc đã bán hết!");
+            return;
           } else {
             alert(serverMessage || "Có lỗi xảy ra, vui lòng thử lại!");
+            return;
           }
         } else {
           console.error("Lỗi khi lưu đơn hàng:", error);
@@ -279,122 +276,154 @@ export default {
 </script>
 
 <template>
-  <div class="content">
-    <div class="wrap">
-      <div class="container">
-        <form @submit.prevent="submitOrder">
-          <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="main">
-                <div class="main-header">
-                  <a href="">
-                    <h1>MiniatureCrafts</h1>
-                  </a>
-                </div>
-                <div class="main-content">
-                  <div class="main-title">
-                    <h2>Thông tin giao hàng</h2>
-                  </div>
-                  <div class="main-customer-info">
-                    <div class="main-customer-info-img">
-                      <img src="../../assets/img/logo/avtusers.png" alt="" width="60px" height="60px">
-                    </div>
-                    <div class="main-customer-info-logged" v-if="user?.userInfo?.name">
-                      <p class="main-customer-info-logged-paragraph">{{ user.userInfo.name }}</p>
-                      <a href="#" @click.prevent="logout">Đăng xuất</a>
-                    </div>
-                  </div>
-                  <div class="fieldset">
-                    <div class="form-group">
-                      <label for="province" class="form-label">Tỉnh/thành phố</label>
-                      <select id="province" class="form-control" v-model="selectedProvince">
-                        <option value="" disabled>-- Chọn tỉnh/thành phố --</option>
-                        <option v-for="province in provinces" :key="province" :value="province">
-                          {{ province }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="note" class="form-label">Địa chỉ</label>
-                      <textarea
-                          id="address"
-                          type="text"
-                          class="form-control"
-                          v-model="detailedAddress"
-                          placeholder="Nhập địa chỉ cụ thể (Số nhà, đường...)"
-                      />
-                    </div>
+  <div class="checkout-page container py-5">
+    <form @submit.prevent="submitOrder" class="row g-4">
+      <!-- Left column -->
+      <!-- Left column -->
+      <div class="col-lg-7 col-12">
+        <div class="card shadow-lg border-0 rounded-3">
+          <!-- Header -->
+          <div class="card-header d-flex align-items-center justify-content-center"
+               style="background-color:#FFC7ED; color:black;text-align: center;">
+            <h4 class="mb-0">Thông tin giao hàng</h4>
+            <!--            <button v-if="user?.userInfo?.name" class="btn btn-sm btn-outline-light" @click.prevent="logout">-->
+            <!--              Đăng xuất-->
+            <!--            </button>-->
+          </div>
 
-                    <div class="form-group">
-                      <label for="note" class="form-label">Ghi chú</label>
-                      <textarea id="note" class="form-control" v-model="order.note"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="paymentMethod" class="form-label">Phương thức thanh toán</label>
-                      <select id="paymentMethod" class="form-control" v-model.number="order.paymentMethod.id">
-                        <option value="1">Thanh toán qua ngân hàng</option>
-                        <option value="2">Thanh toán khi nhận hàng</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="main-footer">
-                  <div class="continue">
-                    <a href="/cart">
-                      <i class="fi-rs-angle-left"></i>
-                      Giỏ hàng
-                    </a>
-                  </div>
-                  <div class="pay">
-                    <button type="submit" class="btn-pay form-submit">Đặt hàng</button>
-                  </div>
-                </div>
+          <!-- Body -->
+          <div class="card-body">
+            <!-- User Info -->
+            <div class="d-flex align-items-center mb-4">
+              <img src="../../assets/img/logo/avtusers.png"
+                   alt="Avatar"
+                   class="rounded-circle border border-2 border-primary me-3"
+                   width="65" height="65">
+              <div>
+                <h5 class="mb-1 fw-bold">{{ user.userInfo.name }}</h5>
+                <small class="text-muted">{{ user.userInfo.email }}</small>
               </div>
             </div>
-            <!--            form hien thi san pham -->
-            <div class="col-lg-6 col-12 hidden-sm hidden-xs" style="background-color:#ffffff; border: 1px solid #ddd; border-radius: 5px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-              <div class="sliderbar-header">
-                <h2>Tổng tiền hiện tại: {{ formatCurrency(totalPriceForCustomer) }} VND</h2>
+
+            <!-- Province -->
+            <div class="mb-3">
+              <label for="province" class="form-label fw-semibold mb-4">
+                Tỉnh/thành phố
+              </label>
+              <select id="province" class="form-select shadow-sm" v-model="selectedProvince" required>
+                <option value="" disabled>-- Chọn tỉnh/thành phố --</option>
+                <option v-for="province in provinces" :key="province" :value="province">
+                  {{ province }}
+                </option>
+              </select>
+            </div>
+
+
+            <!-- Address -->
+            <div class="mb-3">
+              <label for="address" class="form-label fw-semibold">Địa chỉ cụ thể</label>
+              <textarea
+                  id="address"
+                  class="form-control shadow-sm"
+                  rows="2"
+                  v-model="detailedAddress"
+                  placeholder="Nhập địa chỉ (Số nhà, đường...)"
+                  required
+              ></textarea>
+            </div>
+
+            <!-- Note -->
+            <div class="mb-3">
+              <label for="note" class="form-label fw-semibold">Ghi chú</label>
+              <textarea id="note" class="form-control shadow-sm" rows="2" v-model="order.note"></textarea>
+            </div>
+
+            <!-- Payment -->
+            <div class="mb-3">
+              <label for="paymentMethod" class="form-label fw-semibold">Phương thức thanh toán</label>
+              <select id="paymentMethod" class="form-select shadow-sm" v-model.number="order.paymentMethod.id" required>
+                <option value="1">💳 Thanh toán qua ngân hàng</option>
+                <option value="2">🚚 Thanh toán khi nhận hàng</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="card-footer d-flex justify-content-between">
+            <a href="/product" class="btn btn-outline-secondary">
+              ← Quay lại trang sản phẩm
+            </a>
+            <button type="submit" class="btn btn-primary px-4">
+              Đặt hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Right column (Order Summary) -->
+      <div class="col-lg-5 col-12">
+        <div class="card shadow-lg border-0 rounded-3">
+          <div class="card-header bg-light">
+            <h5 class="mb-0">Đơn hàng của bạn</h5>
+          </div>
+          <div class="card-body">
+            <div v-for="(item, index) in cart" :key="index" class="d-flex align-items-center mb-3 border-bottom pb-2">
+
+              <div class="flex-grow-1 ms-1">
+                <img :src="getDefaultImage(item.variation_id.images)" alt="Product Image" class="rounded me-3"
+                     style="width: 70px; height: 70px; object-fit: cover;">
+
               </div>
-              <div class="sliderbar-content">
-                <div class="row row-sliderbar" v-for="(item, index) in cart" :key="index">
-                  <div class="col-4">
-                    <img :src="getDefaultImage(item.variation_id.images)" alt="Product Image"
-                         style="width: 80%;">
-                    <span class="notice">{{ item.quantity }}</span>
-                  </div>
-                  <div class="col-5">
-                    <h3>{{ item.variation_id.name }}</h3>
-                  </div>
-                  <div class="col-110 hidden-xs text-right">
-                    <h3>
-                      {{
-                        formatCurrency(item.variation_id.price * item.quantity)
-                      }} VND
-                    </h3>
-                  </div>
-                </div>
+              <div class="flex-grow-1 ms-1">
+                <h6 class="mb-1">{{ item.variation_id.name }}</h6>
+                <small class="text-muted">x{{ item.quantity }}</small>
               </div>
-              <div class="slider-footer">
-                <div class="total">
-                  <div class="row row-sliderbar-footer">
-                    <div class="col-6"><h2>Thành tiền:</h2></div>
-                    <div class="col-4 text-right "><h2>{{ formatCurrency(totalPriceForCustomer) }} VND</h2></div>
-                  </div>
-                </div>
+
+              <div class="text-end fw-bold">
+                {{ formatCurrency(item.variation_id.price * item.quantity) }} VND
               </div>
             </div>
           </div>
-        </form>
+          <div class="card-footer d-flex justify-content-between">
+            <span class="fw-bold">Tổng cộng:</span>
+            <span class="fw-bold text-danger fs-5">{{ formatCurrency(totalPriceForCustomer) }} VND</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
+<style scoped>
+.card {
+  border-radius: 15px;
+}
 
+.card-header {
+  font-size: 1.1rem;
+}
 
-<style>
+.form-control,
+.form-select {
+  border-radius: 10px;
+}
 
-.container {
-  width: 100%;
+.btn-primary {
+  background: #FFC7ED;
+  color: black;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: black;
+  color: white;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-label.mb-4 {
+  margin-bottom: 1rem !important;
 }
 </style>

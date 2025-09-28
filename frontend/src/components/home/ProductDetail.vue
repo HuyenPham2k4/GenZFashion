@@ -129,12 +129,12 @@
                           <input type="button" value="+" class="control" @click="changeQuantity(1)"/>
                         </div>
                       </div>
-                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">add to cart
+                      <button class="primary-btn" @click="addToCart" :disabled="!activeVariation?.status">Add to cart
                       </button>
                     </div>
                     <div class="product__details__last__option">
                       <ul>
-                        <li><span>SKU:</span> {{ activeVariation?.sku || selectedProduct.id }}</li>
+<!--                        <li><span>SKU:</span> {{ activeVariation?.sku || selectedProduct.id }}</li>-->
                         <li><span>Categories:</span> {{ selectedProduct.categoryID?.name }}</li>
                         <li><span>Tag:</span> Clothes, Fashion</li>
                       </ul>
@@ -283,6 +283,7 @@ import {useUser} from '@/components/composables/useUser';
 
 export default {
   setup() {
+    const {getCart} = useUser();
     const router = useRouter();
     const route = useRoute();
     const selectedProduct = ref(null);
@@ -377,7 +378,8 @@ export default {
         if (response.status === 200) {
           alert("Thêm sản phẩm vào giỏ hàng thành công!");
           await useUser();
-          window.location.reload();
+          // window.location.reload();
+          await getCart();
         }
       } catch (error) {
         alert("Hiện đã hết hàng, không thể thêm sản phẩm vào giỏ hàng!");

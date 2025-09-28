@@ -4,14 +4,14 @@
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item active">
-            <a href="#"><b>Tạo mới khách hàng</b></a>
+            <a href="#"><b>Tạo mới nhân viên</b></a>
           </li>
         </ul>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Thông tin khách hàng</h3>
+            <h3 class="tile-title">Thông tin nhân viên</h3>
             <div class="tile-body">
               <form @submit.prevent="submitForm">
                 <div class="row">
@@ -110,7 +110,7 @@ export default {
         username: this.account.username,
         email: this.account.email,
         password: this.account.password,
-        role: [2],
+        role: ["USERS"],
       };
 
       const token = Cookies.get("token");
@@ -120,7 +120,7 @@ export default {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("Cập nhật thông tin tài khoản thành công!");
-        this.$router.push("/customer");
+        this.$router.push("/employee");
       } catch (error) {
         console.error("Có lỗi xảy ra khi cập nhật:", error.response?.data || error);
         alert("Cập nhật thất bại!");
@@ -136,7 +136,7 @@ export default {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #FFC7ED;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -144,7 +144,8 @@ export default {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #322C2B;
+  color: white;
 }
 
 .btn-secondary {

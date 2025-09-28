@@ -3,6 +3,7 @@ package com.example.GenZFashion.controller;
 import com.example.GenZFashion.dto.CreatePaymentRequest;
 import com.example.GenZFashion.entity.PayOsClient;
 import com.example.GenZFashion.service.PayOsClientService;
+import com.example.GenZFashion.service.order.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class PayOsClientController {
     private final PayOsClientService payOsClientService;
 
     @Autowired
+    OrderService orderService;
+
+    @Autowired
     public PayOsClientController(PayOsClientService payOsClientService) {
         this.payOsClientService = payOsClientService;
     }
@@ -34,7 +38,7 @@ public class PayOsClientController {
     @PostMapping("/create-payment-link")
     public ResponseEntity<Map<String, String>> createPaymentLinkAdmin(@RequestBody CreatePaymentRequest request) {
         try {
-            CheckoutResponseData data = payOsClientService.createPaymentLinkAdmin(request);
+            CheckoutResponseData data = payOsClientService.createPaymentLink(request);
             // Trả về checkoutUrl cho frontend
             Map<String, String> response = Collections.singletonMap("checkoutUrl", data.getCheckoutUrl());
             return ResponseEntity.ok(response);

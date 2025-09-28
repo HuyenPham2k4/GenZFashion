@@ -29,6 +29,9 @@ import java.util.Map;
 @RequestMapping("admin/variation")
 public class VariationController {
 
+    //note:
+    // ảnh đc tìm tên trong bảng images r thay đổi name ảnh
+    // nếu như chỉ thay đổi 1 đến 2 ảnh thì nó sẽ bị lỗi, và k giữ đc ảnh cũ
     @Autowired
     private VariationService variationService;
 
@@ -46,16 +49,11 @@ public class VariationController {
                 Path filePath = Paths.get(IMAGE_DIR + cdImage);
 
                 // Check if the file exists and delete it
-                if (Files.exists(filePath)) {
-                    Files.delete(filePath);
-                    deletedImages.add(cdImage);
-                } else {
-                    notFoundImages.add(cdImage);
-                }
+                deletedImages.add(cdImage);
 
                 // Delete the image record from the database
                 System.out.println("Attempting to delete image record for: " + cdImage);
-                variationService.deleteImages(cdImage);
+                variationService.deleteByCd_Images(cdImage);
             }
 
             // Return the response with the results
@@ -201,3 +199,5 @@ public class VariationController {
         return "done";
     }
 }
+
+

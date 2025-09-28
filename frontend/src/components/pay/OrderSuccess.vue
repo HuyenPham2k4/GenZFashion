@@ -2,13 +2,15 @@
 import {ref} from "vue";
 
 const message = ref("Đặt hàng thành công!");
-const tips = ref("Cảm ơn bạn đã mua sắm tại MiniatureCrafts. Đơn hàng của bạn sẽ được xử lý và giao trong vòng 48h.");
+const tips = ref("Cảm ơn bạn đã mua sắm tại GenZFashion. Đơn hàng của bạn sẽ được xử lý và giao trong vòng 48h.");
+
+// alert("Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại GenZFashion. Đơn hàng của bạn sẽ được xử lý và giao trong vòng 48h.");
 </script>
 
 <template>
   <div class="success-container">
     <div class="success-card">
-      <img src="../../assets/img/logo/img.png" alt="success" class="icon" />
+      <img src="../../assets/img/logo.png" alt="success" class="icon" />
       <h1>{{ message }}</h1>
       <p>{{ tips }}</p>
       <a href="/history" class="btn">Xem đơn hàng</a>

@@ -33,14 +33,14 @@
               <li class="active">
                 <router-link to="/">Home</router-link>
               </li>
-              <li>
-                <router-link to="/product">Shop</router-link>
+              <li class="active">
+                <router-link to="/product">Sản phẩm</router-link>
               </li>
-              <li>
+              <li class="active">
                 <router-link to="/variations">Biến thể</router-link>
               </li>
-              <li>
-                <router-link to="/contact">Contacts</router-link>
+              <li class="active">
+                <router-link to="/lien-he">Contacts</router-link>
               </li>
             </ul>
           </nav>
@@ -80,6 +80,7 @@ export default {
       await getUserInfo();
       loading.value = false;
       console.log(cart.value)
+
     });
 
     return {user, cart, loading, logout};

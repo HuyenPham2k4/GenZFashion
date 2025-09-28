@@ -104,6 +104,7 @@ import { useUser } from "@/components/composables/useUser";
 
 export default {
   setup() {
+    const {getCart} = useUser();
     const cart = ref([]);
     const totalPrice = ref(0);
     const apiUrl = "http://localhost:8080/api/v1/cart";
@@ -130,7 +131,7 @@ export default {
       window.location.href = "/pay";
     };
 
-    const getCart = async () => {
+    const getCarts = async () => {
       console.log("Fetching cart for customer ID:", customerId);
       try {
         const response = await axios.get(`${apiUrl}/findall/${customerId}`, {
@@ -161,8 +162,9 @@ export default {
         );
         if (response.status === 200) {
           await getCart();
+          await getCarts();
           await useUser();
-          window.location.reload();
+          // window.location.reload();
         }
       } catch (error) {
         console.error("Lỗi khi cập nhật số lượng:", error);
@@ -176,7 +178,7 @@ export default {
       try {
         const response = await axios.get(`${apiUrl}/remove/${cartItemId}`);
         if (response.status === 200) {
-          getCart();
+          getCarts();
         }
       } catch (error) {
         console.error("Lỗi khi xóa sản phẩm:", error);
@@ -188,7 +190,7 @@ export default {
     };
 
     onMounted(() => {
-      getCart();
+      getCarts();
     });
 
     return {
@@ -349,8 +351,8 @@ export default {
  .primary-btn {
    display: block;
    text-align: center;
-   background: #ff6f61;
-   color: #fff !important;
+   background: #FFC7ED;
+   color: black !important;
    padding: 12px;
    border-radius: 6px;
    font-weight: 500;
@@ -359,6 +361,7 @@ export default {
  }
  .primary-btn:hover {
    background: #e85a4f;
+   color: #fff !important;
  }
 
  /* Responsive */

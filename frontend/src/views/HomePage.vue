@@ -23,7 +23,7 @@
               </div>
               <div class="banner__item__text">
                 <h2>Accessories</h2>
-                <a href="#">Shop now</a>
+                <a href="/product">Shop now</a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="banner__item__text">
                 <h2>Shoes Spring 2025</h2>
-                <a href="#">Shop now</a>
+                <a href="/product">Shop now</a>
               </div>
             </div>
           </div>
@@ -126,8 +126,8 @@
                   <a
                       href="#"
                       class="add-cart"
-                      @click.prevent="openDetail(v.id)"
-                  >+ Add To Cart</a>
+                      @click.prevent="openDetail(v.productID.id)"
+                  >{{ v.name }}</a>
                   <div class="rating">
                     <i v-for="i in 5" :key="i" class="fa fa-star-o"></i>
                   </div>

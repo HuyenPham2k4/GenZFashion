@@ -210,13 +210,12 @@ export default {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #FFC7ED;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: #fff;
+  //padding: 10px 15px;
+  //border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  //font-size: 14px;
 }
 
 .btn-primary:disabled {
@@ -225,15 +224,16 @@ export default {
 }
 
 .btn-success {
-  background-color: #28a745;
+  background-color: #FFC7ED;
+  color: black;
   border: none;
-  padding: 8px 12px;
-  color: #fff;
+  padding: 10px 15px;
   cursor: pointer;
   font-size: 14px;
 }
 
 .btn-success:hover {
-  background-color: #218838;
+  background-color: #322C2B ;
+  color: white;
 }
 </style>
